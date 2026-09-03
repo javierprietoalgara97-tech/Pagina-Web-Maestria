@@ -1,0 +1,182 @@
+<!--
+  SECCIÓN 02 — Esto no es un curso más
+  Reemplaza el bloque actual de 4 bullets con toggles iOS (Fragmento 02).
+  Layout: titular + cuerpo intro + dos columnas de bullets (escritorio) / apiladas (móvil).
+  Columna izquierda: Gestión clínica (3 bullets).
+  Columna derecha: Protocolos clínicos con pacientes reales (5 bullets).
+  Entrada: slide desde izquierda con IntersectionObserver.
+-->
+
+<div class="sba-notcourse">
+
+  <div class="sba-notcourse__header sba-nc-reveal-left">
+    <h2 class="sba-notcourse__h2">
+      Has asistido a miles de cursos.<br>Y los casos no quedan como quieres.
+    </h2>
+    <div class="sba-notcourse__intro">
+      <p>Has aprendido secuencias, protocolos, trucos. Hay cosas que tienes que ver con tus propios ojos.</p>
+      <p>Visita la clínica del Dr. Javier Lozano durante una jornada completa de trabajo real y verás cómo, sea cual sea la marca de alineadores que usas, te estaban faltando muchas consideraciones clínicas que son las que te permiten acabar tus casos con uno o dos refinamientos sin que se eternicen.</p>
+      <p>Descubre además cómo hacer que tus tratamientos de alineadores se dupliquen o tripliquen sin necesidad de hacer ofertas ni marketing agresivo: por algo hacemos más de 300 casos al año.</p>
+    </div>
+  </div>
+
+  <div class="sba-notcourse__cols">
+
+    <div class="sba-notcourse__col sba-nc-reveal-left">
+      <p class="sba-notcourse__col-title">Gestión clínica</p>
+      <ul class="sba-notcourse__list">
+        <li>Estrategia de primera visita.</li>
+        <li>Fijación de precios, presupuestos y formas de pago.</li>
+        <li>Guiones para optimizar la comunicación con el paciente.</li>
+      </ul>
+    </div>
+
+    <div class="sba-notcourse__col sba-nc-reveal-right">
+      <p class="sba-notcourse__col-title">Protocolos clínicos con pacientes reales</p>
+      <ul class="sba-notcourse__list">
+        <li>Uso de levantes y seccionales con alineadores.</li>
+        <li>Tallados oclusales para distalizar y terminar casos con éxito.</li>
+        <li>Colocación en directo de minitornillos para problema vertical y sagital.</li>
+        <li>Cirugía de MARPE garantizada durante tu estancia (la hacemos todos los días).</li>
+        <li>Protocolo de control de pacientes, presencial y remoto.</li>
+      </ul>
+    </div>
+
+  </div>
+
+</div>
+
+<style>
+  .sba-notcourse {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  .sba-notcourse__header {
+    margin-bottom: 48px;
+  }
+
+  .sba-notcourse__h2 {
+    margin: 0 0 28px 0;
+    font-size: clamp(26px, 3.5vw, 42px);
+    font-weight: 800;
+    line-height: 1.15;
+    color: #ffffff;
+    letter-spacing: -0.01em;
+  }
+
+  .sba-notcourse__intro p {
+    margin: 0 0 16px 0;
+    font-size: 17px;
+    line-height: 1.70;
+    color: rgba(255,255,255,0.80);
+    max-width: 760px;
+  }
+  .sba-notcourse__intro p:last-child { margin-bottom: 0; }
+
+  /* ===== COLUMNAS ===== */
+  .sba-notcourse__cols {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+
+  .sba-notcourse__col {
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.14);
+    border-radius: 22px;
+    padding: 32px;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.25);
+  }
+
+  .sba-notcourse__col-title {
+    margin: 0 0 20px 0;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.10em;
+    text-transform: uppercase;
+    color: #e9dcc7;
+  }
+
+  .sba-notcourse__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .sba-notcourse__list li {
+    display: grid;
+    grid-template-columns: 22px 1fr;
+    gap: 10px;
+    font-size: 16px;
+    line-height: 1.55;
+    color: rgba(255,255,255,0.88);
+    font-weight: 600;
+  }
+
+  .sba-notcourse__list li::before {
+    content: "→";
+    color: #e9dcc7;
+    font-weight: 700;
+    margin-top: 1px;
+  }
+
+  /* ===== REVEAL ===== */
+  .sba-nc-reveal-left,
+  .sba-nc-reveal-right {
+    opacity: 0;
+    transition:
+      opacity 1.0s cubic-bezier(.22,.61,.36,1),
+      transform 1.0s cubic-bezier(.22,.61,.36,1);
+  }
+  .sba-nc-reveal-left  { transform: translateX(-32px); }
+  .sba-nc-reveal-right { transform: translateX(32px); }
+
+  .sba-nc-reveal-left.sba-nc-visible,
+  .sba-nc-reveal-right.sba-nc-visible {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 680px) {
+    .sba-notcourse__cols {
+      grid-template-columns: 1fr;
+    }
+    .sba-notcourse__col {
+      padding: 24px 20px;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .sba-nc-reveal-left,
+    .sba-nc-reveal-right {
+      opacity: 1 !important;
+      transform: none !important;
+    }
+  }
+</style>
+
+<script>
+(function(){
+  const els = document.querySelectorAll('.sba-nc-reveal-left, .sba-nc-reveal-right');
+  if (!els.length) return;
+
+  const io = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('sba-nc-visible');
+        obs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.25, rootMargin: '0px 0px -10% 0px' });
+
+  els.forEach(el => io.observe(el));
+})();
+</script>

@@ -1,0 +1,221 @@
+<!--
+  SECCIÓN 01 — Hero
+  Layout: grid 2 columnas (copy izquierda / formulario Kajabi derecha).
+  Fondo oscuro con overlay sobre foto de clínica.
+  CTA primario: descarga PDF (scroll al formulario).
+  CTA secundario: WhatsApp +34 678 175 707.
+  IMPLEMENTACIÓN KAJABI: pegar este bloque ENCIMA del bloque de formulario
+  dentro de la misma sección. El formulario Kajabi se maqueta a la derecha
+  usando la columna .sba-hero__form-col como ancla visual.
+-->
+
+<div class="sba-hero">
+  <div class="sba-hero__inner">
+
+    <!-- COLUMNA IZQUIERDA: COPY -->
+    <div class="sba-hero__copy sba-hero-reveal">
+      <p class="sba-hero__eyebrow">ESTANCIA CLÍNICA · COMMON SENSE ALIGNERS</p>
+      <h1 class="sba-hero__h1">Esto no es<br>un curso más.</h1>
+      <p class="sba-hero__subtitle">Es el día en que vas a ver, con tus propios ojos, lo que ningún ponente te ha enseñado en una sala.</p>
+      <p class="sba-hero__body">Inmersión total en la clínica del Dr. Javier Lozano. Conoce el método con el que iniciamos más de 300 tratamientos de ortodoncia invisible al año.</p>
+      <div class="sba-hero__ctas">
+        <a class="sba-hero__cta-primary sba-hero-cta-scroll" href="#sba-hero-form">
+          Descarga el programa completo
+        </a>
+        <a
+          class="sba-hero__cta-secondary"
+          href="https://wa.me/34678175707?text=Hola%2C%20me%20gustar%C3%ADa%20reservar%20plaza%20en%20la%20Estancia%20Cl%C3%ADnica."
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Reserva tu plaza por WhatsApp
+        </a>
+      </div>
+    </div>
+
+    <!-- COLUMNA DERECHA: ancla para el formulario Kajabi -->
+    <div class="sba-hero__form-col" id="sba-hero-form"></div>
+
+  </div>
+</div>
+
+<style>
+  .sba-hero {
+    position: relative;
+    width: 100%;
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    padding: 80px 24px;
+    box-sizing: border-box;
+  }
+
+  .sba-hero__inner {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 1160px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+  }
+
+  .sba-hero__eyebrow {
+    margin: 0 0 18px 0;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    color: rgba(255,255,255,0.60);
+    text-transform: uppercase;
+  }
+
+  .sba-hero__h1 {
+    margin: 0 0 22px 0;
+    font-size: clamp(38px, 5.5vw, 68px);
+    font-weight: 800;
+    line-height: 1.04;
+    color: #ffffff;
+    letter-spacing: -0.02em;
+  }
+
+  .sba-hero__subtitle {
+    margin: 0 0 16px 0;
+    font-size: clamp(17px, 2vw, 21px);
+    font-weight: 500;
+    line-height: 1.50;
+    color: rgba(255,255,255,0.88);
+  }
+
+  .sba-hero__body {
+    margin: 0 0 38px 0;
+    font-size: 16px;
+    line-height: 1.70;
+    color: rgba(255,255,255,0.68);
+  }
+
+  .sba-hero__ctas {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    max-width: 380px;
+  }
+
+  .sba-hero__cta-primary,
+  .sba-hero__cta-secondary {
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 16px;
+    padding: 17px 24px;
+    font-size: 16px;
+    font-weight: 800;
+    letter-spacing: 0.02em;
+    cursor: pointer;
+    transition:
+      transform 0.25s cubic-bezier(.22,.61,.36,1),
+      box-shadow 0.25s ease,
+      background 0.25s ease;
+  }
+
+  .sba-hero__cta-primary {
+    background: #e9dcc7;
+    color: #0b0b0f;
+    border: none;
+    box-shadow:
+      0 18px 40px rgba(0,0,0,0.35),
+      0 8px 20px rgba(233,220,199,0.18);
+  }
+
+  .sba-hero__cta-secondary {
+    background: transparent;
+    color: #ffffff;
+    border: 2px solid rgba(255,255,255,0.45);
+    box-shadow: 0 10px 28px rgba(0,0,0,0.18);
+  }
+
+  @media (hover:hover) and (pointer:fine) {
+    .sba-hero__cta-primary:hover {
+      transform: translateY(-3px) scale(1.02);
+      box-shadow:
+        0 26px 55px rgba(0,0,0,0.42),
+        0 10px 24px rgba(233,220,199,0.24);
+    }
+    .sba-hero__cta-secondary:hover {
+      transform: translateY(-3px) scale(1.02);
+      background: rgba(255,255,255,0.08);
+      border-color: rgba(255,255,255,0.78);
+      box-shadow: 0 16px 40px rgba(0,0,0,0.24);
+    }
+  }
+
+  .sba-hero__cta-primary:active,
+  .sba-hero__cta-secondary:active {
+    transform: translateY(0) scale(1.005);
+  }
+
+  /* Reveal */
+  .sba-hero-reveal {
+    opacity: 0;
+    transform: translateX(-60px);
+  }
+  .sba-hero-reveal.sba-hero-visible {
+    opacity: 1;
+    transform: translateX(0);
+    transition:
+      opacity 1.1s cubic-bezier(.22,.61,.36,1),
+      transform 1.1s cubic-bezier(.22,.61,.36,1);
+  }
+
+  @media (max-width: 860px) {
+    .sba-hero__inner {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+    .sba-hero {
+      min-height: auto;
+      padding: 60px 20px;
+    }
+    .sba-hero__ctas {
+      max-width: 100%;
+    }
+    .sba-hero__form-col {
+      display: none;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .sba-hero-reveal {
+      opacity: 1 !important;
+      transform: none !important;
+    }
+  }
+</style>
+
+<script>
+(function(){
+  const el = document.querySelector('.sba-hero-reveal');
+  if (!el) return;
+
+  const io = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('sba-hero-visible');
+        obs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+  io.observe(el);
+
+  document.querySelectorAll('.sba-hero-cta-scroll').forEach(btn => {
+    btn.addEventListener('click', e => {
+      const target = document.getElementById('sba-hero-form');
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    });
+  });
+})();
+</script>

@@ -1,0 +1,257 @@
+<!--
+  SECCIÓN 13 — FAQ (Lo que probablemente te estás preguntando)
+  Sección NUEVA. Acordeón: clic en pregunta → expande respuesta.
+  8 preguntas según documento. Animación suave de altura con max-height.
+  Entrada: slide desde izquierda con IntersectionObserver.
+-->
+
+<div class="sba-faq">
+
+  <div class="sba-faq__header sba-faq-reveal">
+    <h2 class="sba-faq__h2">Lo que probablemente te estás preguntando</h2>
+  </div>
+
+  <div class="sba-faq__lista">
+
+    <div class="sba-faq__item sba-faq-reveal">
+      <button class="sba-faq__pregunta" aria-expanded="false">
+        <span>¿Puedo grabar el día?</span>
+        <span class="sba-faq__icono" aria-hidden="true">+</span>
+      </button>
+      <div class="sba-faq__respuesta">
+        <p>No grabamos sesiones porque protegemos la privacidad de los pacientes que pasan por consulta. Tampoco lo necesitas: te llevas un manual de más de 300 páginas con todos los protocolos por escrito, y en el plan Pro tienes dos sesiones de seguimiento online para resolver lo que haya quedado abierto.</p>
+      </div>
+    </div>
+
+    <div class="sba-faq__item sba-faq-reveal">
+      <button class="sba-faq__pregunta" aria-expanded="false">
+        <span>¿Me llevo los protocolos por escrito o solo los veo en la clínica?</span>
+        <span class="sba-faq__icono" aria-hidden="true">+</span>
+      </button>
+      <div class="sba-faq__respuesta">
+        <p>Los recibes por escrito el mismo día que llegas. El manual de 300 páginas contiene todos los protocolos clínicos y de trabajo que aplicamos: primera visita, fijación de precios, tallados, IPR, refinamientos, control remoto, comunicación con el paciente. No tienes que memorizar nada: te lo vas a llevar entero.</p>
+      </div>
+    </div>
+
+    <div class="sba-faq__item sba-faq-reveal">
+      <button class="sba-faq__pregunta" aria-expanded="false">
+        <span>¿Puedo traer mis propios casos para que los revisemos?</span>
+        <span class="sba-faq__icono" aria-hidden="true">+</span>
+      </button>
+      <div class="sba-faq__respuesta">
+        <p>Sí, y te lo recomendamos. Hay un bloque específico al final del día dedicado a tus casos. En el plan Pro, además, los doctores Lozano revisan tres de tus casos en profundidad y tienes dos sesiones de seguimiento posteriores (a los 30 y a los 60 días) para ver cómo están evolucionando una vez los aplicas en tu clínica.</p>
+      </div>
+    </div>
+
+    <div class="sba-faq__item sba-faq-reveal">
+      <button class="sba-faq__pregunta" aria-expanded="false">
+        <span>¿Y si el día que voy no hay cirugía de MARPE programada?</span>
+        <span class="sba-faq__icono" aria-hidden="true">+</span>
+      </button>
+      <div class="sba-faq__respuesta">
+        <p>Hacemos MARPE todos los días. Es uno de los procedimientos que más volumen tiene en la clínica, por eso lo garantizamos durante tu estancia. Si por una causa imprevista no fuera posible verlo en directo, te ofrecemos cambio de fecha sin coste.</p>
+      </div>
+    </div>
+
+    <div class="sba-faq__item sba-faq-reveal">
+      <button class="sba-faq__pregunta" aria-expanded="false">
+        <span>¿Cuántos doctores asisten en cada estancia?</span>
+        <span class="sba-faq__icono" aria-hidden="true">+</span>
+      </button>
+      <div class="sba-faq__respuesta">
+        <p>Máximo tres. La personalización es total: no es una clase, es una jornada de trabajo en la que cabes tú, tus dudas y tus casos.</p>
+      </div>
+    </div>
+
+    <div class="sba-faq__item sba-faq-reveal">
+      <button class="sba-faq__pregunta" aria-expanded="false">
+        <span>¿Qué nivel necesito tener?</span>
+        <span class="sba-faq__icono" aria-hidden="true">+</span>
+      </button>
+      <div class="sba-faq__respuesta">
+        <p>Esta estancia es para doctores que ya tratan casos con alineadores y quieren mejorar resultados, reducir refinamientos y aumentar volumen. No es un curso de iniciación. Si todavía no has hecho tus primeros casos, hay otras formaciones más adecuadas para ese momento.</p>
+      </div>
+    </div>
+
+    <div class="sba-faq__item sba-faq-reveal">
+      <button class="sba-faq__pregunta" aria-expanded="false">
+        <span>¿Incluye comida y alojamiento?</span>
+        <span class="sba-faq__icono" aria-hidden="true">+</span>
+      </button>
+      <div class="sba-faq__respuesta">
+        <p>La comida con el equipo de Ortodoncia Lozano está incluida (es parte del programa, no una pausa). El alojamiento y el viaje no están incluidos: te enviamos recomendaciones de hoteles cercanos a la clínica al confirmar tu inscripción.</p>
+      </div>
+    </div>
+
+    <div class="sba-faq__item sba-faq-reveal">
+      <button class="sba-faq__pregunta" aria-expanded="false">
+        <span>¿Qué marca de alineadores debo usar para que esto me sirva?</span>
+        <span class="sba-faq__icono" aria-hidden="true">+</span>
+      </button>
+      <div class="sba-faq__respuesta">
+        <p>Cualquiera. Lo que enseñamos no depende de la marca: criterio clínico, biomecánica, planificación, ejecución de IPR y tallados, manejo de auxiliares. Es transversal a Invisalign, Spark, Smilers o cualquier sistema que estés utilizando.</p>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+<style>
+  .sba-faq {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 36px;
+  }
+
+  .sba-faq__h2 {
+    margin: 0;
+    font-size: clamp(26px, 3.2vw, 40px);
+    font-weight: 800;
+    line-height: 1.15;
+    color: #ffffff;
+    letter-spacing: -0.01em;
+  }
+
+  .sba-faq__lista {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.12);
+  }
+
+  /* ===== ITEM ===== */
+  .sba-faq__item {
+    border-bottom: 1px solid rgba(255,255,255,0.10);
+  }
+  .sba-faq__item:last-child { border-bottom: none; }
+
+  /* ===== PREGUNTA ===== */
+  .sba-faq__pregunta {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 22px 28px;
+    background: rgba(255,255,255,0.05);
+    border: none;
+    cursor: pointer;
+    text-align: left;
+    font-size: 16px;
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 1.40;
+    transition: background 0.22s ease;
+  }
+
+  .sba-faq__pregunta:hover {
+    background: rgba(255,255,255,0.08);
+  }
+
+  .sba-faq__pregunta[aria-expanded="true"] {
+    background: rgba(233,220,199,0.08);
+    color: #e9dcc7;
+  }
+
+  /* Icono +/× */
+  .sba-faq__icono {
+    flex-shrink: 0;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.10);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 1;
+    color: rgba(255,255,255,0.70);
+    transition: transform 0.30s cubic-bezier(.22,.61,.36,1), background 0.22s ease;
+  }
+
+  .sba-faq__pregunta[aria-expanded="true"] .sba-faq__icono {
+    transform: rotate(45deg);
+    background: rgba(233,220,199,0.18);
+    color: #e9dcc7;
+  }
+
+  /* ===== RESPUESTA ===== */
+  .sba-faq__respuesta {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.40s cubic-bezier(.22,.61,.36,1);
+  }
+
+  .sba-faq__respuesta p {
+    margin: 0;
+    padding: 0 28px 22px;
+    font-size: 15px;
+    line-height: 1.70;
+    color: rgba(255,255,255,0.74);
+  }
+
+  /* ===== REVEAL ===== */
+  .sba-faq-reveal {
+    opacity: 0;
+    transform: translateX(-24px);
+    transition: opacity 0.8s cubic-bezier(.22,.61,.36,1), transform 0.8s cubic-bezier(.22,.61,.36,1);
+  }
+  .sba-faq-reveal.sba-faq-visible {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  @media (max-width: 560px) {
+    .sba-faq__pregunta { padding: 18px 20px; font-size: 15px; }
+    .sba-faq__respuesta p { padding: 0 20px 18px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .sba-faq-reveal { opacity: 1 !important; transform: none !important; }
+    .sba-faq__respuesta { transition: none !important; }
+  }
+</style>
+
+<script>
+(function(){
+  // Acordeón
+  document.querySelectorAll('.sba-faq__pregunta').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const expanded = btn.getAttribute('aria-expanded') === 'true';
+      const respuesta = btn.nextElementSibling;
+
+      // Cerrar todos
+      document.querySelectorAll('.sba-faq__pregunta').forEach(b => {
+        b.setAttribute('aria-expanded', 'false');
+        b.nextElementSibling.style.maxHeight = null;
+      });
+
+      // Abrir el pulsado si estaba cerrado
+      if (!expanded) {
+        btn.setAttribute('aria-expanded', 'true');
+        respuesta.style.maxHeight = respuesta.scrollHeight + 'px';
+      }
+    });
+  });
+
+  // Reveal
+  const els = document.querySelectorAll('.sba-faq-reveal');
+  if (!els.length) return;
+  const io = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('sba-faq-visible');
+        obs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15, rootMargin: '0px 0px -6% 0px' });
+  els.forEach(el => io.observe(el));
+})();
+</script>

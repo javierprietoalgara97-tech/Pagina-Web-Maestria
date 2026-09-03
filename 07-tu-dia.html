@@ -1,0 +1,243 @@
+<!--
+  SECCIÓN 07 — Tu día, hora a hora
+  Sección NUEVA. Timeline vertical con 5 bloques.
+  Línea vertical conectora a la izquierda, hora en negrita + icono de reloj,
+  título del bloque y descripción a la derecha.
+  Entrada: cada bloque desde la derecha en cascada con IntersectionObserver.
+-->
+
+<div class="sba-dia">
+
+  <div class="sba-dia__header sba-dia-reveal">
+    <h2 class="sba-dia__h2">Tu día, hora a hora</h2>
+    <p class="sba-dia__intro">De 9:30 a 19:00, contigo dentro de la clínica. Sin aula, sin diapositivas, sin teoría desconectada.</p>
+    <p class="sba-dia__intro">El día se organiza en bloques, no en un horario rígido: una clínica con este volumen no funciona con cronómetro, y precisamente por eso vas a ver lo que pasa de verdad. El orden y la duración de cada parte se ajustan a los pacientes programados ese día y a las dudas que vayas planteando.</p>
+  </div>
+
+  <div class="sba-dia__timeline">
+
+    <div class="sba-dia__bloque sba-dia-reveal">
+      <div class="sba-dia__hora-wrap">
+        <span class="sba-dia__hora">9:30 – 11:30</span>
+      </div>
+      <div class="sba-dia__contenido">
+        <h3 class="sba-dia__titulo">Marketing, ventas y primera visita</h3>
+        <p class="sba-dia__cuerpo">Empezamos por lo que sostiene el volumen de la clínica: cómo llegan los pacientes y cómo se convierten en tratamientos. Trabajamos el funnel completo, las redes sociales, las campañas activas, la estrategia de primera visita, la fijación de precios, los presupuestos y los guiones de comunicación. Antes de entrar en boca, entendemos por qué esta clínica hace 300 casos al año y la tuya no.</p>
+      </div>
+    </div>
+
+    <div class="sba-dia__bloque sba-dia-reveal">
+      <div class="sba-dia__hora-wrap">
+        <span class="sba-dia__hora">El resto de la mañana</span>
+      </div>
+      <div class="sba-dia__contenido">
+        <h3 class="sba-dia__titulo">Clínica en directo</h3>
+        <p class="sba-dia__cuerpo">A partir de aquí entramos en el día clínico real. Vas a ver primeras visitas, controles de pacientes en tratamiento, tallados oclusales, decisiones sobre refinamientos, manejo de desajustes, uso de auxiliares, levantes y seccionales. La cirugía de MARPE entra en algún momento de la jornada —la hacemos todos los días, garantizada durante tu estancia—, igual que la colocación de minitornillos para problemas verticales y sagitales, si hay indicación ese día.</p>
+      </div>
+    </div>
+
+    <div class="sba-dia__bloque sba-dia-reveal">
+      <div class="sba-dia__hora-wrap">
+        <span class="sba-dia__hora">14:30 – 15:00</span>
+      </div>
+      <div class="sba-dia__contenido">
+        <h3 class="sba-dia__titulo">Comida con los doctores Lozano</h3>
+        <p class="sba-dia__cuerpo">No es una pausa: es parte del programa. Treinta minutos para discutir casos, resolver tus dudas en privado y entrar en los temas que no caben en la consulta: gestión, equipo, decisiones difíciles, comunicación con el paciente.</p>
+      </div>
+    </div>
+
+    <div class="sba-dia__bloque sba-dia-reveal">
+      <div class="sba-dia__hora-wrap">
+        <span class="sba-dia__hora">Tarde</span>
+      </div>
+      <div class="sba-dia__contenido">
+        <h3 class="sba-dia__titulo">Clínica, protocolos de control y tus casos</h3>
+        <p class="sba-dia__cuerpo">Continuamos con los pacientes de la agenda y, en algún momento de la tarde, repasamos los protocolos de seguimiento —presencial y remoto—: cómo controlamos a los pacientes entre visitas y cómo evitamos que un desajuste pequeño se convierta en un refinamiento grande. Antes de cerrar, dedicamos un bloque a tus casos: los traes, los revisamos contigo, te damos criterio sobre las decisiones que has tomado y planteamos juntos los siguientes pasos.</p>
+      </div>
+    </div>
+
+    <div class="sba-dia__bloque sba-dia-reveal">
+      <div class="sba-dia__hora-wrap">
+        <span class="sba-dia__hora">19:00</span>
+      </div>
+      <div class="sba-dia__contenido">
+        <h3 class="sba-dia__titulo">Cierre</h3>
+        <p class="sba-dia__cuerpo">Te vas con el manual de 300 páginas, las decisiones tomadas sobre tus casos y un protocolo de trabajo listo para aplicar en tu clínica.</p>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+<style>
+  .sba-dia {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  .sba-dia__header {
+    margin-bottom: 48px;
+  }
+
+  .sba-dia__h2 {
+    margin: 0 0 22px 0;
+    font-size: clamp(28px, 3.5vw, 44px);
+    font-weight: 800;
+    line-height: 1.12;
+    color: #ffffff;
+    letter-spacing: -0.01em;
+  }
+
+  .sba-dia__intro {
+    margin: 0 0 14px 0;
+    font-size: 16px;
+    line-height: 1.70;
+    color: rgba(255,255,255,0.72);
+  }
+  .sba-dia__intro:last-child { margin-bottom: 0; }
+
+  /* ===== TIMELINE ===== */
+  .sba-dia__timeline {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  /* Línea vertical */
+  .sba-dia__timeline::before {
+    content: "";
+    position: absolute;
+    left: 140px;
+    top: 12px;
+    bottom: 12px;
+    width: 2px;
+    background: linear-gradient(
+      180deg,
+      transparent,
+      rgba(233,220,199,0.40) 8%,
+      rgba(233,220,199,0.40) 92%,
+      transparent
+    );
+  }
+
+  .sba-dia__bloque {
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    gap: 32px;
+    padding: 28px 0;
+    position: relative;
+  }
+
+  /* Punto en la línea */
+  .sba-dia__bloque::before {
+    content: "";
+    position: absolute;
+    left: 134px;
+    top: 36px;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: #e9dcc7;
+    box-shadow: 0 0 0 4px rgba(233,220,199,0.18);
+    z-index: 1;
+  }
+
+  .sba-dia__hora-wrap {
+    display: flex;
+    align-items: flex-start;
+    padding-top: 2px;
+  }
+
+  .sba-dia__hora {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    color: #e9dcc7;
+    text-transform: uppercase;
+    line-height: 1.4;
+    text-align: right;
+    width: 100%;
+    padding-right: 24px;
+  }
+
+  .sba-dia__contenido {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 18px;
+    padding: 24px 28px;
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    box-shadow: 0 14px 36px rgba(0,0,0,0.18);
+  }
+
+  .sba-dia__titulo {
+    margin: 0 0 12px 0;
+    font-size: 18px;
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 1.25;
+  }
+
+  .sba-dia__cuerpo {
+    margin: 0;
+    font-size: 15px;
+    line-height: 1.68;
+    color: rgba(255,255,255,0.74);
+  }
+
+  /* ===== REVEAL ===== */
+  .sba-dia-reveal {
+    opacity: 0;
+    transform: translateX(28px);
+  }
+  .sba-dia-reveal.sba-dia-visible {
+    opacity: 1;
+    transform: translateX(0);
+    transition:
+      opacity 0.9s cubic-bezier(.22,.61,.36,1),
+      transform 0.9s cubic-bezier(.22,.61,.36,1);
+  }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 640px) {
+    .sba-dia__timeline::before { display: none; }
+    .sba-dia__bloque {
+      grid-template-columns: 1fr;
+      gap: 8px;
+    }
+    .sba-dia__bloque::before { display: none; }
+    .sba-dia__hora-wrap { padding-top: 0; }
+    .sba-dia__hora {
+      text-align: left;
+      padding-right: 0;
+      font-size: 11px;
+    }
+    .sba-dia__contenido { padding: 18px 16px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .sba-dia-reveal {
+      opacity: 1 !important;
+      transform: none !important;
+    }
+  }
+</style>
+
+<script>
+(function(){
+  const els = document.querySelectorAll('.sba-dia-reveal');
+  if (!els.length) return;
+  const io = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('sba-dia-visible');
+        obs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.18, rootMargin: '0px 0px -6% 0px' });
+  els.forEach(el => io.observe(el));
+})();
+</script>

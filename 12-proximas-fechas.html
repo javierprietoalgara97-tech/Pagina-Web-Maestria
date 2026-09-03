@@ -1,0 +1,183 @@
+<!--
+  SECCIÓN 12 — Próximas fechas
+  Sección NUEVA. Botones grandes con fecha y estado (disponible / agotado).
+  Fechas iniciales según documento: 1 jun, 15 jun (agotada), 29 jun.
+  IMPORTANTE: actualizar las fechas y estados cada 2 semanas.
+-->
+
+<div class="sba-fechas">
+
+  <div class="sba-fechas__header sba-fechas-reveal-left">
+    <h2 class="sba-fechas__h2">Próximas fechas</h2>
+  </div>
+
+  <div class="sba-fechas__grid sba-fechas-reveal-up">
+
+    <div class="sba-fechas__item sba-fechas__item--disponible">
+      <span class="sba-fechas__fecha">1 de junio</span>
+      <span class="sba-fechas__estado sba-fechas__estado--disponible">Plazas disponibles</span>
+    </div>
+
+    <div class="sba-fechas__item sba-fechas__item--agotado">
+      <span class="sba-fechas__fecha">15 de junio</span>
+      <span class="sba-fechas__estado sba-fechas__estado--agotado">Plazas agotadas</span>
+    </div>
+
+    <div class="sba-fechas__item sba-fechas__item--disponible">
+      <span class="sba-fechas__fecha">29 de junio</span>
+      <span class="sba-fechas__estado sba-fechas__estado--disponible">Plazas disponibles</span>
+    </div>
+
+  </div>
+
+  <p class="sba-fechas__nota sba-fechas-reveal-up">
+    Escoge la fecha que mejor encaje en tu agenda y confirma tu inscripción. Las plazas son limitadas a <strong>tres doctores por estancia</strong> y suelen agotarse con semanas de antelación.
+  </p>
+
+</div>
+
+<style>
+  .sba-fechas {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 36px;
+  }
+
+  .sba-fechas__h2 {
+    margin: 0;
+    font-size: clamp(28px, 3.5vw, 44px);
+    font-weight: 800;
+    line-height: 1.12;
+    color: #ffffff;
+    letter-spacing: -0.01em;
+  }
+
+  /* ===== GRID ===== */
+  .sba-fechas__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+  }
+
+  /* ===== ITEM ===== */
+  .sba-fechas__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 30px 20px;
+    border-radius: 20px;
+    text-align: center;
+    transition: transform 0.25s cubic-bezier(.22,.61,.36,1), box-shadow 0.25s ease;
+  }
+
+  .sba-fechas__item--disponible {
+    background: rgba(52,199,89,0.10);
+    border: 1px solid rgba(52,199,89,0.32);
+    box-shadow: 0 16px 40px rgba(0,0,0,0.22);
+  }
+
+  .sba-fechas__item--agotado {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.10);
+    box-shadow: 0 10px 28px rgba(0,0,0,0.16);
+    opacity: 0.65;
+  }
+
+  @media (hover:hover) and (pointer:fine) {
+    .sba-fechas__item--disponible:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 24px 56px rgba(0,0,0,0.30);
+    }
+  }
+
+  .sba-fechas__fecha {
+    font-size: clamp(18px, 2.2vw, 24px);
+    font-weight: 800;
+    color: #ffffff;
+    line-height: 1.2;
+  }
+
+  .sba-fechas__item--agotado .sba-fechas__fecha {
+    color: rgba(255,255,255,0.50);
+    text-decoration: line-through;
+    text-decoration-color: rgba(255,255,255,0.30);
+  }
+
+  .sba-fechas__estado {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 5px 12px;
+    border-radius: 999px;
+  }
+
+  .sba-fechas__estado--disponible {
+    background: rgba(52,199,89,0.18);
+    color: #34C759;
+  }
+
+  .sba-fechas__estado--agotado {
+    background: rgba(255,255,255,0.08);
+    color: rgba(255,255,255,0.42);
+  }
+
+  /* Nota */
+  .sba-fechas__nota {
+    margin: 0;
+    font-size: 15px;
+    line-height: 1.65;
+    color: rgba(255,255,255,0.65);
+  }
+
+  .sba-fechas__nota strong {
+    color: rgba(255,255,255,0.85);
+    font-weight: 700;
+  }
+
+  /* ===== REVEAL ===== */
+  .sba-fechas-reveal-left {
+    opacity: 0; transform: translateX(-28px);
+    transition: opacity 0.9s cubic-bezier(.22,.61,.36,1), transform 0.9s cubic-bezier(.22,.61,.36,1);
+  }
+  .sba-fechas-reveal-up {
+    opacity: 0; transform: translateY(24px);
+    transition: opacity 0.9s cubic-bezier(.22,.61,.36,1), transform 0.9s cubic-bezier(.22,.61,.36,1);
+  }
+  .sba-fechas-reveal-left.sba-fechas-visible,
+  .sba-fechas-reveal-up.sba-fechas-visible {
+    opacity: 1; transform: translate(0);
+  }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 600px) {
+    .sba-fechas__grid { grid-template-columns: 1fr; }
+    .sba-fechas__item { padding: 22px 18px; flex-direction: row; justify-content: space-between; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .sba-fechas-reveal-left,
+    .sba-fechas-reveal-up { opacity: 1 !important; transform: none !important; }
+  }
+</style>
+
+<script>
+(function(){
+  const els = document.querySelectorAll('.sba-fechas-reveal-left, .sba-fechas-reveal-up');
+  if (!els.length) return;
+  const io = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('sba-fechas-visible');
+        obs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.22 });
+  els.forEach(el => io.observe(el));
+})();
+</script>

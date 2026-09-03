@@ -1,0 +1,292 @@
+<!--
+  SECCIÓN 11 — Inscripción y precio
+  Sección NUEVA. Dos tarjetas comparativas: Básico (1.000€) y Pro (2.000€).
+  Plan Pro destacado con badge "RECOMENDADO" y borde de color.
+  CTAs abren WhatsApp con mensaje precargado según plan.
+  Número: +34 678 175 707
+-->
+
+<div class="sba-precio">
+
+  <div class="sba-precio__header sba-precio-reveal-up">
+    <h2 class="sba-precio__h2">Inscripción y precio</h2>
+    <p class="sba-precio__sub">Dos formas de vivir tu estancia. Elige la que mejor encaje con cómo quieres aplicar lo aprendido.</p>
+  </div>
+
+  <div class="sba-precio__grid">
+
+    <!-- PLAN BÁSICO -->
+    <div class="sba-precio__card sba-precio-reveal-left">
+      <div class="sba-precio__card-header">
+        <p class="sba-precio__plan-name">Básico</p>
+        <p class="sba-precio__plan-price">1.000 <span class="sba-precio__currency">€</span></p>
+      </div>
+      <ul class="sba-precio__includes">
+        <li>Estancia clínica de un día con el Dr. Javier Lozano.</li>
+        <li>Manual de 300 páginas con todos nuestros protocolos clínicos y de trabajo.</li>
+        <li>Comida con el equipo Lozano.</li>
+      </ul>
+      <a
+        class="sba-precio__cta sba-precio__cta--basico"
+        href="https://wa.me/34678175707?text=Hola%2C%20me%20gustar%C3%ADa%20reservar%20plaza%20en%20la%20Estancia%20Cl%C3%ADnica%20%E2%80%93%20plan%20B%C3%A1sico."
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Reservar plaza Básico
+      </a>
+    </div>
+
+    <!-- PLAN PRO (RECOMENDADO) -->
+    <div class="sba-precio__card sba-precio__card--pro sba-precio-reveal-right">
+      <div class="sba-precio__badge">RECOMENDADO</div>
+      <div class="sba-precio__card-header">
+        <p class="sba-precio__plan-name">Pro</p>
+        <p class="sba-precio__plan-price">2.000 <span class="sba-precio__currency">€</span></p>
+      </div>
+      <ul class="sba-precio__includes">
+        <li>Estancia clínica de un día con el Dr. Javier Lozano.</li>
+        <li>Manual de 300 páginas con todos nuestros protocolos clínicos y de trabajo.</li>
+        <li>Comida con el equipo Lozano.</li>
+        <li class="sba-precio__extra">Dos sesiones online de seguimiento, a los 30 y 60 días después de la estancia.</li>
+        <li class="sba-precio__extra">Revisión de 3 de tus casos por los doctores Lozano.</li>
+        <li class="sba-precio__extra">Posibilidad de traer un acompañante de tu clínica.</li>
+      </ul>
+      <a
+        class="sba-precio__cta sba-precio__cta--pro"
+        href="https://wa.me/34678175707?text=Hola%2C%20me%20gustar%C3%ADa%20reservar%20plaza%20en%20la%20Estancia%20Cl%C3%ADnica%20%E2%80%93%20plan%20Pro."
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Reservar plaza Pro
+      </a>
+    </div>
+
+  </div>
+
+</div>
+
+<style>
+  .sba-precio {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 44px;
+  }
+
+  .sba-precio__h2 {
+    margin: 0 0 12px 0;
+    font-size: clamp(28px, 3.5vw, 44px);
+    font-weight: 800;
+    line-height: 1.12;
+    color: #ffffff;
+    letter-spacing: -0.01em;
+  }
+
+  .sba-precio__sub {
+    margin: 0;
+    font-size: 16px;
+    line-height: 1.65;
+    color: rgba(255,255,255,0.72);
+  }
+
+  /* ===== GRID ===== */
+  .sba-precio__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    align-items: start;
+  }
+
+  /* ===== TARJETA BASE ===== */
+  .sba-precio__card {
+    position: relative;
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.14);
+    border-radius: 24px;
+    padding: 36px 32px;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.24);
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+  }
+
+  /* ===== TARJETA PRO ===== */
+  .sba-precio__card--pro {
+    background: rgba(233,220,199,0.08);
+    border: 2px solid rgba(233,220,199,0.45);
+    box-shadow:
+      0 30px 70px rgba(0,0,0,0.32),
+      0 0 0 1px rgba(233,220,199,0.12);
+  }
+
+  /* Badge */
+  .sba-precio__badge {
+    position: absolute;
+    top: -14px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #e9dcc7;
+    color: #0b0b0f;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 6px 16px;
+    border-radius: 999px;
+    white-space: nowrap;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.22);
+  }
+
+  /* Header tarjeta */
+  .sba-precio__card-header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 12px;
+  }
+
+  .sba-precio__plan-name {
+    margin: 0;
+    font-size: 22px;
+    font-weight: 800;
+    color: #ffffff;
+  }
+
+  .sba-precio__plan-price {
+    margin: 0;
+    font-size: 38px;
+    font-weight: 800;
+    color: #e9dcc7;
+    line-height: 1;
+  }
+
+  .sba-precio__currency {
+    font-size: 22px;
+    font-weight: 700;
+  }
+
+  /* Lista */
+  .sba-precio__includes {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    flex: 1;
+  }
+
+  .sba-precio__includes li {
+    display: grid;
+    grid-template-columns: 20px 1fr;
+    gap: 10px;
+    font-size: 15px;
+    line-height: 1.55;
+    color: rgba(255,255,255,0.82);
+    font-weight: 500;
+  }
+
+  .sba-precio__includes li::before {
+    content: "✓";
+    color: rgba(255,255,255,0.50);
+    font-weight: 700;
+    margin-top: 1px;
+  }
+
+  .sba-precio__extra {
+    color: rgba(255,255,255,0.92) !important;
+    font-weight: 600 !important;
+  }
+
+  .sba-precio__card--pro .sba-precio__includes li::before {
+    color: #e9dcc7;
+  }
+
+  /* CTAs */
+  .sba-precio__cta {
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 16px;
+    padding: 16px 20px;
+    font-size: 16px;
+    font-weight: 800;
+    letter-spacing: 0.02em;
+    transition:
+      transform 0.25s cubic-bezier(.22,.61,.36,1),
+      box-shadow 0.25s ease;
+  }
+
+  .sba-precio__cta--basico {
+    background: rgba(255,255,255,0.10);
+    color: #ffffff;
+    border: 1px solid rgba(255,255,255,0.28);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.20);
+  }
+
+  .sba-precio__cta--pro {
+    background: #e9dcc7;
+    color: #0b0b0f;
+    border: none;
+    box-shadow: 0 18px 40px rgba(0,0,0,0.30), 0 8px 20px rgba(233,220,199,0.18);
+  }
+
+  @media (hover:hover) and (pointer:fine) {
+    .sba-precio__cta:hover {
+      transform: translateY(-3px) scale(1.02);
+      box-shadow: 0 26px 55px rgba(0,0,0,0.38);
+    }
+  }
+
+  /* ===== REVEAL ===== */
+  .sba-precio-reveal-up {
+    opacity: 0; transform: translateY(28px);
+    transition: opacity 0.9s cubic-bezier(.22,.61,.36,1), transform 0.9s cubic-bezier(.22,.61,.36,1);
+  }
+  .sba-precio-reveal-left {
+    opacity: 0; transform: translateX(-28px);
+    transition: opacity 0.9s cubic-bezier(.22,.61,.36,1), transform 0.9s cubic-bezier(.22,.61,.36,1);
+  }
+  .sba-precio-reveal-right {
+    opacity: 0; transform: translateX(28px);
+    transition: opacity 0.9s cubic-bezier(.22,.61,.36,1), transform 0.9s cubic-bezier(.22,.61,.36,1);
+  }
+  .sba-precio-reveal-up.sba-precio-visible,
+  .sba-precio-reveal-left.sba-precio-visible,
+  .sba-precio-reveal-right.sba-precio-visible {
+    opacity: 1; transform: translate(0);
+  }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 680px) {
+    .sba-precio__grid { grid-template-columns: 1fr; }
+    .sba-precio__card { padding: 30px 22px; }
+    .sba-precio__card--pro { margin-top: 16px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .sba-precio-reveal-up,
+    .sba-precio-reveal-left,
+    .sba-precio-reveal-right { opacity: 1 !important; transform: none !important; }
+  }
+</style>
+
+<script>
+(function(){
+  const els = document.querySelectorAll('.sba-precio-reveal-up, .sba-precio-reveal-left, .sba-precio-reveal-right');
+  if (!els.length) return;
+  const io = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('sba-precio-visible');
+        obs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.20, rootMargin: '0px 0px -8% 0px' });
+  els.forEach(el => io.observe(el));
+})();
+</script>

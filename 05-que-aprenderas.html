@@ -1,0 +1,165 @@
+<!--
+  SECCIÓN 05 — ¿Qué aprenderás?
+  Sección NUEVA. 4 bloques numerados en grid 2×2 (escritorio) / apilados (móvil).
+  Cada bloque: número grande, titular, cuerpo.
+  Entrada: alternando izquierda/derecha con IntersectionObserver.
+-->
+
+<div class="sba-aprender">
+
+  <h2 class="sba-aprender__h2 sba-ap-reveal-left">¿Qué aprenderás?</h2>
+
+  <div class="sba-aprender__grid">
+
+    <div class="sba-aprender__bloque sba-ap-reveal-left">
+      <span class="sba-aprender__num">1</span>
+      <h3 class="sba-aprender__titulo">Cómo reducir refinamientos innecesarios</h3>
+      <p class="sba-aprender__cuerpo">Comprenderás el origen de los desajustes en tratamientos con alineadores y adquirirás criterio clínico para decidir cuándo hacer refinamientos, cuándo utilizar auxiliares y cuándo modificar los tiempos de uso.</p>
+    </div>
+
+    <div class="sba-aprender__bloque sba-ap-reveal-right">
+      <span class="sba-aprender__num">2</span>
+      <h3 class="sba-aprender__titulo">Disminuir desajustes e incidencias durante el tratamiento</h3>
+      <p class="sba-aprender__cuerpo">No es solo biomecánica y planificación: un protocolo de trabajo definido, y la ejecución correcta del IPR y los tallados selectivos te ayudan a conseguir que lo que planificas en la pantalla se exprese en la boca.</p>
+    </div>
+
+    <div class="sba-aprender__bloque sba-ap-reveal-left">
+      <span class="sba-aprender__num">3</span>
+      <h3 class="sba-aprender__titulo">Control total de técnicas auxiliares</h3>
+      <p class="sba-aprender__cuerpo">Colocaremos un MARPE contigo. Pondremos minitornillos. Integraremos seccionales. Y te explicaremos por qué, cuándo y cómo. Dejarás de hacer refinamiento tras refinamiento con mecánicas imposibles para un alineador.</p>
+    </div>
+
+    <div class="sba-aprender__bloque sba-ap-reveal-right">
+      <span class="sba-aprender__num">4</span>
+      <h3 class="sba-aprender__titulo">No te olvidarás de nada de lo que veas aquí</h3>
+      <p class="sba-aprender__cuerpo">A tu llegada a la clínica te entregaremos un manual completo de más de 300 páginas con todos nuestros protocolos clínicos y de trabajo. Aplícalo en tu rutina con todo tu equipo nada más volver a casa.</p>
+    </div>
+
+  </div>
+
+</div>
+
+<style>
+  .sba-aprender {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  .sba-aprender__h2 {
+    margin: 0 0 48px 0;
+    font-size: clamp(28px, 3.5vw, 44px);
+    font-weight: 800;
+    line-height: 1.12;
+    color: #ffffff;
+    letter-spacing: -0.01em;
+  }
+
+  .sba-aprender__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+  }
+
+  .sba-aprender__bloque {
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.13);
+    border-radius: 22px;
+    padding: 36px 32px;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.22);
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    transition: border-color 0.28s ease, box-shadow 0.28s ease;
+  }
+
+  @media (hover:hover) and (pointer:fine) {
+    .sba-aprender__bloque:hover {
+      border-color: rgba(233,220,199,0.30);
+      box-shadow: 0 30px 70px rgba(0,0,0,0.30);
+    }
+  }
+
+  .sba-aprender__num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: #e9dcc7;
+    color: #0b0b0f;
+    font-size: 20px;
+    font-weight: 800;
+    flex-shrink: 0;
+    align-self: flex-start;
+  }
+
+  .sba-aprender__titulo {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.30;
+    color: #ffffff;
+  }
+
+  .sba-aprender__cuerpo {
+    margin: 0;
+    font-size: 15px;
+    line-height: 1.68;
+    color: rgba(255,255,255,0.75);
+  }
+
+  /* ===== REVEAL ===== */
+  .sba-ap-reveal-left,
+  .sba-ap-reveal-right {
+    opacity: 0;
+    transition:
+      opacity 0.9s cubic-bezier(.22,.61,.36,1),
+      transform 0.9s cubic-bezier(.22,.61,.36,1);
+  }
+  .sba-ap-reveal-left  { transform: translateX(-28px); }
+  .sba-ap-reveal-right { transform: translateX(28px); }
+
+  .sba-ap-reveal-left.sba-ap-visible,
+  .sba-ap-reveal-right.sba-ap-visible {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 700px) {
+    .sba-aprender__grid {
+      grid-template-columns: 1fr;
+    }
+    .sba-aprender__bloque {
+      padding: 26px 22px;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .sba-ap-reveal-left,
+    .sba-ap-reveal-right {
+      opacity: 1 !important;
+      transform: none !important;
+    }
+  }
+</style>
+
+<script>
+(function(){
+  const els = document.querySelectorAll('.sba-ap-reveal-left, .sba-ap-reveal-right');
+  if (!els.length) return;
+  const io = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('sba-ap-visible');
+        obs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.20, rootMargin: '0px 0px -8% 0px' });
+  els.forEach(el => io.observe(el));
+})();
+</script>

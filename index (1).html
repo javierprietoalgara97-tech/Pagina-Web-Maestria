@@ -1,0 +1,2415 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Estancia Clínica con el Dr. Javier Lozano | Common Sense Aligners</title>
+  <meta name="description" content="Pasa un día completo en la clínica del Dr. Javier Lozano. Más de 300 casos de ortodoncia invisible al año. Protocolos reales, pacientes reales. Cirugía de MARPE garantizada.">
+  <meta name="robots" content="index, follow">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Estancia Clínica | Common Sense Aligners">
+  <meta property="og:description" content="Un día completo en la clínica del Dr. Javier Lozano. 300 casos de ortodoncia invisible al año. Cirugía de MARPE garantizada.">
+  <meta property="og:type" content="website">
+
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-MKNRMW7B');</script>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600;1,700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ================= TOKENS ================= */
+    :root {
+      --sba-bg: #ede8df;
+      --sba-text: #000000;
+      --sba-text-muted: #545454;
+      --sba-accent: #522e81;
+      --sba-accent-dark: #3d2261;
+      --sba-accent-soft: rgba(82,46,129,0.10);
+      --sba-card-bg: rgba(255,255,255,0.70);
+      --sba-card-border: rgba(82,46,129,0.16);
+      --sba-card-shadow: 0 20px 50px rgba(0,0,0,0.08);
+    }
+
+    /* ================= RESET ================= */
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0; padding: 0;
+      background-color: var(--sba-bg);
+      color: var(--sba-text);
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
+    }
+    img { max-width: 100%; display: block; }
+
+    /* ================= NAV ================= */
+    .sba-nav {
+      position: sticky; top: 0; z-index: 100;
+      width: 100%;
+      background: rgba(237,232,223,0.92);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(82,46,129,0.12);
+    }
+    .sba-nav__inner {
+      max-width: 1160px; margin: 0 auto;
+      padding: 0 24px; height: 64px;
+      display: flex; align-items: center; justify-content: space-between; gap: 20px;
+    }
+    .sba-nav__logo {
+      font-size: 13px; font-weight: 700;
+      color: var(--sba-accent); text-decoration: none;
+      letter-spacing: 0.10em; text-transform: uppercase;
+    }
+    .sba-nav__cta {
+      display: inline-flex; align-items: center; gap: 8px;
+      text-decoration: none;
+      background: var(--sba-accent); color: #ffffff;
+      border-radius: 12px; padding: 10px 20px;
+      font-size: 13px; font-weight: 800; letter-spacing: 0.02em; white-space: nowrap;
+      transition: transform 0.22s ease, box-shadow 0.22s ease, background 0.22s ease;
+      box-shadow: 0 8px 22px rgba(82,46,129,0.30);
+    }
+    .sba-nav__cta:hover {
+      transform: translateY(-2px);
+      background: var(--sba-accent-dark);
+      box-shadow: 0 14px 30px rgba(82,46,129,0.38);
+    }
+
+    /* ================= SECTION WRAPPER ================= */
+    .sba-section { padding: 100px 0; }
+    .sba-section--hero { padding: 0; }
+    .sba-section--cta-final { padding: 0; }
+    @media (max-width: 680px) {
+      .sba-section { padding: 64px 0; }
+    }
+
+    /* ================= GLOBAL FORM ================= */
+    .sba-form-card {
+      background: #ffffff;
+      border: 1px solid var(--sba-card-border);
+      border-radius: 22px;
+      padding: 32px 28px;
+      box-shadow: 0 24px 60px rgba(0,0,0,0.10);
+    }
+    .sba-form-card__title {
+      margin: 0 0 8px 0;
+      font-size: 18px; font-weight: 800;
+      color: var(--sba-text); line-height: 1.3;
+    }
+    .sba-form-card__sub {
+      margin: 0 0 24px 0;
+      font-size: 14px; color: var(--sba-text-muted); line-height: 1.5;
+    }
+    .sba-form__field {
+      display: flex; flex-direction: column; gap: 6px; margin-bottom: 14px;
+    }
+    .sba-form__label {
+      font-size: 11px; font-weight: 700;
+      color: var(--sba-text-muted);
+      letter-spacing: 0.08em; text-transform: uppercase;
+    }
+    .sba-form__input {
+      background: #fafafa;
+      border: 1px solid rgba(0,0,0,0.10);
+      border-radius: 12px; padding: 13px 16px;
+      font-size: 15px; color: var(--sba-text); outline: none;
+      transition: border-color 0.22s ease, box-shadow 0.22s ease, background 0.22s ease;
+      font-family: inherit; width: 100%;
+    }
+    .sba-form__input::placeholder { color: rgba(0,0,0,0.35); }
+    .sba-form__input:focus {
+      border-color: var(--sba-accent);
+      box-shadow: 0 0 0 3px rgba(82,46,129,0.14);
+      background: #ffffff;
+    }
+    .sba-form__btn {
+      width: 100%; padding: 16px 24px;
+      background: var(--sba-accent);
+      color: #ffffff; border: none; border-radius: 14px;
+      font-size: 16px; font-weight: 800; letter-spacing: 0.02em;
+      cursor: pointer; margin-top: 6px; margin-bottom: 12px;
+      transition: transform 0.25s cubic-bezier(.22,.61,.36,1), box-shadow 0.25s ease, background 0.25s ease;
+      box-shadow: 0 12px 30px rgba(82,46,129,0.30);
+      font-family: inherit; display: block;
+    }
+    .sba-form__btn:hover {
+      transform: translateY(-2px) scale(1.01);
+      background: var(--sba-accent-dark);
+      box-shadow: 0 18px 40px rgba(82,46,129,0.40);
+    }
+    .sba-form__note {
+      margin: 0; font-size: 12px;
+      color: var(--sba-text-muted); text-align: center; opacity: 0.7;
+    }
+
+    /* ================= FOOTER ================= */
+    .sba-footer {
+      background: var(--sba-accent-dark);
+      padding: 48px 24px; text-align: center;
+    }
+    .sba-footer p {
+      font-size: 13px; color: rgba(255,255,255,0.70);
+      line-height: 1.7; margin: 0 0 6px 0;
+    }
+    .sba-footer a { color: #ffffff; text-decoration: none; }
+    .sba-footer a:hover { color: rgba(255,255,255,0.80); }
+
+    @media (prefers-reduced-motion: reduce) {
+      * { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- GTM noscript -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MKNRMW7B" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+<!-- ===== NAV ===== -->
+<nav class="sba-nav" role="navigation" aria-label="Navegación principal">
+  <div class="sba-nav__inner">
+    <a class="sba-nav__logo" href="#top">Common Sense Aligners</a>
+    <a class="sba-nav__cta"
+      href="https://wa.me/34678175707?text=Hola%2C%20me%20gustar%C3%ADa%20reservar%20plaza%20en%20la%20Estancia%20Cl%C3%ADnica."
+      target="_blank" rel="noopener noreferrer">
+      Reservar plaza
+    </a>
+  </div>
+</nav>
+
+
+<!-- =====================================================
+     SECCIÓN 01 — HERO
+===================================================== -->
+<section class="sba-section sba-section--hero" id="top">
+<div class="sba-hero">
+  <div class="sba-hero__inner">
+
+    <div class="sba-hero__copy sba-hero-reveal">
+      <p class="sba-hero__eyebrow">ESTANCIA CLÍNICA · COMMON SENSE ALIGNERS</p>
+      <h1 class="sba-hero__h1">Esto no es<br>un curso más.</h1>
+      <p class="sba-hero__subtitle">Es el día en que vas a ver, con tus propios ojos, lo que ningún ponente te ha enseñado en una sala.</p>
+      <p class="sba-hero__body">Inmersión total en la clínica del Dr. Javier Lozano. Conoce el método con el que iniciamos más de 300 tratamientos de ortodoncia invisible al año.</p>
+      <div class="sba-hero__ctas">
+        <a class="sba-hero__cta-primary sba-hero-cta-scroll" href="#sba-hero-form">
+          Descarga el programa completo
+        </a>
+        <a class="sba-hero__cta-secondary"
+          href="https://wa.me/34678175707?text=Hola%2C%20me%20gustar%C3%ADa%20reservar%20plaza%20en%20la%20Estancia%20Cl%C3%ADnica."
+          target="_blank" rel="noopener noreferrer">
+          Reserva tu plaza por WhatsApp
+        </a>
+      </div>
+    </div>
+
+    <div class="sba-hero__form-col" id="sba-hero-form">
+      <div class="sba-form-card">
+        <h3 class="sba-form-card__title">Descarga el programa completo en PDF</h3>
+        <p class="sba-form-card__sub">Recíbelo en tu email y tómate tu tiempo para decidir.</p>
+        <!-- Embed formulario Kajabi -->
+        <div class="sba-kajabi-form">
+          <script src="https://common-sense-aligners.mykajabi.com/forms/2149084035/embed.js"></script>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<style>
+  .sba-hero {
+    position: relative; width: 100%;
+    min-height: 90vh;
+    display: flex; align-items: center;
+    padding: 80px 24px;
+    box-sizing: border-box;
+  }
+  .sba-hero__inner {
+    position: relative; z-index: 2;
+    width: 100%; max-width: 1160px; margin: 0 auto;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 60px;
+    align-items: center;
+  }
+  .sba-hero__eyebrow {
+    margin: 0 0 18px 0;
+    font-size: 11px; font-weight: 700;
+    letter-spacing: 0.14em; color: var(--sba-accent);
+    text-transform: uppercase;
+  }
+  .sba-hero__h1 {
+    margin: 0 0 22px 0;
+    font-size: clamp(38px, 5.5vw, 68px);
+    font-weight: 800; line-height: 1.04;
+    color: var(--sba-text); letter-spacing: -0.02em;
+  }
+  .sba-hero__subtitle {
+    margin: 0 0 16px 0;
+    font-size: clamp(17px, 2vw, 21px);
+    font-weight: 500; line-height: 1.50; color: var(--sba-text);
+  }
+  .sba-hero__body {
+    margin: 0 0 38px 0;
+    font-size: 16px; line-height: 1.70; color: var(--sba-text-muted);
+  }
+  .sba-hero__ctas {
+    display: flex; flex-direction: column; gap: 14px; max-width: 380px;
+  }
+  .sba-hero__cta-primary, .sba-hero__cta-secondary {
+    display: block; text-align: center; text-decoration: none;
+    border-radius: 16px; padding: 17px 24px;
+    font-size: 16px; font-weight: 800; letter-spacing: 0.02em;
+    cursor: pointer;
+    transition: transform 0.25s cubic-bezier(.22,.61,.36,1), box-shadow 0.25s ease, background 0.25s ease;
+  }
+  .sba-hero__cta-primary {
+    background: var(--sba-accent); color: #ffffff; border: none;
+    box-shadow: 0 18px 40px rgba(82,46,129,0.30);
+  }
+  .sba-hero__cta-secondary {
+    background: transparent; color: var(--sba-accent);
+    border: 2px solid var(--sba-accent);
+  }
+  @media (hover:hover) and (pointer:fine) {
+    .sba-hero__cta-primary:hover {
+      transform: translateY(-3px) scale(1.02);
+      background: var(--sba-accent-dark);
+      box-shadow: 0 26px 55px rgba(82,46,129,0.40);
+    }
+    .sba-hero__cta-secondary:hover {
+      transform: translateY(-3px) scale(1.02);
+      background: var(--sba-accent); color: #ffffff;
+    }
+  }
+  .sba-hero__cta-primary:active, .sba-hero__cta-secondary:active {
+    transform: translateY(0) scale(1.005);
+  }
+  .sba-hero-reveal { opacity: 0; transform: translateX(-60px); }
+  .sba-hero-reveal.sba-hero-visible {
+    opacity: 1; transform: translateX(0);
+    transition: opacity 1.1s cubic-bezier(.22,.61,.36,1), transform 1.1s cubic-bezier(.22,.61,.36,1);
+  }
+  @media (max-width: 860px) {
+    .sba-hero__inner { grid-template-columns: 1fr; gap: 40px; }
+    .sba-hero { min-height: auto; padding: 60px 20px; }
+    .sba-hero__ctas { max-width: 100%; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .sba-hero-reveal { opacity: 1 !important; transform: none !important; }
+  }
+</style>
+
+<script>
+(function(){
+  const el = document.querySelector('.sba-hero-reveal');
+  if (!el) return;
+  const io = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('sba-hero-visible');
+        obs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+  io.observe(el);
+  document.querySelectorAll('.sba-hero-cta-scroll').forEach(btn => {
+    btn.addEventListener('click', e => {
+      const target = document.getElementById('sba-hero-form');
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    });
+  });
+})();
+</script>
+</section>
+
+
+<!-- =====================================================
+     SECCIÓN 02 — Esto no es un curso más
+===================================================== -->
+<section class="sba-section">
+<div class="sba-notcourse">
+
+  <div class="sba-notcourse__header sba-nc-reveal-left">
+    <h2 class="sba-notcourse__h2">
+      Has asistido a miles de cursos.<br>Y los casos no quedan como quieres.
+    </h2>
+    <div class="sba-notcourse__intro">
+      <p>Has aprendido secuencias, protocolos, trucos. Hay cosas que tienes que ver con tus propios ojos.</p>
+      <p>Visita la clínica del Dr. Javier Lozano durante una jornada completa de trabajo real y verás cómo, sea cual sea la marca de alineadores que usas, te estaban faltando muchas consideraciones clínicas que son las que te permiten acabar tus casos con uno o dos refinamientos sin que se eternicen.</p>
+      <p>Descubre además cómo hacer que tus tratamientos de alineadores se dupliquen o tripliquen sin necesidad de hacer ofertas ni marketing agresivo: por algo hacemos más de 300 casos al año.</p>
+    </div>
+  </div>
+
+  <div class="sba-notcourse__cols">
+    <div class="sba-notcourse__col sba-nc-reveal-left">
+      <p class="sba-notcourse__col-title">Gestión clínica</p>
+      <ul class="sba-notcourse__list">
+        <li>Estrategia de primera visita.</li>
+        <li>Fijación de precios, presupuestos y formas de pago.</li>
+        <li>Guiones para optimizar la comunicación con el paciente.</li>
+      </ul>
+    </div>
+    <div class="sba-notcourse__col sba-nc-reveal-right">
+      <p class="sba-notcourse__col-title">Protocolos clínicos con pacientes reales</p>
+      <ul class="sba-notcourse__list">
+        <li>Uso de levantes y seccionales con alineadores.</li>
+        <li>Tallados oclusales para distalizar y terminar casos con éxito.</li>
+        <li>Colocación en directo de minitornillos para problema vertical y sagital.</li>
+        <li>Cirugía de MARPE garantizada durante tu estancia (la hacemos todos los días).</li>
+        <li>Protocolo de control de pacientes, presencial y remoto.</li>
+      </ul>
+    </div>
+  </div>
+
+</div>
+
+<style>
+  .sba-notcourse { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+  .sba-notcourse__header { margin-bottom: 48px; }
+  .sba-notcourse__h2 {
+    margin: 0 0 28px 0;
+    font-size: clamp(26px, 3.5vw, 42px);
+    font-weight: 800; line-height: 1.15;
+    color: var(--sba-text); letter-spacing: -0.01em;
+  }
+  .sba-notcourse__intro p {
+    margin: 0 0 16px 0;
+    font-size: 17px; line-height: 1.70;
+    color: var(--sba-text-muted); max-width: 760px;
+  }
+  .sba-notcourse__intro p:last-child { margin-bottom: 0; }
+  .sba-notcourse__cols {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 32px;
+  }
+  .sba-notcourse__col {
+    background: var(--sba-card-bg);
+    border: 1px solid var(--sba-card-border);
+    border-radius: 22px; padding: 32px;
+    box-shadow: var(--sba-card-shadow);
+  }
+  .sba-notcourse__col-title {
+    margin: 0 0 20px 0;
+    font-size: 13px; font-weight: 700;
+    letter-spacing: 0.10em; text-transform: uppercase;
+    color: var(--sba-accent);
+  }
+  .sba-notcourse__list {
+    margin: 0; padding: 0; list-style: none;
+    display: flex; flex-direction: column; gap: 14px;
+  }
+  .sba-notcourse__list li {
+    display: grid; grid-template-columns: 22px 1fr; gap: 10px;
+    font-size: 16px; line-height: 1.55;
+    color: var(--sba-text); font-weight: 600;
+  }
+  .sba-notcourse__list li::before {
+    content: "→"; color: var(--sba-accent);
+    font-weight: 700; margin-top: 1px;
+  }
+  .sba-nc-reveal-left, .sba-nc-reveal-right {
+    opacity: 0;
+    transition: opacity 1.0s cubic-bezier(.22,.61,.36,1), transform 1.0s cubic-bezier(.22,.61,.36,1);
+  }
+  .sba-nc-reveal-left  { transform: translateX(-32px); }
+  .sba-nc-reveal-right { transform: translateX(32px); }
+  .sba-nc-reveal-left.sba-nc-visible, .sba-nc-reveal-right.sba-nc-visible {
+    opacity: 1; transform: translateX(0);
+  }
+  @media (max-width: 680px) {
+    .sba-notcourse__cols { grid-template-columns: 1fr; }
+    .sba-notcourse__col { padding: 24px 20px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .sba-nc-reveal-left, .sba-nc-reveal-right { opacity: 1 !important; transform: none !important; }
+  }
+</style>
+
+<script>
+(function(){
+  const els = document.querySelectorAll('.sba-nc-reveal-left, .sba-nc-reveal-right');
+  if (!els.length) return;
+  const io = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('sba-nc-visible');
+        obs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.25, rootMargin: '0px 0px -10% 0px' });
+  els.forEach(el => io.observe(el));
+})();
+</script>
+</section>
+
+
+<!-- =====================================================
+     SECCIÓN 03 — 300 casos / Por qué Murcia
+===================================================== -->
+<section class="sba-section">
+<div class="sba-trescientos">
+
+  <div class="sba-t300__apertura sba-t300-reveal-up">
+    <div class="sba-t300__cifra-wrap">
+      <span class="sba-t300__cifra">300</span>
+    </div>
+    <div class="sba-t300__apertura-copy">
+      <h2 class="sba-t300__h2">Más de 300 casos de alineadores al año.</h2>
+      <p class="sba-t300__sub">Así trabajamos. Ven a verlo.</p>
+      <p class="sba-t300__body">No vas a escuchar cómo deberían hacerse las cosas: vas a ver cómo se hacen, en una clínica que trata cada año más casos de ortodoncia invisible que la mayoría de centros en cinco. Todo esto, dos años después de abrir las puertas.</p>
+    </div>
+  </div>
+
+  <div class="sba-t300__murcia sba-t300-reveal-left">
+    <h3 class="sba-t300__h3">El volumen no es vanidad. Es lo que vas a aprovechar tú.</h3>
+    <p class="sba-t300__murcia-intro">Somos la clínica con mayor volumen de ortodoncia invisible de Murcia. Eso significa tres cosas que afectan directamente a tu estancia:</p>
+    <div class="sba-t300__puntos">
+      <div class="sba-t300__punto">
+        <span class="sba-t300__num">1</span>
+        <p><strong>Vas a ver más casos en un día que en seis meses en tu clínica.</strong> Primeras visitas, controles, refinamientos, cirugías de MARPE, colocación de minitornillos, tallados oclusales. Todo en una sola jornada, con pacientes reales.</p>
+      </div>
+      <div class="sba-t300__punto">
+        <span class="sba-t300__num">2</span>
+        <p><strong>Cada decisión clínica que veas está validada por cientos de casos previos.</strong> No es la opinión de un ponente sobre lo que funciona: es el protocolo que ha permitido a esta clínica sostener ese volumen sin que los tratamientos se eternicen.</p>
+      </div>
+      <div class="sba-t300__punto">
+        <span class="sba-t300__num">3</span>
+        <p><strong>Trabajamos con condiciones de laboratorio y precios que solo se consiguen con volumen.</strong> Vas a entender cómo se construye una clínica de alineadores rentable, no solo cómo se trata a un paciente.</p>
+      </div>
+    </div>
+    <p class="sba-t300__cierre">Por eso no organizamos esto en un aula. Lo organizamos en la clínica.</p>
+  </div>
+
+  <div class="sba-t300__banda sba-t300-reveal-up">
+    <p class="sba-t300__banda-text">Un solo refinamiento evitado al año hace que la inversión merezca la pena. Reducir un 20&nbsp;% los desajustes en tu clínica actual la multiplica.</p>
+  </div>
+
+</div>
+
+<style>
+  .sba-trescientos {
+    max-width: 1080px; margin: 0 auto; padding: 0 24px;
+    display: flex; flex-direction: column; gap: 60px;
+  }
+  .sba-t300__apertura {
+    display: grid; grid-template-columns: auto 1fr;
+    gap: 48px; align-items: center;
+  }
+  .sba-t300__cifra {
+    display: block;
+    font-size: clamp(100px, 14vw, 180px);
+    font-weight: 800; line-height: 1; letter-spacing: -0.04em;
+    color: transparent;
+    -webkit-text-stroke: 3px var(--sba-accent);
+    user-select: none;
+  }
+  .sba-t300__h2 {
+    margin: 0 0 12px 0;
+    font-size: clamp(24px, 3vw, 38px);
+    font-weight: 800; line-height: 1.15;
+    color: var(--sba-text); letter-spacing: -0.01em;
+  }
+  .sba-t300__sub {
+    margin: 0 0 18px 0;
+    font-size: 18px; font-weight: 600; color: var(--sba-accent);
+  }
+  .sba-t300__body {
+    margin: 0; font-size: 16px; line-height: 1.70; color: var(--sba-text-muted);
+  }
+  .sba-t300__murcia {
+    background: var(--sba-card-bg);
+    border: 1px solid var(--sba-card-border);
+    border-radius: 26px; padding: 48px;
+    box-shadow: var(--sba-card-shadow);
+  }
+  .sba-t300__h3 {
+    margin: 0 0 16px 0;
+    font-size: clamp(20px, 2.4vw, 28px);
+    font-weight: 800; line-height: 1.20;
+    color: var(--sba-text);
+  }
+  .sba-t300__murcia-intro {
+    margin: 0 0 32px 0;
+    font-size: 16px; line-height: 1.65; color: var(--sba-text-muted);
+  }
+  .sba-t300__puntos {
+    display: flex; flex-direction: column;
+    gap: 28px; margin-bottom: 32px;
+  }
+  .sba-t300__punto {
+    display: grid; grid-template-columns: 44px 1fr;
+    gap: 16px; align-items: start;
+  }
+  .sba-t300__num {
+    display: flex; align-items: center; justify-content: center;
+    width: 40px; height: 40px; border-radius: 50%;
+    background: var(--sba-accent); color: #ffffff;
+    font-size: 16px; font-weight: 800; flex-shrink: 0;
+  }
+  .sba-t300__punto p {
+    margin: 0; font-size: 16px; line-height: 1.65; color: var(--sba-text-muted);
+  }
+  .sba-t300__punto p strong { color: var(--sba-text); font-weight: 700; }
+  .sba-t300__cierre {
+    margin: 0; font-size: 17px; font-weight: 700;
+    color: var(--sba-accent); font-style: italic;
+  }
+  .sba-t300__banda {
+    background: var(--sba-accent);
+    border-radius: 22px; padding: 40px 48px;
+    box-shadow: 0 20px 50px rgba(82,46,129,0.28);
+  }
+  .sba-t300__banda-text {
+    margin: 0; font-size: clamp(18px, 2.2vw, 24px);
+    font-weight: 700; line-height: 1.45;
+    color: #ffffff; text-align: center;
+  }
+  .sba-t300-reveal-up, .sba-t300-reveal-left {
+    opacity: 0;
+    transition: opacity 1.0s cubic-bezier(.22,.61,.36,1), transform 1.0s cubic-bezier(.22,.61,.36,1);
+  }
+  .sba-t300-reveal-up   { transform: translateY(40px); }
+  .sba-t300-reveal-left { transform: translateX(-32px); }
+  .sba-t300-reveal-up.sba-t300-visible, .sba-t300-reveal-left.sba-t300-visible {
+    opacity: 1; transform: translate(0);
+  }
+  @media (max-width: 720px) {
+    .sba-t300__apertura { grid-template-columns: 1fr; gap: 24px; }
+    .sba-t300__cifra { font-size: clamp(80px, 22vw, 120px); }
+    .sba-t300__murcia { padding: 28px 20px; }
+    .sba-t300__banda { padding: 28px 24px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .sba-t300-reveal-up, .sba-t300-reveal-left { opacity: 1 !important; transform: none !important; }
+  }
+</style>
+
+<script>
+(function(){
+  const els = document.querySelectorAll('.sba-t300-reveal-up, .sba-t300-reveal-left');
+  if (!els.length) return;
+  const io = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('sba-t300-visible');
+        obs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.20, rootMargin: '0px 0px -8% 0px' });
+  els.forEach(el => io.observe(el));
+})();
+</script>
+</section>
+
+
+<!-- =====================================================
+     SECCIÓN 04 — Refinamientos
+===================================================== -->
+<section class="sba-section">
+<div class="sba-refina sba-refina-reveal">
+  <h2 class="sba-refina__h2">Tus refinamientos no son culpa de la marca de alineadores.</h2>
+  <p class="sba-refina__body">Son consecuencia de decisiones clínicas que tomaste antes del primer alineador, y probablemente no sabes cuáles.</p>
+  <p class="sba-refina__cta-text">Eso es exactamente lo que vas a aprender a identificar durante tu estancia.</p>
+</div>
+
+<style>
+  .sba-refina {
+    max-width: 860px; margin: 0 auto; padding: 64px 48px;
+    background: var(--sba-accent-dark);
+    border: none; border-radius: 26px;
+    box-shadow: 0 30px 80px rgba(82,46,129,0.30), 0 14px 36px rgba(0,0,0,0.10);
+    text-align: center;
+  }
+  .sba-refina__h2 {
+    margin: 0 0 24px 0;
+    font-size: clamp(26px, 3.8vw, 46px);
+    font-weight: 800; line-height: 1.12;
+    color: #ffffff; letter-spacing: -0.02em;
+  }
+  .sba-refina__body {
+    margin: 0 auto 18px auto;
+    font-size: clamp(16px, 1.8vw, 20px);
+    line-height: 1.60; color: rgba(255,255,255,0.82);
+    max-width: 640px;
+  }
+  .sba-refina__cta-text {
+    margin: 0;
+    font-size: clamp(16px, 1.8vw, 19px);
+    font-weight: 700; line-height: 1.55;
+    color: #ffffff; font-style: italic;
+  }
+  .sba-refina-reveal { opacity: 0; transform: translateY(32px); }
+  .sba-refina-reveal.sba-refina-visible {
+    opacity: 1; transform: translateY(0);
+    transition: opacity 1.0s cubic-bezier(.22,.61,.36,1), transform 1.0s cubic-bezier(.22,.61,.36,1);
+  }
+  @media (max-width: 600px) { .sba-refina { padding: 40px 24px; } }
+  @media (prefers-reduced-motion: reduce) {
+    .sba-refina-reveal { opacity: 1 !important; transform: none !important; }
+  }
+</style>
+
+<script>
+(function(){
+  const el = document.querySelector('.sba-refina-reveal');
+  if (!el) return;
+  const io = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('sba-refina-visible');
+        obs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.30 });
+  io.observe(el);
+})();
+</script>
+</section>
+
+
+<!-- =====================================================
+     SECCIÓN 05 — ¿Qué aprenderás?
+===================================================== -->
+<section class="sba-section">
+<div class="sba-aprender">
+  <h2 class="sba-aprender__h2 sba-ap-reveal-left">¿Qué aprenderás?</h2>
+  <div class="sba-aprender__grid">
+    <div class="sba-aprender__bloque sba-ap-reveal-left">
+      <span class="sba-aprender__num">1</span>
+      <h3 class="sba-aprender__titulo">Cómo reducir refinamientos innecesarios</h3>
+      <p class="sba-aprender__cuerpo">Comprenderás el origen de los desajustes en tratamientos con alineadores y adquirirás criterio clínico para decidir cuándo hacer refinamientos, cuándo utilizar auxiliares y cuándo modificar los tiempos de uso.</p>
+    </div>
+    <div class="sba-aprender__bloque sba-ap-reveal-right">
+      <span class="sba-aprender__num">2</span>
+      <h3 class="sba-aprender__titulo">Disminuir desajustes e incidencias durante el tratamiento</h3>
+      <p class="sba-aprender__cuerpo">No es solo biomecánica y planificación: un protocolo de trabajo definido, y la ejecución correcta del IPR y los tallados selectivos te ayudan a conseguir que lo que planificas en la pantalla se exprese en la boca.</p>
+    </div>
+    <div class="sba-aprender__bloque sba-ap-reveal-left">
+      <span class="sba-aprender__num">3</span>
+      <h3 class="sba-aprender__titulo">Control total de técnicas auxiliares</h3>
+      <p class="sba-aprender__cuerpo">Colocaremos un MARPE contigo. Pondremos minitornillos. Integraremos seccionales. Y te explicaremos por qué, cuándo y cómo. Dejarás de hacer refinamiento tras refinamiento con mecánicas imposibles para un alineador.</p>
+    </div>
+    <div class="sba-aprender__bloque sba-ap-reveal-right">
+      <span class="sba-aprender__num">4</span>
+      <h3 class="sba-aprender__titulo">No te olvidarás de nada de lo que veas aquí</h3>
+      <p class="sba-aprender__cuerpo">A tu llegada a la clínica te entregaremos un manual completo de más de 300 páginas con todos nuestros protocolos clínicos y de trabajo. Aplícalo en tu rutina con todo tu equipo nada más volver a casa.</p>
+    </div>
+  </div>
+</div>
+
+<style>
+  .sba-aprender { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+  .sba-aprender__h2 {
+    margin: 0 0 48px 0;
+    font-size: clamp(28px, 3.5vw, 44px);
+    font-weight: 800; line-height: 1.12;
+    color: var(--sba-text); letter-spacing: -0.01em;
+  }
+  .sba-aprender__grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 28px;
+  }
+  .sba-aprender__bloque {
+    background: var(--sba-card-bg);
+    border: 1px solid var(--sba-card-border);
+    border-radius: 22px; padding: 36px 32px;
+    box-shadow: var(--sba-card-shadow);
+    display: flex; flex-direction: column; gap: 14px;
+    transition: border-color 0.28s ease, box-shadow 0.28s ease;
+  }
+  @media (hover:hover) and (pointer:fine) {
+    .sba-aprender__bloque:hover {
+      border-color: var(--sba-accent);
+      box-shadow: 0 30px 70px rgba(82,46,129,0.16);
+    }
+  }
+  .sba-aprender__num {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 48px; height: 48px; border-radius: 50%;
+    background: var(--sba-accent); color: #ffffff;
+    font-size: 20px; font-weight: 800;
+    flex-shrink: 0; align-self: flex-start;
+  }
+  .sba-aprender__titulo {
+    margin: 0; font-size: 18px; font-weight: 700;
+    line-height: 1.30; color: var(--sba-text);
+  }
+  .sba-aprender__cuerpo {
+    margin: 0; font-size: 15px; line-height: 1.68; color: var(--sba-text-muted);
+  }
+  .sba-ap-reveal-left, .sba-ap-reveal-right {
+    opacity: 0;
+    transition: opacity 0.9s cubic-bezier(.22,.61,.36,1), transform 0.9s cubic-bezier(.22,.61,.36,1);
+  }
+  .sba-ap-reveal-left  { transform: translateX(-28px); }
+  .sba-ap-reveal-right { transform: translateX(28px); }
+  .sba-ap-reveal-left.sba-ap-visible, .sba-ap-reveal-right.sba-ap-visible {
+    opacity: 1; transform: translateX(0);
+  }
+  @media (max-width: 700px) {
+    .sba-aprender__grid { grid-template-columns: 1fr; }
+    .sba-aprender__bloque { padding: 26px 22px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .sba-ap-reveal-left, .sba-ap-reveal-right { opacity: 1 !important; transform: none !important; }
+  }
+</style>
+
+<script>
+(function(){
+  const els = document.querySelectorAll('.sba-ap-reveal-left, .sba-ap-reveal-right');
+  if (!els.length) return;
+  const io = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('sba-ap-visible');
+        obs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.20, rootMargin: '0px 0px -8% 0px' });
+  els.forEach(el => io.observe(el));
+})();
+</script>
+</section>
+
+
+<!-- =====================================================
+     SECCIÓN 06 — Es para ti / No es para ti
+===================================================== -->
+<section class="sba-section">
+<div class="sba-parasi">
+  <div class="sba-parasi__col sba-parasi__col--si sba-parasi-reveal-left">
+    <div class="sba-parasi__col-header">
+      <span class="sba-parasi__badge sba-parasi__badge--si">✓</span>
+      <h3 class="sba-parasi__col-titulo">Es para ti si:</h3>
+    </div>
+    <ul class="sba-parasi__list">
+      <li>Ya tratas casos con alineadores.</li>
+      <li>Te frustran los refinamientos.</li>
+      <li>Sientes que tu primera visita no convierte lo que debería.</li>
+      <li>Quieres aumentar el volumen de tratamientos invisibles en tu clínica.</li>
+    </ul>
+  </div>
+  <div class="sba-parasi__col sba-parasi__col--no sba-parasi-reveal-right">
+    <div class="sba-parasi__col-header">
+      <span class="sba-parasi__badge sba-parasi__badge--no">✕</span>
+      <h3 class="sba-parasi__col-titulo">No es para ti si:</h3>
+    </div>
+    <ul class="sba-parasi__list">
+      <li>Buscas un curso de iniciación.</li>
+      <li>Aún no has hecho tus primeros casos con alineadores.</li>
+      <li>No estás dispuesto a cuestionar tu protocolo actual.</li>
+    </ul>
+  </div>
+</div>
+
+<style>
+  .sba-parasi {
+    max-width: 1080px; margin: 0 auto; padding: 0 24px;
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 28px; align-items: start;
+  }
+  .sba-parasi__col {
+    border-radius: 22px; padding: 36px 32px;
+    box-shadow: var(--sba-card-shadow);
+  }
+  .sba-parasi__col--si {
+    background: rgba(52,199,89,0.10);
+    border: 1px solid rgba(52,199,89,0.32);
+  }
+  .sba-parasi__col--no {
+    background: var(--sba-card-bg);
+    border: 1px solid var(--sba-card-border);
+  }
+  .sba-parasi__col-header {
+    display: flex; align-items: center; gap: 14px; margin-bottom: 24px;
+  }
+  .sba-parasi__badge {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 38px; height: 38px; border-radius: 50%;
+    font-size: 16px; font-weight: 800; flex-shrink: 0;
+  }
+  .sba-parasi__badge--si { background: #34C759; color: #ffffff; }
+  .sba-parasi__badge--no { background: rgba(0,0,0,0.10); color: var(--sba-text-muted); }
+  .sba-parasi__col-titulo {
+    margin: 0; font-size: 20px; font-weight: 800;
+    color: var(--sba-text); line-height: 1.2;
+  }
+  .sba-parasi__list {
+    margin: 0; padding: 0; list-style: none;
+    display: flex; flex-direction: column; gap: 14px;
+  }
+  .sba-parasi__list li {
+    display: grid; grid-template-columns: 20px 1fr; gap: 10px;
+    font-size: 16px; line-height: 1.55; font-weight: 600;
+  }
+  .sba-parasi__col--si .sba-parasi__list li { color: var(--sba-text); }
+  .sba-parasi__col--no .sba-parasi__list li { color: var(--sba-text-muted); }
+  .sba-parasi__col--si .sba-parasi__list li::before {
+    content: "✓"; color: #34C759; font-weight: 700;
+  }
+  .sba-parasi__col--no .sba-parasi__list li::before {
+    content: "✕"; color: var(--sba-text-muted); font-weight: 700;
+  }
+  .sba-parasi-reveal-left, .sba-parasi-reveal-right {
+    opacity: 0;
+    transition: opacity 0.9s cubic-bezier(.22,.61,.36,1), transform 0.9s cubic-bezier(.22,.61,.36,1);
+  }
+  .sba-parasi-reveal-left  { transform: translateX(-28px); }
+  .sba-parasi-reveal-right { transform: translateX(28px); }
+  .sba-parasi-reveal-left.sba-parasi-visible, .sba-parasi-reveal-right.sba-parasi-visible {
+    opacity: 1; transform: translateX(0);
+  }
+  @media (max-width: 680px) {
+    .sba-parasi { grid-template-columns: 1fr; }
+    .sba-parasi__col { padding: 26px 22px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .sba-parasi-reveal-left, .sba-parasi-reveal-right { opacity: 1 !important; transform: none !important; }
+  }
+</style>
+
+<script>
+(function(){
+  const els = document.querySelectorAll('.sba-parasi-reveal-left, .sba-parasi-reveal-right');
+  if (!els.length) return;
+  const io = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('sba-parasi-visible');
+        obs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.25, rootMargin: '0px 0px -8% 0px' });
+  els.forEach(el => io.observe(el));
+})();
+</script>
+</section>
+
+
+<!-- =====================================================
+     SECCIÓN 07 — Tu día, hora a hora
+===================================================== -->
+<section class="sba-section">
+<div class="sba-dia">
+  <div class="sba-dia__header sba-dia-reveal">
+    <h2 class="sba-dia__h2">Tu día, hora a hora</h2>
+    <p class="sba-dia__intro">De 9:30 a 19:00, contigo dentro de la clínica. Sin aula, sin diapositivas, sin teoría desconectada.</p>
+    <p class="sba-dia__intro">El día se organiza en bloques, no en un horario rígido: una clínica con este volumen no funciona con cronómetro, y precisamente por eso vas a ver lo que pasa de verdad. El orden y la duración de cada parte se ajustan a los pacientes programados ese día y a las dudas que vayas planteando.</p>
+  </div>
+
+  <div class="sba-dia__timeline">
+    <div class="sba-dia__bloque sba-dia-reveal">
+      <div class="sba-dia__hora-wrap"><span class="sba-dia__hora">9:30 – 11:30</span></div>
+      <div class="sba-dia__contenido">
+        <h3 class="sba-dia__titulo">Marketing, ventas y primera visita</h3>
+        <p class="sba-dia__cuerpo">Empezamos por lo que sostiene el volumen de la clínica: cómo llegan los pacientes y cómo se convierten en tratamientos. Trabajamos el funnel completo, las redes sociales, las campañas activas, la estrategia de primera visita, la fijación de precios, los presupuestos y los guiones de comunicación. Antes de entrar en boca, entendemos por qué esta clínica hace 300 casos al año y la tuya no.</p>
+      </div>
+    </div>
+    <div class="sba-dia__bloque sba-dia-reveal">
+      <div class="sba-dia__hora-wrap"><span class="sba-dia__hora">El resto de la mañana</span></div>
+      <div class="sba-dia__contenido">
+        <h3 class="sba-dia__titulo">Clínica en directo</h3>
+        <p class="sba-dia__cuerpo">A partir de aquí entramos en el día clínico real. Vas a ver primeras visitas, controles de pacientes en tratamiento, tallados oclusales, decisiones sobre refinamientos, manejo de desajustes, uso de auxiliares, levantes y seccionales. La cirugía de MARPE entra en algún momento de la jornada —la hacemos todos los días, garantizada durante tu estancia—, igual que la colocación de minitornillos para problemas verticales y sagitales, si hay indicación ese día.</p>
+      </div>
+    </div>
+    <div class="sba-dia__bloque sba-dia-reveal">
+      <div class="sba-dia__hora-wrap"><span class="sba-dia__hora">14:30 – 15:00</span></div>
+      <div class="sba-dia__contenido">
+        <h3 class="sba-dia__titulo">Comida con los doctores Lozano</h3>
+        <p class="sba-dia__cuerpo">No es una pausa: es parte del programa. Treinta minutos para discutir casos, resolver tus dudas en privado y entrar en los temas que no caben en la consulta: gestión, equipo, decisiones difíciles, comunicación con el paciente.</p>
+      </div>
+    </div>
+    <div class="sba-dia__bloque sba-dia-reveal">
+      <div class="sba-dia__hora-wrap"><span class="sba-dia__hora">Tarde</span></div>
+      <div class="sba-dia__contenido">
+        <h3 class="sba-dia__titulo">Clínica, protocolos de control y tus casos</h3>
+        <p class="sba-dia__cuerpo">Continuamos con los pacientes de la agenda y, en algún momento de la tarde, repasamos los protocolos de seguimiento —presencial y remoto—: cómo controlamos a los pacientes entre visitas y cómo evitamos que un desajuste pequeño se convierta en un refinamiento grande. Antes de cerrar, dedicamos un bloque a tus casos: los traes, los revisamos contigo, te damos criterio sobre las decisiones que has tomado y planteamos juntos los siguientes pasos.</p>
+      </div>
+    </div>
+    <div class="sba-dia__bloque sba-dia-reveal">
+      <div class="sba-dia__hora-wrap"><span class="sba-dia__hora">19:00</span></div>
+      <div class="sba-dia__contenido">
+        <h3 class="sba-dia__titulo">Cierre</h3>
+        <p class="sba-dia__cuerpo">Te vas con el manual de 300 páginas, las decisiones tomadas sobre tus casos y un protocolo de trabajo listo para aplicar en tu clínica.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .sba-dia { max-width: 860px; margin: 0 auto; padding: 0 24px; }
+  .sba-dia__header { margin-bottom: 48px; }
+  .sba-dia__h2 {
+    margin: 0 0 22px 0;
+    font-size: clamp(28px, 3.5vw, 44px);
+    font-weight: 800; line-height: 1.12;
+    color: var(--sba-text); letter-spacing: -0.01em;
+  }
+  .sba-dia__intro {
+    margin: 0 0 14px 0;
+    font-size: 16px; line-height: 1.70; color: var(--sba-text-muted);
+  }
+  .sba-dia__intro:last-child { margin-bottom: 0; }
+  .sba-dia__timeline {
+    position: relative; display: flex; flex-direction: column; gap: 0;
+  }
+  .sba-dia__timeline::before {
+    content: ""; position: absolute;
+    left: 140px; top: 12px; bottom: 12px;
+    width: 2px;
+    background: linear-gradient(180deg, transparent, rgba(82,46,129,0.45) 8%, rgba(82,46,129,0.45) 92%, transparent);
+  }
+  .sba-dia__bloque {
+    display: grid; grid-template-columns: 140px 1fr;
+    gap: 32px; padding: 28px 0; position: relative;
+  }
+  .sba-dia__bloque::before {
+    content: ""; position: absolute;
+    left: 134px; top: 36px;
+    width: 14px; height: 14px; border-radius: 50%;
+    background: var(--sba-accent);
+    box-shadow: 0 0 0 4px rgba(82,46,129,0.20);
+    z-index: 1;
+  }
+  .sba-dia__hora-wrap {
+    display: flex; align-items: flex-start; padding-top: 2px;
+  }
+  .sba-dia__hora {
+    font-size: 12px; font-weight: 700;
+    letter-spacing: 0.04em; color: var(--sba-accent);
+    text-transform: uppercase; line-height: 1.4;
+    text-align: right; width: 100%; padding-right: 24px;
+  }
+  .sba-dia__contenido {
+    background: var(--sba-card-bg);
+    border: 1px solid var(--sba-card-border);
+    border-radius: 18px; padding: 24px 28px;
+    box-shadow: var(--sba-card-shadow);
+  }
+  .sba-dia__titulo {
+    margin: 0 0 12px 0; font-size: 18px; font-weight: 700;
+    color: var(--sba-text); line-height: 1.25;
+  }
+  .sba-dia__cuerpo {
+    margin: 0; font-size: 15px; line-height: 1.68; color: var(--sba-text-muted);
+  }
+  .sba-dia-reveal { opacity: 0; transform: translateX(28px); }
+  .sba-dia-reveal.sba-dia-visible {
+    opacity: 1; transform: translateX(0);
+    transition: opacity 0.9s cubic-bezier(.22,.61,.36,1), transform 0.9s cubic-bezier(.22,.61,.36,1);
+  }
+  @media (max-width: 640px) {
+    .sba-dia__timeline::before { display: none; }
+    .sba-dia__bloque { grid-template-columns: 1fr; gap: 8px; }
+    .sba-dia__bloque::before { display: none; }
+    .sba-dia__hora-wrap { padding-top: 0; }
+    .sba-dia__hora { text-align: left; padding-right: 0; font-size: 11px; }
+    .sba-dia__contenido { padding: 18px 16px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .sba-dia-reveal { opacity: 1 !important; transform: none !important; }
+  }
+</style>
+
+<script>
+(function(){
+  const els = document.querySelectorAll('.sba-dia-reveal');
+  if (!els.length) return;
+  const io = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('sba-dia-visible');
+        obs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.18, rootMargin: '0px 0px -6% 0px' });
+  els.forEach(el => io.observe(el));
+})();
+</script>
+</section>
+
+
+<!-- =====================================================
+     SECCIÓN 08 — Quién imparte
+===================================================== -->
+<section class="sba-section">
+<div class="sba-quien">
+  <h2 class="sba-quien__h2 sba-quien-reveal-left">Quién imparte la estancia</h2>
+
+  <div class="sba-quien__principal sba-quien-reveal-up">
+    <div class="sba-flip-wrap">
+      <input class="sba-flip-toggle" type="checkbox" id="sbaFlipJavierNew">
+      <label class="sba-flip-card" for="sbaFlipJavierNew" aria-label="Más información sobre el Dr. Javier Lozano">
+        <div class="sba-flip-inner" id="sbaFlipInnerJavierNew">
+          <div class="sba-flip-front">
+            <img src="https://kajabi-storefronts-production.kajabi-cdn.com/kajabi-storefronts-production/file-uploads/themes/2161305203/settings_images/ea3b20d-a86b-3746-ba61-a3188a640b7_Copia_para_landing_estancia_1_.png" alt="Dr. Javier Lozano">
+            <span class="sba-flip-name">Dr. Javier Lozano</span>
+            <span class="sba-flip-hint sba-pulse">Más información</span>
+          </div>
+          <div class="sba-flip-back">
+            <p>Más de <strong>300 casos de ortodoncia invisible al año</strong> en su propia clínica. Coloca minitornillos y realiza cirugías de MARPE a diario.</p>
+            <p>Ha desarrollado un sistema propio de planificación y biomecánica con alineadores que <strong>reduce los refinamientos a uno o dos por caso</strong>, y un protocolo de gestión clínica que ha multiplicado el volumen sin marketing agresivo.</p>
+            <p>Conferenciante internacional, co-autor de <em>Aligner Techniques in Orthodontics</em> y autor de <em>La experiencia transparente</em> y <em>100 casos de Invisalign al año</em>. Socio honorífico de las Sociedades Francesa y Turca de Alineadores.</p>
+            <p>Doctor en Odontología (Universidad de Murcia). Postgrado en Ortodoncia y Ortopedia Dentomaxilar (CEU).</p>
+            <span class="sba-flip-hint back">Volver</span>
+          </div>
+        </div>
+      </label>
+    </div>
+
+    <div class="sba-quien__principal-copy">
+      <p class="sba-quien__tag">Ponente principal</p>
+      <h3 class="sba-quien__nombre">Dr. Javier Lozano</h3>
+      <p class="sba-quien__bio">Más de 300 casos de ortodoncia invisible al año en su propia clínica. Coloca minitornillos y realiza cirugías de MARPE a diario. Trata casos complejos con alineadores que la mayoría de clínicas derivan: distalizaciones, problemas verticales, sagitales severos, pacientes adultos con compromisos periodontales.</p>
+      <p class="sba-quien__bio">Ha desarrollado un sistema propio de planificación y biomecánica con alineadores que reduce los refinamientos a uno o dos por caso, y un protocolo de gestión clínica que ha permitido a su clínica multiplicar el volumen de tratamientos sin marketing agresivo.</p>
+      <p class="sba-quien__bio">Conferenciante internacional habitual sobre ortodoncia invisible, co-autor del libro <em>Aligner Techniques in Orthodontics</em> y autor de los manuales <em>La experiencia transparente</em> y <em>100 casos de Invisalign al año</em>. Socio honorífico de las Sociedades Francesa y Turca de Alineadores, socio de ANEO, Grupo Ortodoncis y SEDO.</p>
+      <p class="sba-quien__bio sba-quien__bio--muted">Doctor en Odontología por la Universidad de Murcia. Postgrado Universitario en Ortodoncia y Ortopedia Dentomaxilar (CEU).</p>
+    </div>
+  </div>
+
+  <div class="sba-quien__secundario sba-quien-reveal-up">
+    <div class="sba-quien__sec-img-wrap">
+      <img src="https://kajabi-storefronts-production.kajabi-cdn.com/kajabi-storefronts-production/file-uploads/themes/2161305203/settings_images/3ac47e0-1f40-daaf-baa6-23baa3ccf578_Copia_para_landing_estancia_3_.png" alt="Dr. Enrique Lozano" class="sba-quien__sec-img">
+    </div>
+    <div class="sba-quien__sec-copy">
+      <p class="sba-quien__tag">Especialista MARPE</p>
+      <h3 class="sba-quien__nombre sba-quien__nombre--sec">Dr. Enrique Lozano</h3>
+      <p class="sba-quien__bio">Ortodoncista del equipo Lozano. Realiza personalmente las cirugías de MARPE durante las estancias clínicas, aplicando los protocolos de planificación, colocación y control de la expansión que el equipo ha refinado tras cientos de casos.</p>
+      <p class="sba-quien__bio">Su presencia es lo que garantiza que veas un MARPE en directo cada vez que un doctor visita la clínica.</p>
+    </div>
+  </div>
+</div>
+
+<style>
+  .sba-quien {
+    max-width: 1080px; margin: 0 auto; padding: 0 24px;
+    display: flex; flex-direction: column; gap: 60px;
+  }
+  .sba-quien__h2 {
+    margin: 0; font-size: clamp(28px, 3.5vw, 44px);
+    font-weight: 800; line-height: 1.12;
+    color: var(--sba-text); letter-spacing: -0.01em;
+  }
+  .sba-quien__principal {
+    display: grid; grid-template-columns: 380px 1fr; gap: 52px; align-items: start;
+  }
+  .sba-flip-wrap { width: 100%; max-width: 380px; }
+  .sba-flip-toggle { position: absolute; opacity: 0; pointer-events: none; }
+  .sba-flip-card {
+    display: block; width: 100%; aspect-ratio: 3 / 4;
+    perspective: 1200px; cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .sba-flip-inner {
+    position: relative; width: 100%; height: 100%;
+    transform-style: preserve-3d;
+    transition: transform .85s cubic-bezier(.22,.61,.36,1);
+  }
+  .sba-flip-toggle:checked + .sba-flip-card .sba-flip-inner {
+    transform: rotateY(180deg);
+  }
+  .sba-flip-front, .sba-flip-back {
+    position: absolute; inset: 0;
+    backface-visibility: hidden;
+    border-radius: 22px; overflow: hidden;
+    box-shadow: 0 28px 60px rgba(82,46,129,0.22), 0 12px 30px rgba(0,0,0,0.10);
+  }
+  .sba-flip-front img {
+    width: 100%; height: 100%; object-fit: cover; display: block; object-position: center 15%;
+  }
+  .sba-flip-name {
+    position: absolute; top: 16px; right: 16px;
+    font-size: 15px; font-weight: 700; color: #fff;
+    letter-spacing: .03em; padding: 7px 12px; border-radius: 999px;
+    background: rgba(82,46,129,0.75); backdrop-filter: blur(6px); line-height: 1.2;
+  }
+  .sba-flip-back {
+    background: var(--sba-accent); color: #ffffff;
+    padding: 32px;
+    display: flex; flex-direction: column; justify-content: center;
+    transform: rotateY(180deg);
+  }
+  .sba-flip-back p { margin: 0 0 13px 0; font-size: 15px; line-height: 1.55; }
+  .sba-flip-back p:last-of-type { margin-bottom: 0; }
+  .sba-flip-back strong { font-weight: 700; }
+  .sba-flip-hint {
+    position: absolute; bottom: 16px; left: 16px;
+    font-size: 13px; padding: 7px 12px; border-radius: 999px;
+    background: rgba(82,46,129,0.75); color: #fff;
+    backdrop-filter: blur(6px);
+  }
+  .sba-flip-hint.back {
+    left: auto; right: 16px;
+    background: rgba(255,255,255,0.18); color: #ffffff;
+  }
+  @keyframes sbaMicroPulse {
+    0%,100%{ transform: translateY(0) scale(1); opacity:.92; }
+    50%{ transform: translateY(-1px) scale(1.03); opacity:1; }
+  }
+  .sba-pulse { animation: sbaMicroPulse 2.4s ease-in-out infinite; }
+  .sba-flip-toggle:checked + .sba-flip-card .sba-pulse { animation: none !important; }
+  @keyframes sbaAutoFlipReverse {
+    0%   { transform: rotateY(0deg); }
+    35%  { transform: rotateY(-180deg); }
+    55%  { transform: rotateY(-180deg); }
+    100% { transform: rotateY(0deg); }
+  }
+  .sba-flip-inner.sba-demo {
+    animation: sbaAutoFlipReverse 6s cubic-bezier(.22,.61,.36,1) forwards;
+  }
+  .sba-quien__tag {
+    margin: 0 0 8px 0;
+    font-size: 11px; font-weight: 700;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--sba-accent);
+  }
+  .sba-quien__nombre {
+    margin: 0 0 20px 0;
+    font-size: clamp(22px, 2.8vw, 32px);
+    font-weight: 800; color: var(--sba-text); line-height: 1.1;
+  }
+  .sba-quien__nombre--sec { font-size: clamp(18px, 2vw, 24px); }
+  .sba-quien__bio {
+    margin: 0 0 14px 0;
+    font-size: 15.5px; line-height: 1.65; color: var(--sba-text-muted);
+  }
+  .sba-quien__bio:last-child { margin-bottom: 0; }
+  .sba-quien__bio--muted { color: rgba(0,0,0,0.45); font-size: 14px; }
+  .sba-quien__secundario {
+    display: grid; grid-template-columns: 160px 1fr; gap: 32px; align-items: start;
+    background: var(--sba-card-bg);
+    border: 1px solid var(--sba-card-border);
+    border-radius: 22px; padding: 32px;
+    box-shadow: var(--sba-card-shadow);
+  }
+  .sba-quien__sec-img {
+    width: 100%; aspect-ratio: 3/4;
+    object-fit: cover; object-position: center 20%;
+    border-radius: 16px;
+    box-shadow: 0 16px 36px rgba(82,46,129,0.20);
+  }
+  .sba-quien-reveal-left {
+    opacity: 0; transform: translateX(-28px);
+    transition: opacity 1.0s cubic-bezier(.22,.61,.36,1), transform 1.0s cubic-bezier(.22,.61,.36,1);
+  }
+  .sba-quien-reveal-up {
+    opacity: 0; transform: translateY(32px);
+    transition: opacity 1.0s cubic-bezier(.22,.61,.36,1), transform 1.0s cubic-bezier(.22,.61,.36,1);
+  }
+  .sba-quien-reveal-left.sba-quien-visible, .sba-quien-reveal-up.sba-quien-visible {
+    opacity: 1; transform: translate(0);
+  }
+  @media (max-width: 860px) {
+    .sba-quien__principal { grid-template-columns: 1fr; }
+    .sba-flip-wrap { max-width: 100%; }
+  }
+  @media (max-width: 560px) {
+    .sba-quien__secundario { grid-template-columns: 100px 1fr; gap: 18px; padding: 22px 18px; }
+    .sba-flip-back { padding: 22px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .sba-pulse { animation: none !important; }
+    .sba-flip-inner { transition: none !important; }
+    .sba-quien-reveal-left, .sba-quien-reveal-up { opacity: 1 !important; transform: none !important; }
+  }
+</style>
+
+<script>
+(function(){
+  const els = document.querySelectorAll('.sba-quien-reveal-left, .sba-quien-reveal-up');
+  if (els.length) {
+    const io = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('sba-quien-visible');
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.18, rootMargin: '0px 0px -6% 0px' });
+    els.forEach(el => io.observe(el));
+  }
+  var inner    = document.getElementById('sbaFlipInnerJavierNew');
+  var checkbox = document.getElementById('sbaFlipJavierNew');
+  if (!inner || !checkbox) return;
+  var triggered = false;
+  function launchDemo(){
+    if (triggered || checkbox.checked) return;
+    triggered = true;
+    var hint = inner.querySelector('.sba-pulse');
+    if (hint) hint.style.animationPlayState = 'paused';
+    inner.classList.add('sba-demo');
+    inner.addEventListener('animationend', function onEnd(){
+      inner.removeEventListener('animationend', onEnd);
+      inner.classList.remove('sba-demo');
+      if (hint) hint.style.animationPlayState = '';
+    });
+  }
+  if (document.readyState === 'complete') {
+    setTimeout(launchDemo, 13000);
+  } else {
+    window.addEventListener('load', function(){ setTimeout(launchDemo, 13000); });
+  }
+})();
+</script>
+</section>
+
+
+<!-- =====================================================
+     SECCIÓN 09 — Galería
+===================================================== -->
+<section class="sba-section">
+<div class="sba-galeria">
+  <div class="sba-galeria__header sba-gal-reveal">
+    <h2 class="sba-galeria__h2">Nuestra Clínica</h2>
+    <p class="sba-galeria__intro">Esta es la clínica donde vas a pasar tu jornada. No es un decorado para fotos: aquí tratamos cada día a los pacientes que sostienen los 300 casos al año.</p>
+  </div>
+
+  <div class="sba-carousel-wrap sba-gal-reveal">
+    <button class="sba-arrow sba-prev" aria-label="Imagen anterior">‹</button>
+    <div class="sba-carousel">
+      <div class="sba-carousel-track">
+        <img src="https://kajabi-storefronts-production.kajabi-cdn.com/kajabi-storefronts-production/file-uploads/themes/2161305203/settings_images/aef460-a6ce-be1d-20e2-0b8544586c2_IMG_6933_1_.png" alt="Clínica Common Sense Aligners">
+        <img src="https://kajabi-storefronts-production.kajabi-cdn.com/kajabi-storefronts-production/file-uploads/themes/2161305203/settings_images/e2a53da-1cbb-3dd0-54e3-6d2324edadb4_foto_javi_2.png" alt="Dr. Javier Lozano en consulta">
+        <img src="https://kajabi-storefronts-production.kajabi-cdn.com/kajabi-storefronts-production/file-uploads/themes/2161305203/settings_images/a781ce-bfd0-38b-7a75-b15f62bcda7_IMG_0386.png" alt="Interior de la clínica">
+        <img src="https://kajabi-storefronts-production.kajabi-cdn.com/kajabi-storefronts-production/file-uploads/themes/2161305203/settings_images/074a2a4-5acb-a33c-8e6b-df8b655687_IMG_7354.png" alt="Equipo de la clínica">
+        <img src="https://kajabi-storefronts-production.kajabi-cdn.com/kajabi-storefronts-production/file-uploads/themes/2161305203/settings_images/cb07d4c-d18-16da-bba6-00c85ac506_foto_javi_1.png" alt="Dr. Javier Lozano">
+        <img src="https://kajabi-storefronts-production.kajabi-cdn.com/kajabi-storefronts-production/file-uploads/themes/2161305203/settings_images/8a5ab1b-e47b-351a-e3ed-1483ac7833_IMG_0001.png" alt="Instalaciones de la clínica">
+      </div>
+    </div>
+    <button class="sba-arrow sba-next" aria-label="Imagen siguiente">›</button>
+  </div>
+</div>
+
+<style>
+  .sba-galeria {
+    max-width: 980px; margin: 0 auto; padding: 0 24px;
+    display: flex; flex-direction: column; gap: 36px;
+  }
+  .sba-galeria__h2 {
+    margin: 0 0 12px 0;
+    font-size: clamp(28px, 3.5vw, 44px);
+    font-weight: 800; line-height: 1.12;
+    color: var(--sba-text); letter-spacing: -0.01em;
+  }
+  .sba-galeria__intro {
+    margin: 0; font-size: 16px; line-height: 1.65;
+    color: var(--sba-text-muted); max-width: 680px;
+  }
+  .sba-carousel-wrap {
+    position: relative; width: 100%;
+    perspective: 1200px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .sba-carousel {
+    position: relative; width: 100%; overflow: hidden;
+    border-radius: 22px;
+    background: var(--sba-card-bg);
+    border: 1px solid var(--sba-card-border);
+    box-shadow: 0 35px 80px rgba(82,46,129,0.16), 0 18px 40px rgba(0,0,0,0.08);
+  }
+  .sba-carousel-track {
+    display: flex;
+    transition: transform .9s cubic-bezier(.22,.61,.36,1);
+    will-change: transform; position: relative; z-index: 2;
+  }
+  .sba-carousel-track img {
+    width: 100%; flex-shrink: 0;
+    object-fit: cover; backface-visibility: hidden;
+  }
+  .sba-arrow {
+    position: absolute; top: 50%;
+    transform: translateY(-50%) scale(1); z-index: 10;
+    width: 54px; height: 54px; border-radius: 50%;
+    border: none; cursor: pointer;
+    background: var(--sba-accent); color: #ffffff;
+    font-size: 32px;
+    box-shadow: 0 14px 30px rgba(82,46,129,0.28);
+    transition: transform .35s cubic-bezier(.22,.61,.36,1), box-shadow .35s ease, background .35s ease;
+    animation: sbaArrowPulse 2.8s ease-in-out infinite;
+  }
+  .sba-prev { left: -72px; }
+  .sba-next { right: -72px; }
+  @keyframes sbaArrowPulse {
+    0%,100%{ transform: translateY(-50%) scale(1); }
+    50%{ transform: translateY(-50%) scale(1.18); }
+  }
+  @media (hover:hover) and (pointer:fine) {
+    .sba-arrow:hover {
+      transform: translateY(-50%) scale(1.35);
+      background: var(--sba-accent-dark);
+      box-shadow: 0 22px 45px rgba(82,46,129,0.40);
+    }
+  }
+  @media (max-width:640px) {
+    .sba-prev { left: 10px; } .sba-next { right: 10px; }
+    .sba-arrow { width: 44px; height: 44px; font-size: 26px; }
+  }
+  .sba-gal-reveal { opacity: 0; transform: translateY(28px); }
+  .sba-gal-reveal.sba-gal-visible {
+    opacity: 1; transform: translateY(0);
+    transition: opacity 1.0s cubic-bezier(.22,.61,.36,1), transform 1.0s cubic-bezier(.22,.61,.36,1);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .sba-arrow { animation: none !important; }
+    .sba-carousel-track { transition: none !important; }
+    .sba-gal-reveal { opacity: 1 !important; transform: none !important; }
+  }
+</style>
+
+<script>
+(function(){
+  const revealEls = document.querySelectorAll('.sba-gal-reveal');
+  if (revealEls.length) {
+    const ioReveal = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('sba-gal-visible');
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    revealEls.forEach(el => ioReveal.observe(el));
+  }
+  const track = document.querySelector('.sba-carousel-track');
+  if (!track) return;
+  const slides = track.querySelectorAll('img');
+  const prev = document.querySelector('.sba-prev');
+  const next = document.querySelector('.sba-next');
+  let index = 0;
+  function update(){ track.style.transform = 'translateX(-' + (index * 100) + '%)'; }
+  next.addEventListener('click', () => { index = (index + 1) % slides.length; update(); });
+  prev.addEventListener('click', () => { index = (index - 1 + slides.length) % slides.length; update(); });
+})();
+</script>
+</section>
+
+
+<!-- =====================================================
+     SECCIÓN 10 — Testimonios
+===================================================== -->
+<section class="sba-section">
+<div class="sba-testi">
+  <div class="sba-testi__header sba-testi-reveal-left">
+    <h2 class="sba-ring-t">
+      <span class="sba-ring">
+        <span class="sba-ring-text">Lo que dicen los doctores que ya han venido</span>
+        <svg class="sba-ring-svg" viewBox="0 0 100 40" aria-hidden="true" preserveAspectRatio="none">
+          <path class="sba-ring-path" d="M8,20 C8,10 22,4 50,4 C78,4 92,10 92,20 C92,30 78,36 50,36 C22,36 8,30 8,20 Z" />
+        </svg>
+      </span>
+    </h2>
+  </div>
+
+  <div class="sba-testi__destacado sba-testi-reveal-up">
+    <p class="sba-testi__destacado-quote">"Fue uno de los días más prácticos de mi vida profesional. Un mes después de hacer la estancia, he duplicado la facturación de mi clínica."</p>
+    <div class="sba-testi__destacado-firma">
+      <span class="sba-testi__destacado-nombre">Dr. Conrado</span>
+    </div>
+  </div>
+
+  <div class="mt-testimonials sba-testi-reveal-up" aria-label="Más testimonios">
+    <div class="mt-testimonials__wrap">
+      <button class="mt-nav mt-nav--left" type="button" aria-label="Anterior">
+        <span class="mt-nav__icon" aria-hidden="true">‹</span>
+      </button>
+      <div class="mt-viewport">
+        <div class="mt-track">
+          <article class="mt-card">
+            <p class="mt-quote">"Me han ayudado a sacar mi lado empresario y a sacarle más rentabilidad a mi profesión."</p>
+            <div class="mt-footer">
+              <img class="mt-avatar" src="https://kajabi-storefronts-production.kajabi-cdn.com/kajabi-storefronts-production/file-uploads/themes/2161305203/settings_images/7efc6f2-7e3a-bdaa-e11a-367564a2dcf_carmen_persona.png" alt="Foto de Dra. Carmen Serrano" loading="lazy">
+              <div class="mt-who"><p class="mt-name">Dra. Carmen Serrano</p></div>
+            </div>
+          </article>
+          <article class="mt-card">
+            <p class="mt-quote">"He vivido desde dentro cómo gestionan la clínica, he visto que funciona y quiero más."</p>
+            <div class="mt-footer">
+              <img class="mt-avatar" src="https://kajabi-storefronts-production.kajabi-cdn.com/kajabi-storefronts-production/file-uploads/themes/2161305203/settings_images/b880bb-aae3-1d58-2ca0-b475553a58_foto_3.png" alt="Foto de Dra. Patricia Delgado" loading="lazy">
+              <div class="mt-who"><p class="mt-name">Dra. Patricia Delgado</p></div>
+            </div>
+          </article>
+          <article class="mt-card">
+            <p class="mt-quote">"Todo lo que he aprendido sobre marketing, estrategia y gestión de la clínica lo he podido poner en práctica desde el minuto 1."</p>
+            <div class="mt-footer">
+              <img class="mt-avatar" src="https://kajabi-storefronts-production.kajabi-cdn.com/kajabi-storefronts-production/file-uploads/themes/2161305203/settings_images/a08a1f8-ad68-37cd-fbb1-a6d400dad86c_foto_2.png" alt="Foto de Dr. Luis Duquela" loading="lazy">
+              <div class="mt-who"><p class="mt-name">Dr. Luis Duquela</p></div>
+            </div>
+          </article>
+        </div>
+      </div>
+      <button class="mt-nav mt-nav--right" type="button" aria-label="Siguiente">
+        <span class="mt-nav__icon" aria-hidden="true">›</span>
+      </button>
+    </div>
+    <div class="mt-dots" aria-hidden="true"></div>
+  </div>
+</div>
+
+<style>
+  .sba-testi {
+    max-width: 1080px; margin: 0 auto; padding: 0 24px;
+    display: flex; flex-direction: column; gap: 48px;
+  }
+  .sba-ring-t { margin: 0; line-height: 1.15; }
+  .sba-ring { position: relative; display: inline-block; padding: .18em .55em; }
+  .sba-ring-text {
+    position: relative; z-index: 2;
+    color: var(--sba-text); font-weight: 800;
+    letter-spacing: .3px;
+    font-size: clamp(24px, 3vw, 38px);
+  }
+  .sba-ring-svg {
+    position: absolute; left: 50%; top: 50%;
+    transform: translate(-50%, -50%) rotate(-4deg);
+    pointer-events: none; z-index: 1;
+  }
+  .sba-ring-path {
+    fill: none; stroke: var(--sba-accent);
+    stroke-width: 4px;
+    stroke-linecap: round; stroke-linejoin: round;
+    opacity: 0; stroke-dasharray: 500; stroke-dashoffset: 500;
+  }
+  .sba-ring-animate .sba-ring-path {
+    opacity: .95;
+    animation: sbaRingDrawT 9s cubic-bezier(.25,.8,.25,1) forwards;
+    animation-delay: .35s;
+  }
+  @keyframes sbaRingDrawT { to { stroke-dashoffset: 0; } }
+
+  .sba-testi__destacado {
+    background: var(--sba-accent);
+    border-radius: 26px; padding: 48px 52px;
+    box-shadow: 0 28px 70px rgba(82,46,129,0.28);
+    position: relative;
+  }
+  .sba-testi__destacado::before {
+    content: "\201C"; position: absolute;
+    top: 16px; left: 36px;
+    font-size: 100px; line-height: 1;
+    color: rgba(255,255,255,0.18);
+    font-family: Georgia, serif;
+    pointer-events: none;
+  }
+  .sba-testi__destacado-quote {
+    margin: 0 0 24px 0;
+    font-size: clamp(20px, 2.5vw, 28px);
+    font-weight: 700; line-height: 1.45;
+    color: #ffffff; font-style: italic;
+    position: relative; z-index: 1;
+  }
+  .sba-testi__destacado-firma {
+    display: flex; align-items: center; gap: 12px;
+  }
+  .sba-testi__destacado-nombre {
+    font-size: 15px; font-weight: 800;
+    color: #ffffff; letter-spacing: 0.02em;
+  }
+
+  .mt-testimonials {
+    --bg: #ffffff;
+    --stroke: rgba(82,46,129,0.16);
+    --text: var(--sba-text);
+    --shadow: 0 24px 70px rgba(82,46,129,0.12);
+    --radius: 26px; --gap: 20px;
+    width: 100%; position: relative;
+  }
+  .mt-testimonials__wrap {
+    display: grid; grid-template-columns: 58px 1fr 58px;
+    align-items: center; gap: 12px;
+  }
+  .mt-viewport { overflow: hidden; border-radius: var(--radius); padding: 8px; box-sizing: border-box; }
+  .mt-track {
+    display: flex; gap: var(--gap);
+    transform: translate3d(0,0,0);
+    transition: transform 560ms cubic-bezier(.2,.9,.2,1);
+    will-change: transform;
+  }
+  .mt-card {
+    min-width: 100%;
+    background: var(--bg);
+    border: 1px solid var(--stroke);
+    border-radius: var(--radius); box-shadow: var(--shadow);
+    padding: 34px 34px 28px;
+    transform: perspective(1000px) rotateX(1.4deg) rotateY(-2deg);
+    transition: transform 280ms ease, box-shadow 280ms ease, border-color 280ms ease;
+    box-sizing: border-box;
+  }
+  .mt-card:hover {
+    transform: perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(-3px);
+    border-color: var(--sba-accent);
+    box-shadow: 0 34px 90px rgba(82,46,129,0.18);
+  }
+  .mt-quote { margin: 0 0 18px 0; color: var(--text); font-size: 20px; line-height: 1.55; }
+  .mt-footer { display: flex; align-items: center; gap: 14px; margin-top: 6px; }
+  .mt-avatar {
+    width: 44px; height: 44px; border-radius: 999px;
+    object-fit: cover; border: 1px solid rgba(82,46,129,0.20);
+    box-shadow: 0 10px 26px rgba(0,0,0,0.10); flex: 0 0 auto;
+  }
+  .mt-who { line-height: 1.1; }
+  .mt-name { margin: 0; color: var(--sba-text); font-size: 15px; font-weight: 600; }
+  .mt-nav {
+    width: 50px; height: 50px; border-radius: 999px;
+    border: 1px solid var(--sba-card-border);
+    background: var(--sba-card-bg);
+    cursor: pointer;
+    display: grid; place-items: center;
+    transition: transform 220ms ease, background 220ms ease;
+    user-select: none;
+  }
+  .mt-nav:hover { transform: translateY(-1px) scale(1.02); background: var(--sba-accent); }
+  .mt-nav:hover .mt-nav__icon { color: #ffffff; }
+  .mt-nav:active { transform: scale(0.98); }
+  .mt-nav__icon { font-size: 30px; color: var(--sba-accent); display: inline-block; }
+  .mt-nav--right .mt-nav__icon { animation: nudgeRightT 1.6s ease-in-out infinite; }
+  .mt-nav--left  .mt-nav__icon { animation: nudgeLeftT  1.6s ease-in-out infinite; }
+  @keyframes nudgeRightT { 0%,100%{ transform:translateX(0); opacity:.85; } 50%{ transform:translateX(3px); opacity:1; } }
+  @keyframes nudgeLeftT  { 0%,100%{ transform:translateX(0); opacity:.85; } 50%{ transform:translateX(-3px); opacity:1; } }
+  .mt-dots { display: flex; justify-content: center; gap: 8px; margin-top: 16px; }
+  .mt-dot {
+    width: 7px; height: 7px; border-radius: 999px;
+    background: rgba(82,46,129,0.25);
+    transition: transform 220ms ease, background 220ms ease; cursor: pointer;
+  }
+  .mt-dot.is-active { background: var(--sba-accent); transform: scale(1.15); }
+  .sba-testi-reveal-left {
+    opacity: 0; transform: translateX(-28px);
+    transition: opacity 1.0s cubic-bezier(.22,.61,.36,1), transform 1.0s cubic-bezier(.22,.61,.36,1);
+  }
+  .sba-testi-reveal-up {
+    opacity: 0; transform: translateY(28px);
+    transition: opacity 1.0s cubic-bezier(.22,.61,.36,1), transform 1.0s cubic-bezier(.22,.61,.36,1);
+  }
+  .sba-testi-reveal-left.sba-testi-visible, .sba-testi-reveal-up.sba-testi-visible {
+    opacity: 1; transform: translate(0);
+  }
+  @media (max-width: 640px) {
+    .sba-testi__destacado { padding: 30px 24px; }
+    .sba-testi__destacado::before { font-size: 60px; top: 10px; left: 20px; }
+    .mt-testimonials__wrap { grid-template-columns: 44px 1fr 44px; }
+    .mt-card { padding: 22px 18px 18px; }
+    .mt-quote { font-size: 16px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .sba-ring-path { opacity: .95 !important; stroke-dashoffset: 0 !important; animation: none !important; }
+    .sba-testi-reveal-left, .sba-testi-reveal-up { opacity: 1 !important; transform: none !important; }
+  }
+</style>
+
+<script>
+(function(){
+  const revEls = document.querySelectorAll('.sba-testi-reveal-left, .sba-testi-reveal-up');
+  const ioReveal = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('sba-testi-visible');
+        obs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.18, rootMargin: '0px 0px -6% 0px' });
+  revEls.forEach(el => ioReveal.observe(el));
+
+  const trigger = document.querySelector('.sba-testi__header');
+  if (trigger) {
+    const text = trigger.querySelector('.sba-ring-text');
+    const svg  = trigger.querySelector('.sba-ring-svg');
+    const path = trigger.querySelector('.sba-ring-path');
+    if (text && svg && path) {
+      function fitRing(){
+        const r = text.getBoundingClientRect();
+        svg.style.width  = (r.width * 1.08) + 'px';
+        svg.style.height = (r.height * 1.70) + 'px';
+        const len = path.getTotalLength();
+        path.style.strokeDasharray  = len + 2;
+        path.style.strokeDashoffset = len + 2;
+      }
+      requestAnimationFrame(() => { fitRing(); setTimeout(fitRing, 250); setTimeout(fitRing, 800); });
+      window.addEventListener('resize', fitRing, { passive: true });
+      const ioRing = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('sba-ring-animate');
+            obs.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.35 });
+      ioRing.observe(trigger);
+    }
+  }
+
+  const root = document.querySelector('.mt-testimonials');
+  if (!root) return;
+  const track   = root.querySelector('.mt-track');
+  const cards   = Array.from(root.querySelectorAll('.mt-card'));
+  const prevBtn = root.querySelector('.mt-nav--left');
+  const nextBtn = root.querySelector('.mt-nav--right');
+  const dotsWrap = root.querySelector('.mt-dots');
+  const viewport = root.querySelector('.mt-viewport');
+  let index = 0;
+  dotsWrap.innerHTML = '';
+  cards.forEach((_, i) => {
+    const d = document.createElement('div');
+    d.className = 'mt-dot' + (i === 0 ? ' is-active' : '');
+    d.addEventListener('click', () => goTo(i));
+    dotsWrap.appendChild(d);
+  });
+  function setDots(i){
+    dotsWrap.querySelectorAll('.mt-dot').forEach((d, idx) => d.classList.toggle('is-active', idx === i));
+  }
+  function gapPx(){
+    const s = getComputedStyle(track);
+    return parseFloat(s.gap || s.columnGap || 20) || 20;
+  }
+  function goTo(i){
+    index = (i + cards.length) % cards.length;
+    track.style.transform = 'translate3d(' + (-index * (cards[0].getBoundingClientRect().width + gapPx())) + 'px,0,0)';
+    setDots(index);
+  }
+  prevBtn.addEventListener('click', () => goTo(index - 1));
+  nextBtn.addEventListener('click', () => goTo(index + 1));
+  let startX = 0, currentX = 0, dragging = false;
+  viewport.addEventListener('pointerdown', e => { dragging=true; startX=currentX=e.clientX; viewport.setPointerCapture(e.pointerId); track.style.transition='none'; });
+  viewport.addEventListener('pointermove', e => { if(!dragging) return; currentX=e.clientX; const dx=currentX-startX; track.style.transform='translate3d(' + (-index*(cards[0].getBoundingClientRect().width+gapPx())+dx) + 'px,0,0)'; });
+  viewport.addEventListener('pointerup', () => { if(!dragging) return; dragging=false; track.style.transition='transform 560ms cubic-bezier(.2,.9,.2,1)'; const dx=currentX-startX; const th=Math.max(40,viewport.clientWidth*0.12); if(dx<-th) goTo(index+1); else if(dx>th) goTo(index-1); else goTo(index); });
+  window.addEventListener('resize', () => goTo(index), { passive: true });
+  goTo(0);
+})();
+</script>
+</section>
+
+
+<!-- =====================================================
+     SECCIÓN 11 — Inscripción y precio
+===================================================== -->
+<section class="sba-section">
+<div class="sba-precio">
+  <div class="sba-precio__header sba-precio-reveal-up">
+    <h2 class="sba-precio__h2">Inscripción y precio</h2>
+    <p class="sba-precio__sub">Dos formas de vivir tu estancia. Elige la que mejor encaje con cómo quieres aplicar lo aprendido.</p>
+  </div>
+
+  <div class="sba-precio__grid">
+    <div class="sba-precio__card sba-precio-reveal-left">
+      <div class="sba-precio__card-header">
+        <p class="sba-precio__plan-name">Básico</p>
+        <p class="sba-precio__plan-price">1.000 <span class="sba-precio__currency">€</span></p>
+      </div>
+      <ul class="sba-precio__includes">
+        <li>Estancia clínica de un día con el Dr. Javier Lozano.</li>
+        <li>Manual de 300 páginas con todos nuestros protocolos clínicos y de trabajo.</li>
+        <li>Comida con el equipo Lozano.</li>
+      </ul>
+      <a class="sba-precio__cta sba-precio__cta--basico"
+        href="https://wa.me/34678175707?text=Hola%2C%20me%20gustar%C3%ADa%20reservar%20plaza%20en%20la%20Estancia%20Cl%C3%ADnica%20%E2%80%93%20plan%20B%C3%A1sico."
+        target="_blank" rel="noopener noreferrer">
+        Reservar plaza Básico
+      </a>
+    </div>
+
+    <div class="sba-precio__card sba-precio__card--pro sba-precio-reveal-right">
+      <div class="sba-precio__badge">RECOMENDADO</div>
+      <div class="sba-precio__card-header">
+        <p class="sba-precio__plan-name">Pro</p>
+        <p class="sba-precio__plan-price">2.000 <span class="sba-precio__currency">€</span></p>
+      </div>
+      <ul class="sba-precio__includes">
+        <li>Estancia clínica de un día con el Dr. Javier Lozano.</li>
+        <li>Manual de 300 páginas con todos nuestros protocolos clínicos y de trabajo.</li>
+        <li>Comida con el equipo Lozano.</li>
+        <li class="sba-precio__extra">Dos sesiones online de seguimiento, a los 30 y 60 días después de la estancia.</li>
+        <li class="sba-precio__extra">Revisión de 3 de tus casos por los doctores Lozano.</li>
+        <li class="sba-precio__extra">Posibilidad de traer un acompañante de tu clínica.</li>
+      </ul>
+      <a class="sba-precio__cta sba-precio__cta--pro"
+        href="https://wa.me/34678175707?text=Hola%2C%20me%20gustar%C3%ADa%20reservar%20plaza%20en%20la%20Estancia%20Cl%C3%ADnica%20%E2%80%93%20plan%20Pro."
+        target="_blank" rel="noopener noreferrer">
+        Reservar plaza Pro
+      </a>
+    </div>
+  </div>
+</div>
+
+<style>
+  .sba-precio {
+    max-width: 900px; margin: 0 auto; padding: 0 24px;
+    display: flex; flex-direction: column; gap: 44px;
+  }
+  .sba-precio__h2 {
+    margin: 0 0 12px 0;
+    font-size: clamp(28px, 3.5vw, 44px);
+    font-weight: 800; line-height: 1.12;
+    color: var(--sba-text); letter-spacing: -0.01em;
+  }
+  .sba-precio__sub {
+    margin: 0; font-size: 16px; line-height: 1.65; color: var(--sba-text-muted);
+  }
+  .sba-precio__grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 24px; align-items: start;
+  }
+  .sba-precio__card {
+    position: relative;
+    background: var(--sba-card-bg);
+    border: 1px solid var(--sba-card-border);
+    border-radius: 24px; padding: 36px 32px;
+    box-shadow: var(--sba-card-shadow);
+    display: flex; flex-direction: column; gap: 28px;
+  }
+  .sba-precio__card--pro {
+    background: #ffffff;
+    border: 2px solid var(--sba-accent);
+    box-shadow: 0 30px 70px rgba(82,46,129,0.20), 0 0 0 1px rgba(82,46,129,0.06);
+  }
+  .sba-precio__badge {
+    position: absolute; top: -14px; left: 50%;
+    transform: translateX(-50%);
+    background: var(--sba-accent); color: #ffffff;
+    font-size: 11px; font-weight: 800;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    padding: 6px 16px; border-radius: 999px;
+    white-space: nowrap;
+    box-shadow: 0 6px 18px rgba(82,46,129,0.30);
+  }
+  .sba-precio__card-header {
+    display: flex; align-items: baseline; justify-content: space-between; gap: 12px;
+  }
+  .sba-precio__plan-name {
+    margin: 0; font-size: 22px; font-weight: 800; color: var(--sba-text);
+  }
+  .sba-precio__plan-price {
+    margin: 0; font-size: 38px; font-weight: 800;
+    color: var(--sba-accent); line-height: 1;
+  }
+  .sba-precio__currency { font-size: 22px; font-weight: 700; }
+  .sba-precio__includes {
+    margin: 0; padding: 0; list-style: none;
+    display: flex; flex-direction: column; gap: 12px; flex: 1;
+  }
+  .sba-precio__includes li {
+    display: grid; grid-template-columns: 20px 1fr; gap: 10px;
+    font-size: 15px; line-height: 1.55;
+    color: var(--sba-text-muted); font-weight: 500;
+  }
+  .sba-precio__includes li::before {
+    content: "✓"; color: var(--sba-accent);
+    font-weight: 700; margin-top: 1px;
+  }
+  .sba-precio__extra {
+    color: var(--sba-text) !important; font-weight: 600 !important;
+  }
+  .sba-precio__cta {
+    display: block; text-align: center; text-decoration: none;
+    border-radius: 16px; padding: 16px 20px;
+    font-size: 16px; font-weight: 800; letter-spacing: 0.02em;
+    transition: transform 0.25s cubic-bezier(.22,.61,.36,1), box-shadow 0.25s ease, background 0.25s ease;
+  }
+  .sba-precio__cta--basico {
+    background: transparent; color: var(--sba-accent);
+    border: 2px solid var(--sba-accent);
+  }
+  .sba-precio__cta--basico:hover {
+    background: var(--sba-accent); color: #ffffff;
+  }
+  .sba-precio__cta--pro {
+    background: var(--sba-accent); color: #ffffff; border: none;
+    box-shadow: 0 18px 40px rgba(82,46,129,0.32);
+  }
+  .sba-precio__cta--pro:hover { background: var(--sba-accent-dark); }
+  @media (hover:hover) and (pointer:fine) {
+    .sba-precio__cta:hover { transform: translateY(-3px) scale(1.02); }
+  }
+  .sba-precio-reveal-up { opacity: 0; transform: translateY(28px); transition: opacity 0.9s cubic-bezier(.22,.61,.36,1), transform 0.9s cubic-bezier(.22,.61,.36,1); }
+  .sba-precio-reveal-left { opacity: 0; transform: translateX(-28px); transition: opacity 0.9s cubic-bezier(.22,.61,.36,1), transform 0.9s cubic-bezier(.22,.61,.36,1); }
+  .sba-precio-reveal-right { opacity: 0; transform: translateX(28px); transition: opacity 0.9s cubic-bezier(.22,.61,.36,1), transform 0.9s cubic-bezier(.22,.61,.36,1); }
+  .sba-precio-reveal-up.sba-precio-visible, .sba-precio-reveal-left.sba-precio-visible, .sba-precio-reveal-right.sba-precio-visible {
+    opacity: 1; transform: translate(0);
+  }
+  @media (max-width: 680px) {
+    .sba-precio__grid { grid-template-columns: 1fr; }
+    .sba-precio__card { padding: 30px 22px; }
+    .sba-precio__card--pro { margin-top: 16px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .sba-precio-reveal-up, .sba-precio-reveal-left, .sba-precio-reveal-right { opacity: 1 !important; transform: none !important; }
+  }
+</style>
+
+<script>
+(function(){
+  const els = document.querySelectorAll('.sba-precio-reveal-up, .sba-precio-reveal-left, .sba-precio-reveal-right');
+  if (!els.length) return;
+  const io = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('sba-precio-visible');
+        obs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.20, rootMargin: '0px 0px -8% 0px' });
+  els.forEach(el => io.observe(el));
+})();
+</script>
+</section>
+
+
+<!-- =====================================================
+     SECCIÓN 12 — Próximas fechas
+===================================================== -->
+<section class="sba-section">
+<div class="sba-fechas">
+  <div class="sba-fechas__header sba-fechas-reveal-left">
+    <h2 class="sba-fechas__h2">Próximas fechas</h2>
+  </div>
+  <div class="sba-fechas__grid sba-fechas-reveal-up">
+    <div class="sba-fechas__item sba-fechas__item--disponible">
+      <span class="sba-fechas__fecha">1 de junio</span>
+      <span class="sba-fechas__estado sba-fechas__estado--disponible">Plazas disponibles</span>
+    </div>
+    <div class="sba-fechas__item sba-fechas__item--agotado">
+      <span class="sba-fechas__fecha">15 de junio</span>
+      <span class="sba-fechas__estado sba-fechas__estado--agotado">Plazas agotadas</span>
+    </div>
+    <div class="sba-fechas__item sba-fechas__item--disponible">
+      <span class="sba-fechas__fecha">29 de junio</span>
+      <span class="sba-fechas__estado sba-fechas__estado--disponible">Plazas disponibles</span>
+    </div>
+  </div>
+  <p class="sba-fechas__nota sba-fechas-reveal-up">
+    Escoge la fecha que mejor encaje en tu agenda y confirma tu inscripción. Las plazas son limitadas a <strong>tres doctores por estancia</strong> y suelen agotarse con semanas de antelación.
+  </p>
+</div>
+
+<style>
+  .sba-fechas {
+    max-width: 860px; margin: 0 auto; padding: 0 24px;
+    display: flex; flex-direction: column; gap: 36px;
+  }
+  .sba-fechas__h2 {
+    margin: 0; font-size: clamp(28px, 3.5vw, 44px);
+    font-weight: 800; line-height: 1.12;
+    color: var(--sba-text); letter-spacing: -0.01em;
+  }
+  .sba-fechas__grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px;
+  }
+  .sba-fechas__item {
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center; gap: 10px;
+    padding: 30px 20px; border-radius: 20px; text-align: center;
+    transition: transform 0.25s cubic-bezier(.22,.61,.36,1), box-shadow 0.25s ease;
+  }
+  .sba-fechas__item--disponible {
+    background: rgba(52,199,89,0.10);
+    border: 1px solid rgba(52,199,89,0.32);
+    box-shadow: 0 16px 40px rgba(52,199,89,0.12);
+  }
+  .sba-fechas__item--agotado {
+    background: var(--sba-card-bg);
+    border: 1px solid var(--sba-card-border);
+    box-shadow: var(--sba-card-shadow);
+    opacity: 0.55;
+  }
+  @media (hover:hover) and (pointer:fine) {
+    .sba-fechas__item--disponible:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 24px 56px rgba(52,199,89,0.20);
+    }
+  }
+  .sba-fechas__fecha {
+    font-size: clamp(18px, 2.2vw, 24px);
+    font-weight: 800; color: var(--sba-text); line-height: 1.2;
+  }
+  .sba-fechas__item--agotado .sba-fechas__fecha {
+    color: var(--sba-text-muted);
+    text-decoration: line-through;
+    text-decoration-color: rgba(0,0,0,0.30);
+  }
+  .sba-fechas__estado {
+    font-size: 12px; font-weight: 700;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    padding: 5px 12px; border-radius: 999px;
+  }
+  .sba-fechas__estado--disponible { background: rgba(52,199,89,0.18); color: #1f8e3d; }
+  .sba-fechas__estado--agotado { background: rgba(0,0,0,0.08); color: var(--sba-text-muted); }
+  .sba-fechas__nota { margin: 0; font-size: 15px; line-height: 1.65; color: var(--sba-text-muted); }
+  .sba-fechas__nota strong { color: var(--sba-text); font-weight: 700; }
+  .sba-fechas-reveal-left { opacity: 0; transform: translateX(-28px); transition: opacity 0.9s cubic-bezier(.22,.61,.36,1), transform 0.9s cubic-bezier(.22,.61,.36,1); }
+  .sba-fechas-reveal-up { opacity: 0; transform: translateY(24px); transition: opacity 0.9s cubic-bezier(.22,.61,.36,1), transform 0.9s cubic-bezier(.22,.61,.36,1); }
+  .sba-fechas-reveal-left.sba-fechas-visible, .sba-fechas-reveal-up.sba-fechas-visible {
+    opacity: 1; transform: translate(0);
+  }
+  @media (max-width: 600px) {
+    .sba-fechas__grid { grid-template-columns: 1fr; }
+    .sba-fechas__item { padding: 22px 18px; flex-direction: row; justify-content: space-between; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .sba-fechas-reveal-left, .sba-fechas-reveal-up { opacity: 1 !important; transform: none !important; }
+  }
+</style>
+
+<script>
+(function(){
+  const els = document.querySelectorAll('.sba-fechas-reveal-left, .sba-fechas-reveal-up');
+  if (!els.length) return;
+  const io = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('sba-fechas-visible');
+        obs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.22 });
+  els.forEach(el => io.observe(el));
+})();
+</script>
+</section>
+
+
+<!-- =====================================================
+     SECCIÓN 13 — FAQ
+===================================================== -->
+<section class="sba-section">
+<div class="sba-faq">
+  <div class="sba-faq__header sba-faq-reveal">
+    <h2 class="sba-faq__h2">Lo que probablemente te estás preguntando</h2>
+  </div>
+  <div class="sba-faq__lista">
+    <div class="sba-faq__item sba-faq-reveal">
+      <button class="sba-faq__pregunta" aria-expanded="false">
+        <span>¿Puedo grabar el día?</span>
+        <span class="sba-faq__icono" aria-hidden="true">+</span>
+      </button>
+      <div class="sba-faq__respuesta"><p>No grabamos sesiones porque protegemos la privacidad de los pacientes que pasan por consulta. Tampoco lo necesitas: te llevas un manual de más de 300 páginas con todos los protocolos por escrito, y en el plan Pro tienes dos sesiones de seguimiento online para resolver lo que haya quedado abierto.</p></div>
+    </div>
+    <div class="sba-faq__item sba-faq-reveal">
+      <button class="sba-faq__pregunta" aria-expanded="false">
+        <span>¿Me llevo los protocolos por escrito o solo los veo en la clínica?</span>
+        <span class="sba-faq__icono" aria-hidden="true">+</span>
+      </button>
+      <div class="sba-faq__respuesta"><p>Los recibes por escrito el mismo día que llegas. El manual de 300 páginas contiene todos los protocolos clínicos y de trabajo que aplicamos: primera visita, fijación de precios, tallados, IPR, refinamientos, control remoto, comunicación con el paciente. No tienes que memorizar nada: te lo vas a llevar entero.</p></div>
+    </div>
+    <div class="sba-faq__item sba-faq-reveal">
+      <button class="sba-faq__pregunta" aria-expanded="false">
+        <span>¿Puedo traer mis propios casos para que los revisemos?</span>
+        <span class="sba-faq__icono" aria-hidden="true">+</span>
+      </button>
+      <div class="sba-faq__respuesta"><p>Sí, y te lo recomendamos. Hay un bloque específico al final del día dedicado a tus casos. En el plan Pro, además, los doctores Lozano revisan tres de tus casos en profundidad y tienes dos sesiones de seguimiento posteriores (a los 30 y a los 60 días) para ver cómo están evolucionando una vez los aplicas en tu clínica.</p></div>
+    </div>
+    <div class="sba-faq__item sba-faq-reveal">
+      <button class="sba-faq__pregunta" aria-expanded="false">
+        <span>¿Y si el día que voy no hay cirugía de MARPE programada?</span>
+        <span class="sba-faq__icono" aria-hidden="true">+</span>
+      </button>
+      <div class="sba-faq__respuesta"><p>Hacemos MARPE todos los días. Es uno de los procedimientos que más volumen tiene en la clínica, por eso lo garantizamos durante tu estancia. Si por una causa imprevista no fuera posible verlo en directo, te ofrecemos cambio de fecha sin coste.</p></div>
+    </div>
+    <div class="sba-faq__item sba-faq-reveal">
+      <button class="sba-faq__pregunta" aria-expanded="false">
+        <span>¿Cuántos doctores asisten en cada estancia?</span>
+        <span class="sba-faq__icono" aria-hidden="true">+</span>
+      </button>
+      <div class="sba-faq__respuesta"><p>Máximo tres. La personalización es total: no es una clase, es una jornada de trabajo en la que cabes tú, tus dudas y tus casos.</p></div>
+    </div>
+    <div class="sba-faq__item sba-faq-reveal">
+      <button class="sba-faq__pregunta" aria-expanded="false">
+        <span>¿Qué nivel necesito tener?</span>
+        <span class="sba-faq__icono" aria-hidden="true">+</span>
+      </button>
+      <div class="sba-faq__respuesta"><p>Esta estancia es para doctores que ya tratan casos con alineadores y quieren mejorar resultados, reducir refinamientos y aumentar volumen. No es un curso de iniciación. Si todavía no has hecho tus primeros casos, hay otras formaciones más adecuadas para ese momento.</p></div>
+    </div>
+    <div class="sba-faq__item sba-faq-reveal">
+      <button class="sba-faq__pregunta" aria-expanded="false">
+        <span>¿Incluye comida y alojamiento?</span>
+        <span class="sba-faq__icono" aria-hidden="true">+</span>
+      </button>
+      <div class="sba-faq__respuesta"><p>La comida con el equipo de Ortodoncia Lozano está incluida (es parte del programa, no una pausa). El alojamiento y el viaje no están incluidos: te enviamos recomendaciones de hoteles cercanos a la clínica al confirmar tu inscripción.</p></div>
+    </div>
+    <div class="sba-faq__item sba-faq-reveal">
+      <button class="sba-faq__pregunta" aria-expanded="false">
+        <span>¿Qué marca de alineadores debo usar para que esto me sirva?</span>
+        <span class="sba-faq__icono" aria-hidden="true">+</span>
+      </button>
+      <div class="sba-faq__respuesta"><p>Cualquiera. Lo que enseñamos no depende de la marca: criterio clínico, biomecánica, planificación, ejecución de IPR y tallados, manejo de auxiliares. Es transversal a Invisalign, Spark, Smilers o cualquier sistema que estés utilizando.</p></div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .sba-faq {
+    max-width: 860px; margin: 0 auto; padding: 0 24px;
+    display: flex; flex-direction: column; gap: 36px;
+  }
+  .sba-faq__h2 {
+    margin: 0; font-size: clamp(26px, 3.2vw, 40px);
+    font-weight: 800; line-height: 1.15;
+    color: var(--sba-text); letter-spacing: -0.01em;
+  }
+  .sba-faq__lista {
+    display: flex; flex-direction: column; gap: 0;
+    border-radius: 20px; overflow: hidden;
+    border: 1px solid var(--sba-card-border);
+    background: var(--sba-card-bg);
+  }
+  .sba-faq__item { border-bottom: 1px solid rgba(82,46,129,0.10); }
+  .sba-faq__item:last-child { border-bottom: none; }
+  .sba-faq__pregunta {
+    width: 100%;
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 16px; padding: 22px 28px;
+    background: transparent; border: none; cursor: pointer; text-align: left;
+    font-size: 16px; font-weight: 700;
+    color: var(--sba-text); line-height: 1.40;
+    transition: background 0.22s ease;
+    font-family: inherit;
+  }
+  .sba-faq__pregunta:hover { background: rgba(82,46,129,0.04); }
+  .sba-faq__pregunta[aria-expanded="true"] {
+    background: rgba(82,46,129,0.08);
+    color: var(--sba-accent);
+  }
+  .sba-faq__icono {
+    flex-shrink: 0; width: 28px; height: 28px;
+    border-radius: 50%; background: rgba(82,46,129,0.12);
+    display: inline-flex; align-items: center; justify-content: center;
+    font-size: 20px; font-weight: 400; line-height: 1;
+    color: var(--sba-accent);
+    transition: transform 0.30s cubic-bezier(.22,.61,.36,1), background 0.22s ease;
+  }
+  .sba-faq__pregunta[aria-expanded="true"] .sba-faq__icono {
+    transform: rotate(45deg);
+    background: var(--sba-accent); color: #ffffff;
+  }
+  .sba-faq__respuesta {
+    max-height: 0; overflow: hidden;
+    transition: max-height 0.40s cubic-bezier(.22,.61,.36,1);
+  }
+  .sba-faq__respuesta p {
+    margin: 0; padding: 0 28px 22px;
+    font-size: 15px; line-height: 1.70; color: var(--sba-text-muted);
+  }
+  .sba-faq-reveal {
+    opacity: 0; transform: translateX(-24px);
+    transition: opacity 0.8s cubic-bezier(.22,.61,.36,1), transform 0.8s cubic-bezier(.22,.61,.36,1);
+  }
+  .sba-faq-reveal.sba-faq-visible { opacity: 1; transform: translateX(0); }
+  @media (max-width: 560px) {
+    .sba-faq__pregunta { padding: 18px 20px; font-size: 15px; }
+    .sba-faq__respuesta p { padding: 0 20px 18px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .sba-faq-reveal { opacity: 1 !important; transform: none !important; }
+    .sba-faq__respuesta { transition: none !important; }
+  }
+</style>
+
+<script>
+(function(){
+  document.querySelectorAll('.sba-faq__pregunta').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const expanded = btn.getAttribute('aria-expanded') === 'true';
+      document.querySelectorAll('.sba-faq__pregunta').forEach(b => {
+        b.setAttribute('aria-expanded', 'false');
+        b.nextElementSibling.style.maxHeight = null;
+      });
+      if (!expanded) {
+        btn.setAttribute('aria-expanded', 'true');
+        btn.nextElementSibling.style.maxHeight = btn.nextElementSibling.scrollHeight + 'px';
+      }
+    });
+  });
+  const els = document.querySelectorAll('.sba-faq-reveal');
+  if (!els.length) return;
+  const io = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('sba-faq-visible');
+        obs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15, rootMargin: '0px 0px -6% 0px' });
+  els.forEach(el => io.observe(el));
+})();
+</script>
+</section>
+
+
+<!-- =====================================================
+     SECCIÓN 14 — Cómo llegar
+===================================================== -->
+<section class="sba-section">
+<div class="sba-llegar">
+  <div class="sba-llegar__header sba-llegar-reveal-left">
+    <h2 class="sba-llegar__h2">Cómo llegar y dónde alojarte</h2>
+  </div>
+  <div class="sba-llegar__grid">
+    <div class="sba-llegar__bloque sba-llegar-reveal-left">
+      <div class="sba-llegar__icono-wrap" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/>
+          <circle cx="12" cy="9" r="2.5"/>
+        </svg>
+      </div>
+      <div>
+        <h3 class="sba-llegar__subtitulo">Cómo llegar</h3>
+        <p class="sba-llegar__cuerpo">La clínica está en Murcia, a <strong>25 minutos del Aeropuerto Internacional de la Región de Murcia</strong> y a una hora del aeropuerto de Alicante-Elche.</p>
+        <p class="sba-llegar__cuerpo">Tienes vuelos directos diarios desde la mayoría de ciudades españolas y conexiones europeas frecuentes desde <strong>Londres, París, Bruselas, Ámsterdam, Milán, Roma, Berlín y Frankfurt</strong>, entre otras.</p>
+      </div>
+    </div>
+    <div class="sba-llegar__bloque sba-llegar-reveal-right">
+      <div class="sba-llegar__icono-wrap" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/>
+          <polyline points="9 22 9 12 15 12 15 22"/>
+        </svg>
+      </div>
+      <div>
+        <h3 class="sba-llegar__subtitulo">Dónde alojarte</h3>
+        <p class="sba-llegar__cuerpo">Al confirmar tu plaza te enviamos una selección de <strong>hoteles cercanos a la clínica</strong>, con opciones para diferentes presupuestos.</p>
+        <p class="sba-llegar__cuerpo">La mayoría de doctores llegan la tarde anterior y vuelven a casa esa misma noche o al día siguiente por la mañana.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .sba-llegar {
+    max-width: 1000px; margin: 0 auto; padding: 0 24px;
+    display: flex; flex-direction: column; gap: 40px;
+  }
+  .sba-llegar__h2 {
+    margin: 0; font-size: clamp(28px, 3.5vw, 44px);
+    font-weight: 800; line-height: 1.12;
+    color: var(--sba-text); letter-spacing: -0.01em;
+  }
+  .sba-llegar__grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 24px;
+  }
+  .sba-llegar__bloque {
+    display: flex; flex-direction: column; gap: 20px;
+    background: var(--sba-card-bg);
+    border: 1px solid var(--sba-card-border);
+    border-radius: 22px; padding: 36px 32px;
+    box-shadow: var(--sba-card-shadow);
+  }
+  .sba-llegar__icono-wrap {
+    width: 48px; height: 48px;
+    display: flex; align-items: center; justify-content: center;
+    background: rgba(82,46,129,0.10);
+    border: 1px solid rgba(82,46,129,0.22);
+    border-radius: 14px;
+    color: var(--sba-accent); flex-shrink: 0;
+  }
+  .sba-llegar__icono-wrap svg { width: 22px; height: 22px; }
+  .sba-llegar__subtitulo {
+    margin: 0 0 14px 0; font-size: 18px; font-weight: 700;
+    color: var(--sba-text); line-height: 1.2;
+  }
+  .sba-llegar__cuerpo {
+    margin: 0 0 12px 0; font-size: 15.5px; line-height: 1.68; color: var(--sba-text-muted);
+  }
+  .sba-llegar__cuerpo:last-child { margin-bottom: 0; }
+  .sba-llegar__cuerpo strong { color: var(--sba-text); font-weight: 700; }
+  .sba-llegar-reveal-left { opacity: 0; transform: translateX(-28px); transition: opacity 0.9s cubic-bezier(.22,.61,.36,1), transform 0.9s cubic-bezier(.22,.61,.36,1); }
+  .sba-llegar-reveal-right { opacity: 0; transform: translateX(28px); transition: opacity 0.9s cubic-bezier(.22,.61,.36,1), transform 0.9s cubic-bezier(.22,.61,.36,1); }
+  .sba-llegar-reveal-left.sba-llegar-visible, .sba-llegar-reveal-right.sba-llegar-visible {
+    opacity: 1; transform: translateX(0);
+  }
+  @media (max-width: 660px) {
+    .sba-llegar__grid { grid-template-columns: 1fr; }
+    .sba-llegar__bloque { padding: 26px 22px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .sba-llegar-reveal-left, .sba-llegar-reveal-right { opacity: 1 !important; transform: none !important; }
+  }
+</style>
+
+<script>
+(function(){
+  const els = document.querySelectorAll('.sba-llegar-reveal-left, .sba-llegar-reveal-right');
+  if (!els.length) return;
+  const io = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('sba-llegar-visible');
+        obs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.22 });
+  els.forEach(el => io.observe(el));
+})();
+</script>
+</section>
+
+
+<!-- =====================================================
+     SECCIÓN 15 — CTA Final
+===================================================== -->
+<section class="sba-section sba-section--cta-final">
+<div class="sba-cta-final">
+  <div class="sba-cta-final__inner">
+    <div class="sba-cta-final__header sba-ctaf-reveal-up">
+      <h2 class="sba-cta-final__h2">¿Listo para verlo con tus propios ojos?</h2>
+      <p class="sba-cta-final__sub">Tienes dos formas de empezar.</p>
+    </div>
+
+    <div class="sba-cta-final__grid">
+      <div class="sba-cta-final__bloque sba-ctaf-reveal-left">
+        <p class="sba-cta-final__bloque-label">Opción A</p>
+        <h3 class="sba-cta-final__bloque-titulo">Descarga el programa completo</h3>
+        <p class="sba-cta-final__bloque-body">Descarga el programa completo en PDF y tómate tu tiempo para decidir.</p>
+        <div class="sba-cta-final__form-slot" id="sba-cta-form-slot">
+          <!-- Embed formulario Kajabi -->
+          <div class="sba-form-card sba-kajabi-form">
+            <script src="https://common-sense-aligners.mykajabi.com/forms/2149084035/embed.js"></script>
+          </div>
+        </div>
+      </div>
+
+      <div class="sba-cta-final__bloque sba-cta-final__bloque--wa sba-ctaf-reveal-right">
+        <p class="sba-cta-final__bloque-label">Opción B</p>
+        <h3 class="sba-cta-final__bloque-titulo">¿Ya lo tienes claro?</h3>
+        <p class="sba-cta-final__bloque-body">Reserva tu plaza directamente.</p>
+        <a class="sba-cta-final__wa-btn"
+          href="https://wa.me/34678175707?text=Hola%2C%20me%20gustar%C3%ADa%20reservar%20plaza%20en%20la%20Estancia%20Cl%C3%ADnica."
+          target="_blank" rel="noopener noreferrer">
+          <svg class="sba-cta-final__wa-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+          </svg>
+          Reserva tu plaza por WhatsApp
+        </a>
+        <p class="sba-cta-final__telefono">
+          También puedes llamarnos al
+          <a href="tel:+34678175707" class="sba-cta-final__tel-link">+34 678 175 707</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .sba-cta-final {
+    width: 100%;
+    background: var(--sba-accent-dark);
+    padding: 80px 24px;
+    box-sizing: border-box;
+  }
+  .sba-cta-final__inner {
+    max-width: 1060px; margin: 0 auto;
+    display: flex; flex-direction: column; gap: 52px;
+  }
+  .sba-cta-final__header { text-align: center; }
+  .sba-cta-final__h2 {
+    margin: 0 0 14px 0;
+    font-size: clamp(28px, 4vw, 52px);
+    font-weight: 800; line-height: 1.08;
+    color: #ffffff; letter-spacing: -0.02em;
+  }
+  .sba-cta-final__sub {
+    margin: 0; font-size: 18px;
+    color: rgba(255,255,255,0.72); font-weight: 500;
+  }
+  .sba-cta-final__grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 28px; align-items: start;
+  }
+  .sba-cta-final__bloque {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.16);
+    border-radius: 24px; padding: 40px 36px;
+    backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+    box-shadow: 0 22px 55px rgba(0,0,0,0.20);
+    display: flex; flex-direction: column; gap: 16px;
+  }
+  .sba-cta-final__bloque--wa {
+    background: rgba(255,255,255,0.12);
+    border-color: rgba(255,255,255,0.24);
+    justify-content: center; align-items: flex-start;
+  }
+  .sba-cta-final__bloque-label {
+    margin: 0; font-size: 11px; font-weight: 700;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: rgba(255,255,255,0.75);
+  }
+  .sba-cta-final__bloque-titulo {
+    margin: 0; font-size: clamp(20px, 2.2vw, 26px);
+    font-weight: 800; color: #ffffff; line-height: 1.2;
+  }
+  .sba-cta-final__bloque-body {
+    margin: 0; font-size: 15px; line-height: 1.65;
+    color: rgba(255,255,255,0.78);
+  }
+  .sba-cta-final__form-slot { margin-top: 4px; }
+  .sba-cta-final__wa-btn {
+    display: inline-flex; align-items: center; gap: 10px;
+    text-decoration: none;
+    background: #ffffff; color: var(--sba-accent);
+    border-radius: 16px; padding: 16px 24px;
+    font-size: 16px; font-weight: 800; letter-spacing: 0.02em;
+    box-shadow: 0 18px 40px rgba(0,0,0,0.30), 0 8px 20px rgba(255,255,255,0.10);
+    transition: transform 0.25s cubic-bezier(.22,.61,.36,1), box-shadow 0.25s ease;
+    margin-top: 8px; width: 100%; justify-content: center;
+  }
+  @media (hover:hover) and (pointer:fine) {
+    .sba-cta-final__wa-btn:hover {
+      transform: translateY(-3px) scale(1.02);
+      box-shadow: 0 26px 55px rgba(0,0,0,0.36), 0 10px 24px rgba(255,255,255,0.16);
+    }
+  }
+  .sba-cta-final__wa-btn:active { transform: translateY(0) scale(1.005); }
+  .sba-cta-final__wa-icon { width: 22px; height: 22px; flex-shrink: 0; }
+  .sba-cta-final__telefono { margin: 0; font-size: 14px; color: rgba(255,255,255,0.60); text-align: center; }
+  .sba-cta-final__tel-link { color: rgba(255,255,255,0.85); font-weight: 600; text-decoration: none; }
+  .sba-cta-final__tel-link:hover { color: #ffffff; }
+  .sba-ctaf-reveal-up { opacity: 0; transform: translateY(28px); transition: opacity 1.0s cubic-bezier(.22,.61,.36,1), transform 1.0s cubic-bezier(.22,.61,.36,1); }
+  .sba-ctaf-reveal-left { opacity: 0; transform: translateX(-28px); transition: opacity 1.0s cubic-bezier(.22,.61,.36,1), transform 1.0s cubic-bezier(.22,.61,.36,1); }
+  .sba-ctaf-reveal-right { opacity: 0; transform: translateX(28px); transition: opacity 1.0s cubic-bezier(.22,.61,.36,1), transform 1.0s cubic-bezier(.22,.61,.36,1); }
+  .sba-ctaf-reveal-up.sba-ctaf-visible, .sba-ctaf-reveal-left.sba-ctaf-visible, .sba-ctaf-reveal-right.sba-ctaf-visible {
+    opacity: 1; transform: translate(0);
+  }
+  /* Override form styles within dark CTA section */
+  .sba-cta-final .sba-form-card {
+    background: #ffffff;
+    border-color: rgba(255,255,255,0.20);
+  }
+  @media (max-width: 760px) {
+    .sba-cta-final { padding: 60px 20px; }
+    .sba-cta-final__grid { grid-template-columns: 1fr; }
+    .sba-cta-final__bloque { padding: 30px 24px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .sba-ctaf-reveal-up, .sba-ctaf-reveal-left, .sba-ctaf-reveal-right { opacity: 1 !important; transform: none !important; }
+  }
+</style>
+
+<script>
+(function(){
+  const els = document.querySelectorAll('.sba-ctaf-reveal-up, .sba-ctaf-reveal-left, .sba-ctaf-reveal-right');
+  if (!els.length) return;
+  const io = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('sba-ctaf-visible');
+        obs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.18 });
+  els.forEach(el => io.observe(el));
+})();
+</script>
+</section>
+
+
+<!-- ===== FOOTER ===== -->
+<footer class="sba-footer">
+  <p>© 2025 Common Sense Aligners · Ortodoncia Lozano</p>
+  <p>Murcia, España · <a href="tel:+34678175707">+34 678 175 707</a></p>
+</footer>
+
+</body>
+</html>

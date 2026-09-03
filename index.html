@@ -1,0 +1,1885 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MaestrIA · Consultoría de Inteligencia Artificial</title>
+  <meta name="description" content="Automatizo procesos de atención al cliente y ventas con IA para que los negocios puedan escalar y mejorar su eficiencia operativa." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ─── RESET & BASE ─── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; overflow-x: hidden; }
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background-color: var(--mae-negro);
+      color: var(--mae-blanco);
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    /* ─── CSS VARIABLES ─── */
+    :root {
+      --mae-amarillo: #F5C518;
+      --mae-negro: #0B0B0F;
+      --mae-gris: #3A3A3A;
+      --mae-blanco: #FFFFFF;
+      --mae-blanco-suave: rgba(255, 255, 255, 0.72);
+      --mae-glass-bg: rgba(255, 255, 255, 0.07);
+      --mae-glass-border: rgba(255, 255, 255, 0.14);
+      --mae-amarillo-tinte: rgba(245, 197, 24, 0.10);
+      --mae-amarillo-border: rgba(245, 197, 24, 0.28);
+      --mae-radio: 22px;
+      --mae-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+      --mae-pad-section: 100px;
+      --mae-pad-h: 24px;
+    }
+
+    /* ─── UTILITIES ─── */
+    .mae-container {
+      width: 100%;
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 0 var(--mae-pad-h);
+    }
+
+    /* ═══════════════════════════════════════
+       HEADER
+    ═══════════════════════════════════════ */
+    .mae-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 18px var(--mae-pad-h);
+      transition: background 0.30s ease, border-color 0.30s ease, backdrop-filter 0.30s ease;
+      border-bottom: 1px solid transparent;
+    }
+
+    .mae-header--scrolled {
+      background: rgba(11, 11, 15, 0.92);
+      border-bottom-color: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+
+    .mae-header__inner {
+      max-width: 1160px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .mae-header__logo {
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      flex-shrink: 0;
+    }
+
+    .mae-header__logo img {
+      height: 42px;
+      width: auto;
+      display: block;
+    }
+
+    .mae-header__nav {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+
+    .mae-header__nav a {
+      font-size: 15px;
+      font-weight: 600;
+      color: rgba(255, 255, 255, 0.72);
+      text-decoration: none;
+      transition: color 0.20s ease;
+    }
+
+    .mae-header__nav a:hover { color: var(--mae-blanco); }
+
+    .mae-header__cta {
+      display: inline-block;
+      background: var(--mae-amarillo);
+      color: var(--mae-negro);
+      font-size: 14px;
+      font-weight: 800;
+      padding: 11px 22px;
+      border-radius: 12px;
+      text-decoration: none;
+      letter-spacing: 0.01em;
+      transition: transform 0.22s cubic-bezier(.22,.61,.36,1), box-shadow 0.22s ease;
+      white-space: nowrap;
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+      .mae-header__cta:hover {
+        transform: translateY(-2px) scale(1.02);
+        box-shadow: 0 8px 24px rgba(245, 197, 24, 0.35);
+      }
+    }
+
+    /* Hamburger */
+    .mae-header__menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      flex-direction: column;
+      gap: 5px;
+      padding: 10px 8px;
+      min-width: 44px;
+      min-height: 44px;
+      align-items: center;
+      justify-content: center;
+      border-radius: 8px;
+      transition: background 0.18s ease;
+    }
+
+    .mae-header__menu-btn:hover { background: rgba(255,255,255,0.06); }
+
+    .mae-header__menu-btn span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--mae-blanco);
+      border-radius: 2px;
+      transition: transform 0.28s cubic-bezier(.22,.61,.36,1), opacity 0.20s ease;
+      transform-origin: center;
+    }
+
+    /* Hamburger → X cuando está abierto */
+    .mae-header__menu-btn.is-open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .mae-header__menu-btn.is-open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+    .mae-header__menu-btn.is-open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* Nav móvil desplegable */
+    .mae-header__mobile-nav {
+      display: none;
+      flex-direction: column;
+      gap: 0;
+      padding: 12px 0 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      margin-top: 14px;
+    }
+
+    .mae-header__mobile-nav a {
+      font-size: 16px;
+      font-weight: 600;
+      color: rgba(255, 255, 255, 0.82);
+      text-decoration: none;
+      padding: 14px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      min-height: 48px;
+      display: flex;
+      align-items: center;
+    }
+
+    .mae-header__mobile-nav .mae-header__cta {
+      margin-top: 18px;
+      text-align: center;
+      display: block;
+      font-size: 15px;
+      padding: 14px 24px;
+    }
+
+    /* Desktop: ocultar hamburguesa y nav móvil */
+    @media (min-width: 769px) {
+      .mae-header__menu-btn { display: none !important; }
+      .mae-header__mobile-nav { display: none !important; }
+    }
+
+    /* Mobile: ocultar nav y CTA de escritorio */
+    @media (max-width: 768px) {
+      .mae-header__nav { display: none; }
+      .mae-header__cta.desktop-only { display: none; }
+      .mae-header__menu-btn { display: flex; }
+      .mae-header__mobile-nav.is-open { display: flex; }
+      /* Header siempre con fondo en móvil para que sea legible */
+      .mae-header {
+        background: rgba(11, 11, 15, 0.95);
+        border-bottom-color: rgba(255, 255, 255, 0.08);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        padding: 14px 20px;
+      }
+    }
+
+    /* ═══════════════════════════════════════
+       SECCIÓN 01 — HERO
+    ═══════════════════════════════════════ */
+    .mae-hero {
+      position: relative;
+      width: 100%;
+      min-height: 100vh;
+      min-height: 100dvh; /* Chrome/Safari modernos */
+      display: flex;
+      align-items: center;
+      padding: 140px var(--mae-pad-h) 100px;
+    }
+
+    .mae-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 70% 55% at 15% 40%, rgba(245, 197, 24, 0.07) 0%, transparent 65%),
+        radial-gradient(ellipse 60% 50% at 85% 70%, rgba(245, 197, 24, 0.04) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .mae-hero__inner {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      max-width: 1160px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .mae-hero__eyebrow {
+      margin: 0 0 18px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      color: rgba(255, 255, 255, 0.55);
+      text-transform: uppercase;
+    }
+
+    .mae-hero__h1 {
+      margin: 0 0 22px;
+      font-size: clamp(32px, 4.8vw, 62px);
+      font-weight: 800;
+      line-height: 1.06;
+      color: var(--mae-blanco);
+      letter-spacing: -0.025em;
+    }
+
+    .mae-hero__subtitle {
+      margin: 0;
+      font-size: clamp(16px, 1.8vw, 20px);
+      font-weight: 400;
+      line-height: 1.55;
+      color: rgba(255, 255, 255, 0.78);
+    }
+
+    .mae-hero__ctas {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      max-width: 380px;
+      margin-top: 36px;
+    }
+
+    .mae-hero__cta-primary,
+    .mae-hero__cta-secondary {
+      display: block;
+      text-align: center;
+      text-decoration: none;
+      border-radius: 16px;
+      padding: 17px 24px;
+      font-size: 16px;
+      font-weight: 800;
+      letter-spacing: 0.01em;
+      cursor: pointer;
+      transition: transform 0.25s cubic-bezier(.22,.61,.36,1), box-shadow 0.25s ease;
+      min-height: 54px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .mae-hero__cta-primary {
+      background: var(--mae-amarillo);
+      color: var(--mae-negro);
+      border: none;
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.30), 0 6px 18px rgba(245, 197, 24, 0.25);
+    }
+
+    .mae-hero__cta-secondary {
+      background: transparent;
+      color: var(--mae-blanco);
+      border: 2px solid rgba(255, 255, 255, 0.40);
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+      .mae-hero__cta-primary:hover { transform: translateY(-3px) scale(1.02); box-shadow: 0 24px 50px rgba(0,0,0,0.35), 0 8px 24px rgba(245,197,24,0.35); }
+      .mae-hero__cta-secondary:hover { transform: translateY(-3px) scale(1.02); background: rgba(255,255,255,0.07); border-color: rgba(255,255,255,0.75); }
+    }
+
+    .mae-hero__photo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .mae-hero__photo-placeholder {
+      width: 100%;
+      max-width: 380px;
+      aspect-ratio: 3 / 4;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.10);
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 15px;
+      color: rgba(255, 255, 255, 0.35);
+      font-weight: 600;
+      text-align: center;
+      padding: 24px;
+      letter-spacing: 0.02em;
+    }
+
+    /* Reveals hero */
+    .mae-hero-reveal {
+      opacity: 0;
+      transform: translateX(-60px);
+    }
+
+    .mae-hero-reveal.mae-hero-visible {
+      opacity: 1;
+      transform: translateX(0);
+      transition: opacity 1.1s cubic-bezier(.22,.61,.36,1), transform 1.1s cubic-bezier(.22,.61,.36,1);
+    }
+
+    .mae-hero__photo {
+      opacity: 0;
+      transform: translateX(40px);
+    }
+
+    .mae-hero__photo.mae-hero-visible {
+      opacity: 1;
+      transform: translateX(0);
+      transition: opacity 1.1s 0.2s cubic-bezier(.22,.61,.36,1), transform 1.1s 0.2s cubic-bezier(.22,.61,.36,1);
+    }
+
+    /* ═══════════════════════════════════════
+       SECCIÓN 02 — PROPUESTA DE VALOR
+    ═══════════════════════════════════════ */
+    .mae-valor { padding: var(--mae-pad-section) var(--mae-pad-h); }
+
+    .mae-valor__card {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 64px 48px;
+      background: var(--mae-negro);
+      border: 1px solid rgba(245, 197, 24, 0.22);
+      border-radius: 26px;
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.50), 0 14px 36px rgba(0, 0, 0, 0.28);
+      text-align: center;
+    }
+
+    .mae-valor__h2 {
+      margin: 0 0 24px;
+      font-size: clamp(22px, 3.5vw, 42px);
+      font-weight: 800;
+      line-height: 1.14;
+      color: var(--mae-amarillo);
+      letter-spacing: -0.02em;
+    }
+
+    .mae-valor__body {
+      font-size: clamp(15px, 1.7vw, 20px);
+      line-height: 1.62;
+      color: rgba(255, 255, 255, 0.78);
+      max-width: 640px;
+      margin: 0 auto;
+    }
+
+    .mae-valor-reveal { opacity: 0; transform: translateX(-40px); }
+    .mae-valor-reveal.mae-valor-visible {
+      opacity: 1; transform: translateX(0);
+      transition: opacity 1.0s cubic-bezier(.22,.61,.36,1), transform 1.0s cubic-bezier(.22,.61,.36,1);
+    }
+
+    /* ─── Ring SVG: círculo dibujándose sobre los números ─── */
+    .mae-ring {
+      position: relative;
+      display: inline-block;
+      padding: 0.10em 0.30em;
+      white-space: nowrap;
+    }
+
+    .mae-ring-text {
+      position: relative;
+      z-index: 2;
+      color: var(--mae-amarillo);
+      font-weight: 800;
+    }
+
+    .mae-ring-svg {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%) rotate(-4deg);
+      pointer-events: none;
+      z-index: 1;
+      overflow: visible;
+    }
+
+    .mae-ring-path {
+      fill: none;
+      stroke: #8c8c8c;
+      stroke-width: 3.5px;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      opacity: 0;
+      stroke-dasharray: 500;
+      stroke-dashoffset: 500;
+      filter: drop-shadow(0 1px 4px rgba(0,0,0,0.40));
+    }
+
+    .mae-ring-animate .mae-ring-path {
+      opacity: 1;
+      animation: maeRingDraw 1.2s cubic-bezier(.25,.8,.25,1) forwards;
+    }
+
+    @keyframes maeRingDraw { to { stroke-dashoffset: 0; } }
+
+    /* ═══════════════════════════════════════
+       SECCIÓN 03 — ¿QUÉ PUEDO HACER?
+    ═══════════════════════════════════════ */
+    .mae-que { padding: var(--mae-pad-section) var(--mae-pad-h); }
+
+    .mae-que__inner { max-width: 1080px; margin: 0 auto; }
+
+    .mae-que__header { margin-bottom: 48px; }
+
+    .mae-que__h2 {
+      font-size: clamp(26px, 3.5vw, 44px);
+      font-weight: 800;
+      line-height: 1.12;
+      color: var(--mae-blanco);
+      letter-spacing: -0.01em;
+      margin-bottom: 18px;
+    }
+
+    .mae-que__intro {
+      font-size: clamp(15px, 1.6vw, 18px);
+      line-height: 1.65;
+      color: rgba(255, 255, 255, 0.68);
+      max-width: 680px;
+    }
+
+    .mae-que__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+
+    .mae-que__card {
+      background: var(--mae-glass-bg);
+      border: 1px solid var(--mae-glass-border);
+      border-radius: var(--mae-radio);
+      padding: 36px 32px;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      box-shadow: var(--mae-shadow);
+      transition: border-color 0.28s ease, box-shadow 0.28s ease;
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+      .mae-que__card:hover { border-color: var(--mae-amarillo-border); box-shadow: 0 30px 70px rgba(0,0,0,0.30); }
+    }
+
+    .mae-que__label {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--mae-amarillo);
+      margin-bottom: 20px;
+      padding: 6px 12px;
+      background: var(--mae-amarillo-tinte);
+      border: 1px solid var(--mae-amarillo-border);
+      border-radius: 999px;
+    }
+
+    .mae-que__list { list-style: none; display: flex; flex-direction: column; gap: 14px; }
+
+    .mae-que__list li {
+      display: grid;
+      grid-template-columns: 20px 1fr;
+      gap: 10px;
+      font-size: 15.5px;
+      line-height: 1.55;
+      font-weight: 600;
+      color: rgba(255, 255, 255, 0.88);
+    }
+
+    .mae-que__list li::before { content: "→"; color: var(--mae-amarillo); font-weight: 700; }
+
+    /* ═══════════════════════════════════════
+       SECCIÓN 04 — SERVICIOS
+    ═══════════════════════════════════════ */
+    .mae-servicios { padding: var(--mae-pad-section) var(--mae-pad-h); }
+
+    .mae-servicios__inner { max-width: 1080px; margin: 0 auto; }
+
+    .mae-servicios__h2 {
+      font-size: clamp(26px, 3.5vw, 44px);
+      font-weight: 800;
+      line-height: 1.12;
+      color: var(--mae-blanco);
+      letter-spacing: -0.01em;
+      margin-bottom: 48px;
+    }
+
+    .mae-servicios__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+
+    .mae-servicios__card {
+      background: var(--mae-glass-bg);
+      border: 1px solid var(--mae-glass-border);
+      border-radius: var(--mae-radio);
+      padding: 36px 32px;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      box-shadow: var(--mae-shadow);
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      transition: border-color 0.28s ease, box-shadow 0.28s ease;
+    }
+
+    .mae-servicios__card--full {
+      grid-column: 1 / -1;
+      max-width: 520px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+      .mae-servicios__card:hover { border-color: rgba(245, 197, 24, 0.30); box-shadow: 0 30px 70px rgba(0,0,0,0.30); }
+    }
+
+    .mae-servicios__num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: var(--mae-amarillo);
+      color: var(--mae-negro);
+      font-size: 20px;
+      font-weight: 800;
+      flex-shrink: 0;
+      align-self: flex-start;
+    }
+
+    .mae-servicios__titulo { font-size: 18px; font-weight: 700; line-height: 1.30; color: var(--mae-blanco); }
+    .mae-servicios__cuerpo { font-size: 15px; line-height: 1.68; color: rgba(255, 255, 255, 0.72); }
+
+    /* ═══════════════════════════════════════
+       SECCIÓN 05 — ¿ES PARA TI?
+    ═══════════════════════════════════════ */
+    .mae-parasi { padding: var(--mae-pad-section) var(--mae-pad-h); }
+
+    .mae-parasi__inner { max-width: 1080px; margin: 0 auto; }
+
+    .mae-parasi__h2 {
+      font-size: clamp(26px, 3.5vw, 44px);
+      font-weight: 800;
+      line-height: 1.12;
+      color: var(--mae-blanco);
+      letter-spacing: -0.01em;
+      margin-bottom: 48px;
+    }
+
+    .mae-parasi__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; align-items: start; }
+
+    .mae-parasi__col {
+      border-radius: var(--mae-radio);
+      padding: 36px 32px;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      box-shadow: var(--mae-shadow);
+    }
+
+    .mae-parasi__col--si { background: var(--mae-amarillo-tinte); border: 1px solid var(--mae-amarillo-border); }
+    .mae-parasi__col--no { background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.12); }
+
+    .mae-parasi__col-header { display: flex; align-items: center; gap: 14px; margin-bottom: 24px; }
+
+    .mae-parasi__badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      font-size: 16px;
+      font-weight: 800;
+      flex-shrink: 0;
+    }
+
+    .mae-parasi__badge--si { background: var(--mae-amarillo); color: var(--mae-negro); }
+    .mae-parasi__badge--no { background: rgba(255, 255, 255, 0.14); color: rgba(255, 255, 255, 0.58); }
+
+    .mae-parasi__col-titulo { font-size: 20px; font-weight: 800; color: var(--mae-blanco); line-height: 1.2; }
+
+    .mae-parasi__list { list-style: none; display: flex; flex-direction: column; gap: 14px; }
+
+    .mae-parasi__list li {
+      display: grid;
+      grid-template-columns: 20px 1fr;
+      gap: 10px;
+      font-size: 15.5px;
+      line-height: 1.55;
+      font-weight: 600;
+    }
+
+    .mae-parasi__col--si .mae-parasi__list li { color: rgba(255, 255, 255, 0.90); }
+    .mae-parasi__col--no .mae-parasi__list li { color: rgba(255, 255, 255, 0.60); }
+
+    .mae-parasi__col--si .mae-parasi__list li::before { content: "✓"; color: var(--mae-amarillo); font-weight: 800; }
+    .mae-parasi__col--no .mae-parasi__list li::before { content: "✕"; color: rgba(255, 255, 255, 0.35); font-weight: 700; }
+
+    /* ═══════════════════════════════════════
+       SECCIÓN 06 — SOBRE MÍ
+    ═══════════════════════════════════════ */
+    .mae-sobre { padding: var(--mae-pad-section) var(--mae-pad-h); }
+
+    .mae-sobre__inner { max-width: 1080px; margin: 0 auto; display: flex; flex-direction: column; gap: 56px; }
+
+    .mae-sobre__h2 {
+      font-size: clamp(26px, 3.5vw, 44px);
+      font-weight: 800;
+      line-height: 1.12;
+      color: var(--mae-blanco);
+      letter-spacing: -0.01em;
+    }
+
+    .mae-sobre__principal { display: grid; grid-template-columns: 360px 1fr; gap: 52px; align-items: start; }
+
+    .mae-sobre__foto-placeholder {
+      width: 100%;
+      max-width: 360px;
+      aspect-ratio: 3 / 4;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.10);
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 15px;
+      color: rgba(255, 255, 255, 0.35);
+      font-weight: 600;
+      text-align: center;
+      padding: 24px;
+    }
+
+    .mae-sobre__tag {
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--mae-amarillo);
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    .mae-sobre__nombre {
+      font-size: clamp(22px, 2.8vw, 32px);
+      font-weight: 800;
+      color: var(--mae-blanco);
+      line-height: 1.1;
+      margin-bottom: 22px;
+    }
+
+    .mae-sobre__bio {
+      font-size: 15.5px;
+      line-height: 1.68;
+      color: rgba(255, 255, 255, 0.78);
+      margin-bottom: 14px;
+    }
+
+    .mae-sobre__bio:last-child { margin-bottom: 0; }
+
+    /* ═══════════════════════════════════════
+       SECCIÓN 07 — FAQ
+    ═══════════════════════════════════════ */
+    .mae-faq { padding: var(--mae-pad-section) var(--mae-pad-h); }
+
+    .mae-faq__inner { max-width: 860px; margin: 0 auto; display: flex; flex-direction: column; gap: 36px; }
+
+    .mae-faq__h2 {
+      font-size: clamp(24px, 3.2vw, 40px);
+      font-weight: 800;
+      line-height: 1.15;
+      color: var(--mae-blanco);
+      letter-spacing: -0.01em;
+    }
+
+    .mae-faq__lista {
+      display: flex;
+      flex-direction: column;
+      border-radius: 20px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .mae-faq__item { border-bottom: 1px solid rgba(255, 255, 255, 0.09); }
+    .mae-faq__item:last-child { border-bottom: none; }
+
+    .mae-faq__pregunta {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 20px 28px;
+      min-height: 64px;
+      background: rgba(255, 255, 255, 0.05);
+      border: none;
+      cursor: pointer;
+      text-align: left;
+      font-size: 16px;
+      font-weight: 700;
+      font-family: inherit;
+      color: var(--mae-blanco);
+      line-height: 1.40;
+      transition: background 0.22s ease, color 0.22s ease;
+    }
+
+    .mae-faq__pregunta:hover { background: rgba(255, 255, 255, 0.08); }
+
+    .mae-faq__pregunta[aria-expanded="true"] {
+      background: rgba(245, 197, 24, 0.08);
+      color: var(--mae-amarillo);
+    }
+
+    .mae-faq__icono {
+      flex-shrink: 0;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.10);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      font-weight: 400;
+      line-height: 1;
+      color: rgba(255, 255, 255, 0.68);
+      transition: transform 0.30s cubic-bezier(.22,.61,.36,1), background 0.22s ease, color 0.22s ease;
+    }
+
+    .mae-faq__pregunta[aria-expanded="true"] .mae-faq__icono {
+      transform: rotate(45deg);
+      background: rgba(245, 197, 24, 0.18);
+      color: var(--mae-amarillo);
+    }
+
+    .mae-faq__respuesta { max-height: 0; overflow: hidden; transition: max-height 0.42s cubic-bezier(.22,.61,.36,1); }
+
+    .mae-faq__respuesta p {
+      margin: 0;
+      padding: 0 28px 22px;
+      font-size: 15px;
+      line-height: 1.72;
+      color: rgba(255, 255, 255, 0.72);
+    }
+
+    /* ═══════════════════════════════════════
+       SECCIÓN 08 — CTA FINAL
+    ═══════════════════════════════════════ */
+    .mae-cta-final { padding: var(--mae-pad-section) var(--mae-pad-h); }
+
+    .mae-cta-final__card {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 64px 48px;
+      background: var(--mae-amarillo);
+      border-radius: 26px;
+      text-align: center;
+      box-shadow: 0 30px 80px rgba(245, 197, 24, 0.22), 0 14px 36px rgba(0, 0, 0, 0.28);
+    }
+
+    .mae-cta-final__h2 {
+      font-size: clamp(24px, 3.5vw, 42px);
+      font-weight: 800;
+      line-height: 1.12;
+      color: var(--mae-negro);
+      letter-spacing: -0.02em;
+      margin-bottom: 20px;
+    }
+
+    .mae-cta-final__body {
+      font-size: clamp(15px, 1.7vw, 19px);
+      line-height: 1.60;
+      color: rgba(11, 11, 15, 0.72);
+      max-width: 560px;
+      margin: 0 auto 36px;
+    }
+
+    .mae-cta-final__btn {
+      display: inline-block;
+      background: var(--mae-negro);
+      color: var(--mae-amarillo);
+      font-size: 16px;
+      font-weight: 800;
+      padding: 18px 36px;
+      border-radius: 16px;
+      text-decoration: none;
+      letter-spacing: 0.01em;
+      transition: transform 0.25s cubic-bezier(.22,.61,.36,1), box-shadow 0.25s ease;
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+      .mae-cta-final__btn:hover { transform: translateY(-3px) scale(1.02); box-shadow: 0 16px 40px rgba(11,11,15,0.40); }
+    }
+
+    /* ═══════════════════════════════════════
+       FOOTER
+    ═══════════════════════════════════════ */
+    .mae-footer {
+      padding: 48px var(--mae-pad-h);
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      background: var(--mae-negro);
+    }
+
+    .mae-footer__inner {
+      max-width: 1160px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      text-align: center;
+    }
+
+    .mae-footer__logo img { height: 36px; width: auto; display: block; }
+    .mae-footer__copy { font-size: 14px; color: rgba(255, 255, 255, 0.42); }
+
+    .mae-footer__links { display: flex; gap: 24px; flex-wrap: wrap; justify-content: center; }
+
+    .mae-footer__links a {
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.40);
+      text-decoration: none;
+      padding: 8px 0;
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
+      transition: color 0.18s ease;
+    }
+
+    .mae-footer__links a:hover { color: rgba(255, 255, 255, 0.75); }
+
+    /* ─── DIVIDERS ─── */
+    .mae-divider {
+      width: 100%;
+      height: 1px;
+      background: rgba(255, 255, 255, 0.07);
+      max-width: 1160px;
+      margin: 0 auto;
+    }
+
+    /* ═══════════════════════════════════════
+       ANIMACIONES — REVEAL
+    ═══════════════════════════════════════ */
+    /* Servicios + Que */
+    .mae-ap-reveal-left, .mae-ap-reveal-right {
+      opacity: 0;
+      transition: opacity 0.9s cubic-bezier(.22,.61,.36,1), transform 0.9s cubic-bezier(.22,.61,.36,1);
+    }
+    .mae-ap-reveal-left  { transform: translateX(-28px); }
+    .mae-ap-reveal-right { transform: translateX(28px); }
+    .mae-ap-reveal-left.mae-ap-visible,
+    .mae-ap-reveal-right.mae-ap-visible { opacity: 1; transform: translateX(0); }
+
+    /* Para sí */
+    .mae-parasi-reveal-left, .mae-parasi-reveal-right {
+      opacity: 0;
+      transition: opacity 0.9s cubic-bezier(.22,.61,.36,1), transform 0.9s cubic-bezier(.22,.61,.36,1);
+    }
+    .mae-parasi-reveal-left  { transform: translateX(-28px); }
+    .mae-parasi-reveal-right { transform: translateX(28px); }
+    .mae-parasi-reveal-left.mae-parasi-visible,
+    .mae-parasi-reveal-right.mae-parasi-visible { opacity: 1; transform: translateX(0); }
+
+    /* Sobre mí */
+    .mae-quien-reveal-left {
+      opacity: 0;
+      transform: translateX(-28px);
+      transition: opacity 1.0s cubic-bezier(.22,.61,.36,1), transform 1.0s cubic-bezier(.22,.61,.36,1);
+    }
+    .mae-quien-reveal-up {
+      opacity: 0;
+      transform: translateY(32px);
+      transition: opacity 1.0s cubic-bezier(.22,.61,.36,1), transform 1.0s cubic-bezier(.22,.61,.36,1);
+    }
+    .mae-quien-reveal-left.mae-quien-visible,
+    .mae-quien-reveal-up.mae-quien-visible { opacity: 1; transform: translate(0); }
+
+    /* FAQ */
+    .mae-faq-reveal {
+      opacity: 0;
+      transform: translateX(-24px);
+      transition: opacity 0.8s cubic-bezier(.22,.61,.36,1), transform 0.8s cubic-bezier(.22,.61,.36,1);
+    }
+    .mae-faq-reveal.mae-faq-visible { opacity: 1; transform: translateX(0); }
+
+    /* CTA reveal */
+    .mae-cta-reveal { opacity: 0; transform: translateY(32px); }
+    .mae-cta-reveal.mae-cta-visible {
+      opacity: 1; transform: translateY(0);
+      transition: opacity 1.0s cubic-bezier(.22,.61,.36,1), transform 1.0s cubic-bezier(.22,.61,.36,1);
+    }
+
+    /* ═══════════════════════════════════════
+       FLIP CARD — SOBRE MÍ
+    ═══════════════════════════════════════ */
+    .mae-flip-wrap {
+      width: 100%;
+      max-width: 360px;
+      flex-shrink: 0;
+    }
+
+    .mae-flip-toggle {
+      position: absolute;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .mae-flip-card {
+      display: block;
+      width: 100%;
+      aspect-ratio: 3 / 4;
+      perspective: 1200px;
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .mae-flip-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transform-style: preserve-3d;
+      transition: transform 0.85s cubic-bezier(.22,.61,.36,1);
+    }
+
+    .mae-flip-toggle:checked + .mae-flip-card .mae-flip-inner {
+      transform: rotateY(180deg);
+    }
+
+    .mae-flip-front,
+    .mae-flip-back {
+      position: absolute;
+      inset: 0;
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+      border-radius: 22px;
+      overflow: hidden;
+      box-shadow: 0 28px 60px rgba(0,0,0,0.38), 0 12px 30px rgba(0,0,0,0.18);
+    }
+
+    /* Cara frontal */
+    .mae-flip-front img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      object-position: center 15%;
+    }
+
+    .mae-flip-photo-ph {
+      width: 100%;
+      height: 100%;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.10);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255,255,255,0.32);
+      font-size: 15px;
+      font-weight: 600;
+      text-align: center;
+      padding: 24px;
+    }
+
+    .mae-flip-name {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      font-size: 14px;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: 0.02em;
+      padding: 7px 13px;
+      border-radius: 999px;
+      background: rgba(0,0,0,0.50);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      line-height: 1.2;
+    }
+
+    .mae-flip-hint {
+      position: absolute;
+      bottom: 16px;
+      left: 16px;
+      font-size: 13px;
+      font-weight: 600;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(0,0,0,0.58);
+      color: #fff;
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      white-space: nowrap;
+      pointer-events: none;
+    }
+
+    .mae-flip-hint.back {
+      left: auto;
+      right: 16px;
+      background: rgba(245,197,24,0.14);
+      color: var(--mae-amarillo);
+      border: 1px solid rgba(245,197,24,0.32);
+    }
+
+    /* Cara trasera */
+    .mae-flip-back {
+      background: #ffffff;
+      color: #0b0b0f;
+      padding: 36px 32px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 14px;
+      transform: rotateY(180deg);
+    }
+
+    .mae-flip-back__tag {
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(11,11,15,0.48);
+      margin-bottom: 2px;
+    }
+
+    .mae-flip-back p {
+      font-size: 14.5px;
+      line-height: 1.62;
+      color: #1a1a22;
+      margin: 0;
+    }
+
+    .mae-flip-back strong { font-weight: 800; color: #0b0b0f; }
+
+    /* Animación pulso */
+    @keyframes maeMicroPulse {
+      0%, 100% { transform: translateY(0) scale(1); opacity: 0.90; }
+      50%       { transform: translateY(-2px) scale(1.04); opacity: 1; }
+    }
+
+    .mae-pulse { animation: maeMicroPulse 2.4s ease-in-out infinite; }
+    .mae-flip-toggle:checked + .mae-flip-card .mae-pulse { animation: none !important; }
+
+    /* Auto-flip demo */
+    @keyframes maeAutoFlipHint {
+      0%   { transform: rotateY(0deg); }
+      30%  { transform: rotateY(-180deg); }
+      60%  { transform: rotateY(-180deg); }
+      100% { transform: rotateY(0deg); }
+    }
+
+    /* ═══════════════════════════════════════
+       RESPONSIVE — TABLET (≤ 1024px)
+    ═══════════════════════════════════════ */
+    @media (max-width: 1024px) {
+      .mae-sobre__principal { grid-template-columns: 300px 1fr; gap: 40px; }
+      .mae-flip-wrap        { max-width: 300px; }
+    }
+
+    /* ═══════════════════════════════════════
+       RESPONSIVE — MOBILE PRINCIPAL (≤ 768px)
+    ═══════════════════════════════════════ */
+    @media (max-width: 768px) {
+      :root {
+        --mae-pad-section: 68px;
+        --mae-pad-h: 20px;
+      }
+
+      /* ── Hero ── */
+      .mae-hero {
+        padding: 100px var(--mae-pad-h) 64px;
+        min-height: auto;
+        align-items: flex-start;
+      }
+      .mae-hero__inner  { grid-template-columns: 1fr; gap: 0; }
+      .mae-hero__photo  { display: none; } /* placeholder sin valor visual en móvil */
+      .mae-hero__ctas   { max-width: none; } /* botones full-width */
+      .mae-hero__h1     { font-size: clamp(30px, 7.5vw, 46px); }
+
+      /* ── Servicios / Qué / Parasi: grid → 1 col ── */
+      .mae-que__grid         { grid-template-columns: 1fr; gap: 16px; }
+      .mae-que__header       { margin-bottom: 32px; }
+      .mae-que__card         { padding: 26px 22px; }
+
+      .mae-servicios__grid   { grid-template-columns: 1fr; gap: 16px; }
+      .mae-servicios__h2     { margin-bottom: 32px; }
+      .mae-servicios__card   { padding: 26px 22px; }
+      .mae-servicios__card--full { grid-column: 1; max-width: 100%; }
+
+      .mae-parasi__grid      { grid-template-columns: 1fr; gap: 16px; }
+      .mae-parasi__h2        { margin-bottom: 32px; }
+      .mae-parasi__col       { padding: 26px 22px; }
+
+      /* ── Valor ── */
+      .mae-valor__card { padding: 40px 28px; }
+
+      /* ── Sobre mí + Flip card ── */
+      .mae-sobre__inner     { gap: 36px; }
+      .mae-sobre__principal { grid-template-columns: 1fr; gap: 32px; justify-items: center; }
+      .mae-flip-wrap        { max-width: 270px; }
+      .mae-flip-back        { padding: 28px 24px; gap: 12px; }
+
+      /* ── FAQ ── */
+      .mae-faq__inner      { gap: 24px; }
+      .mae-faq__pregunta   { padding: 18px 20px; font-size: 15px; min-height: 56px; }
+      .mae-faq__respuesta p { padding: 0 20px 18px; }
+
+      /* ── CTA final ── */
+      .mae-cta-final__card { padding: 44px 28px; }
+      .mae-cta-final__btn  { display: block; } /* full-width en mobile */
+
+      /* ── Footer ── */
+      .mae-footer { padding: 36px var(--mae-pad-h); }
+
+      /* ── Animaciones: usar translateY para evitar scroll horizontal en iOS ── */
+      .mae-valor-reveal                          { transform: translateY(24px); }
+      .mae-valor-reveal.mae-valor-visible        { transform: translateY(0); }
+      .mae-hero-reveal                           { transform: translateY(28px); }
+      .mae-hero-reveal.mae-hero-visible          { transform: translateY(0); }
+      .mae-ap-reveal-left                        { transform: translateY(20px); }
+      .mae-ap-reveal-right                       { transform: translateY(20px); }
+      .mae-ap-reveal-left.mae-ap-visible,
+      .mae-ap-reveal-right.mae-ap-visible        { transform: translateY(0); }
+      .mae-parasi-reveal-left                    { transform: translateY(20px); }
+      .mae-parasi-reveal-right                   { transform: translateY(20px); }
+      .mae-parasi-reveal-left.mae-parasi-visible,
+      .mae-parasi-reveal-right.mae-parasi-visible { transform: translateY(0); }
+      .mae-quien-reveal-left                     { transform: translateY(20px); }
+      .mae-quien-reveal-left.mae-quien-visible   { transform: translateY(0); }
+      .mae-faq-reveal                            { transform: translateY(16px); }
+      .mae-faq-reveal.mae-faq-visible            { transform: translateY(0); }
+    }
+
+    /* ═══════════════════════════════════════
+       RESPONSIVE — MOBILE PEQUEÑO (≤ 480px)
+    ═══════════════════════════════════════ */
+    @media (max-width: 480px) {
+      :root {
+        --mae-pad-section: 52px;
+        --mae-pad-h: 16px;
+      }
+
+      /* Hero */
+      .mae-hero { padding: 88px var(--mae-pad-h) 52px; }
+      .mae-hero__eyebrow { font-size: 10px; letter-spacing: 0.10em; }
+
+      /* Valor */
+      .mae-valor__card { padding: 32px 20px; border-radius: 20px; }
+
+      /* Cards */
+      .mae-que__card,
+      .mae-servicios__card,
+      .mae-parasi__col { padding: 22px 18px; border-radius: 18px; }
+
+      /* Servicios número */
+      .mae-servicios__num { width: 42px; height: 42px; font-size: 17px; }
+
+      /* Sobre mí flip card pequeña */
+      .mae-flip-wrap        { max-width: 230px; }
+      .mae-flip-back        { padding: 22px 18px; gap: 10px; }
+      .mae-flip-back p      { font-size: 13.5px; }
+      .mae-flip-back__tag   { font-size: 9px; }
+      .mae-sobre__tag       { font-size: 9px; letter-spacing: 0.10em; }
+
+      /* FAQ */
+      .mae-faq__pregunta { padding: 16px 16px; font-size: 14.5px; }
+      .mae-faq__respuesta p { padding: 0 16px 16px; font-size: 14px; }
+      .mae-faq__lista { border-radius: 16px; }
+
+      /* CTA final */
+      .mae-cta-final__card { padding: 36px 20px; border-radius: 22px; }
+      .mae-cta-final__btn { font-size: 15px; padding: 16px 24px; border-radius: 14px; }
+
+      /* Footer */
+      .mae-footer { padding: 28px var(--mae-pad-h); }
+      .mae-footer__links { gap: 16px; }
+    }
+
+    /* ═══════════════════════════════════════
+       PREFERS-REDUCED-MOTION
+    ═══════════════════════════════════════ */
+    @media (prefers-reduced-motion: reduce) {
+      .mae-hero-reveal,
+      .mae-hero__photo,
+      .mae-valor-reveal,
+      .mae-ap-reveal-left,
+      .mae-ap-reveal-right,
+      .mae-parasi-reveal-left,
+      .mae-parasi-reveal-right,
+      .mae-quien-reveal-left,
+      .mae-quien-reveal-up,
+      .mae-faq-reveal,
+      .mae-cta-reveal {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+      }
+
+      .mae-faq__respuesta { transition: none !important; }
+      .mae-header__menu-btn span { transition: none !important; }
+      .mae-pulse { animation: none !important; }
+      .mae-flip-inner { transition: none !important; }
+      .mae-ring-path { opacity: 0.9 !important; stroke-dashoffset: 0 !important; animation: none !important; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ═══════════════════════════════════════
+       HEADER
+  ═══════════════════════════════════════ -->
+  <header class="mae-header" id="header">
+    <div class="mae-header__inner">
+      <a href="#" class="mae-header__logo">
+        <img src="Captura%20de%20pantalla%202026-06-28%20085903.png" alt="MaestrIA" />
+      </a>
+
+      <nav class="mae-header__nav" aria-label="Navegación principal">
+        <a href="#servicios">Servicios</a>
+        <a href="#sobre-mi">Sobre mí</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+
+      <a href="https://cal.com/javier-prieto-ngyrcc/reunion-de-diagnostico" target="_blank" rel="noopener" class="mae-header__cta desktop-only">
+        Reservar llamada
+      </a>
+
+      <button class="mae-header__menu-btn" id="menuBtn" aria-label="Abrir menú" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <div class="mae-container">
+      <nav class="mae-header__mobile-nav" id="mobileNav" aria-label="Menú móvil">
+        <a href="#servicios" class="mae-mobile-link">Servicios</a>
+        <a href="#sobre-mi" class="mae-mobile-link">Sobre mí</a>
+        <a href="#faq" class="mae-mobile-link">FAQ</a>
+        <a href="#contacto" class="mae-mobile-link">Contacto</a>
+        <a href="https://cal.com/javier-prieto-ngyrcc/reunion-de-diagnostico" target="_blank" rel="noopener" class="mae-header__cta">
+          Reservar llamada
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ═══════════════════════════════════════
+         SECCIÓN 01 — HERO
+    ═══════════════════════════════════════ -->
+    <section id="inicio" class="mae-hero" aria-labelledby="hero-h1">
+      <div class="mae-hero__inner">
+
+        <div class="mae-hero__copy mae-hero-reveal">
+          <p class="mae-hero__eyebrow">CONSULTORÍA DE IA · MAESTRIA</p>
+          <h1 class="mae-hero__h1" id="hero-h1">
+            Automatizo procesos en atención al cliente y ventas para que tu negocio escale con eficiencia.
+          </h1>
+          <p class="mae-hero__subtitle">
+            Para que puedas centrarte en las tareas que realmente importan y atender a cada vez más clientes.
+          </p>
+          <div class="mae-hero__ctas">
+            <a class="mae-hero__cta-primary" href="https://cal.com/javier-prieto-ngyrcc/reunion-de-diagnostico" target="_blank" rel="noopener">
+              Reservar llamada gratuita
+            </a>
+            <a class="mae-hero__cta-secondary" href="#servicios">
+              Ver servicios
+            </a>
+          </div>
+        </div>
+
+        <div class="mae-hero__photo">
+          <div class="mae-hero__photo-placeholder">
+            Foto próximamente
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <div class="mae-divider"></div>
+
+    <!-- ═══════════════════════════════════════
+         SECCIÓN 02 — PROPUESTA DE VALOR
+    ═══════════════════════════════════════ -->
+    <section class="mae-valor" aria-label="Propuesta de valor">
+      <div class="mae-valor__card mae-valor-reveal">
+        <h2 class="mae-valor__h2">
+          Ayudo a negocios a implementar la IA en soporte y ventas para ahorrarse entre <span class="mae-ring"><span class="mae-ring-text">10</span><svg class="mae-ring-svg" viewBox="0 0 100 40" aria-hidden="true" preserveAspectRatio="none"><path class="mae-ring-path" d="M8,20 C8,10 22,4 50,4 C78,4 92,10 92,20 C92,30 78,36 50,36 C22,36 8,30 8,20 Z"/></svg></span> y <span class="mae-ring"><span class="mae-ring-text">15</span><svg class="mae-ring-svg" viewBox="0 0 100 40" aria-hidden="true" preserveAspectRatio="none"><path class="mae-ring-path" d="M8,20 C8,10 22,4 50,4 C78,4 92,10 92,20 C92,30 78,36 50,36 C22,36 8,30 8,20 Z"/></svg></span> horas semanales.
+        </h2>
+        <p class="mae-valor__body">
+          Para que puedan escalar el negocio y mejorar la eficiencia operativa de forma sostenible.
+        </p>
+      </div>
+    </section>
+
+    <div class="mae-divider"></div>
+
+    <!-- ═══════════════════════════════════════
+         SECCIÓN 03 — ¿QUÉ PUEDO HACER?
+    ═══════════════════════════════════════ -->
+    <section class="mae-que" aria-labelledby="que-h2">
+      <div class="mae-que__inner">
+
+        <div class="mae-que__header mae-ap-reveal-left">
+          <h2 class="mae-que__h2" id="que-h2">¿Qué puedo hacer por tu negocio?</h2>
+          <p class="mae-que__intro">
+            Trabajo con negocios que quieren dejar de perder tiempo en tareas repetitivas y empezar a crecer de forma inteligente. Estas son las áreas donde actúo.
+          </p>
+        </div>
+
+        <div class="mae-que__grid">
+
+          <div class="mae-que__card mae-ap-reveal-left">
+            <span class="mae-que__label">Atención al cliente</span>
+            <ul class="mae-que__list">
+              <li>Agentes de WhatsApp para atención 24/7</li>
+              <li>Agentes para redes sociales</li>
+              <li>Reducción de tiempos de respuesta y carga del equipo</li>
+            </ul>
+          </div>
+
+          <div class="mae-que__card mae-ap-reveal-right">
+            <span class="mae-que__label">Ventas y CRM</span>
+            <ul class="mae-que__list">
+              <li>CRM inteligente con automatizaciones</li>
+              <li>Plataforma de reactivación de leads</li>
+              <li>Soluciones personalizadas a medida</li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <div class="mae-divider"></div>
+
+    <!-- ═══════════════════════════════════════
+         SECCIÓN 04 — SERVICIOS
+    ═══════════════════════════════════════ -->
+    <section id="servicios" class="mae-servicios" aria-labelledby="servicios-h2">
+      <div class="mae-servicios__inner">
+
+        <h2 class="mae-servicios__h2 mae-ap-reveal-left" id="servicios-h2">Nuestros servicios</h2>
+
+        <div class="mae-servicios__grid">
+
+          <div class="mae-servicios__card mae-ap-reveal-left">
+            <span class="mae-servicios__num">1</span>
+            <h3 class="mae-servicios__titulo">Agentes de WhatsApp</h3>
+            <p class="mae-servicios__cuerpo">
+              Automatiza la atención al cliente en WhatsApp con agentes de IA que responden, cualifican y derivan consultas las 24 horas, sin intervención humana.
+            </p>
+          </div>
+
+          <div class="mae-servicios__card mae-ap-reveal-right">
+            <span class="mae-servicios__num">2</span>
+            <h3 class="mae-servicios__titulo">Agentes para RRSS</h3>
+            <p class="mae-servicios__cuerpo">
+              Gestiona y responde de forma automática los mensajes e interacciones en redes sociales, manteniendo la consistencia de marca y reduciendo el tiempo de respuesta.
+            </p>
+          </div>
+
+          <div class="mae-servicios__card mae-ap-reveal-left">
+            <span class="mae-servicios__num">3</span>
+            <h3 class="mae-servicios__titulo">CRM con IA</h3>
+            <p class="mae-servicios__cuerpo">
+              Un CRM inteligente que automatiza el seguimiento de clientes, prioriza oportunidades y elimina las tareas manuales del equipo de ventas.
+            </p>
+          </div>
+
+          <div class="mae-servicios__card mae-ap-reveal-right">
+            <span class="mae-servicios__num">4</span>
+            <h3 class="mae-servicios__titulo">Plataforma de reactivación de leads</h3>
+            <p class="mae-servicios__cuerpo">
+              Recupera clientes inactivos y leads fríos con secuencias automatizadas y personalizadas que vuelven a generar interés sin esfuerzo manual.
+            </p>
+          </div>
+
+          <div class="mae-servicios__card mae-servicios__card--full mae-ap-reveal-left">
+            <span class="mae-servicios__num">5</span>
+            <h3 class="mae-servicios__titulo">Soluciones personalizadas</h3>
+            <p class="mae-servicios__cuerpo">
+              Si tu negocio tiene necesidades específicas, desarrollo soluciones a medida que se integran con tus herramientas actuales y se adaptan a tus flujos de trabajo.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <div class="mae-divider"></div>
+
+    <!-- ═══════════════════════════════════════
+         SECCIÓN 05 — ¿ES PARA TI?
+    ═══════════════════════════════════════ -->
+    <section class="mae-parasi" aria-labelledby="parasi-h2">
+      <div class="mae-parasi__inner">
+
+        <h2 class="mae-parasi__h2 mae-ap-reveal-left" id="parasi-h2">¿Es para ti?</h2>
+
+        <div class="mae-parasi__grid">
+
+          <div class="mae-parasi__col mae-parasi__col--si mae-parasi-reveal-left">
+            <div class="mae-parasi__col-header">
+              <span class="mae-parasi__badge mae-parasi__badge--si" aria-hidden="true">✓</span>
+              <h3 class="mae-parasi__col-titulo">Es para ti si:</h3>
+            </div>
+            <ul class="mae-parasi__list">
+              <li>Tienes un equipo que pierde tiempo respondiendo siempre las mismas preguntas.</li>
+              <li>Quieres escalar tu negocio sin contratar más personal.</li>
+              <li>Tienes leads que no se están trabajando bien.</li>
+              <li>Quieres mejorar la experiencia de tus clientes sin aumentar costes.</li>
+            </ul>
+          </div>
+
+          <div class="mae-parasi__col mae-parasi__col--no mae-parasi-reveal-right">
+            <div class="mae-parasi__col-header">
+              <span class="mae-parasi__badge mae-parasi__badge--no" aria-hidden="true">✕</span>
+              <h3 class="mae-parasi__col-titulo">No es para ti si:</h3>
+            </div>
+            <ul class="mae-parasi__list">
+              <li>Buscas una solución mágica que funcione sola sin ningún proceso previo.</li>
+              <li>No estás dispuesto a adaptar mínimamente tus flujos de trabajo.</li>
+              <li>Necesitas resultados sin ninguna implementación.</li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <div class="mae-divider"></div>
+
+    <!-- ═══════════════════════════════════════
+         SECCIÓN 06 — SOBRE MÍ
+    ═══════════════════════════════════════ -->
+    <section id="sobre-mi" class="mae-sobre" aria-labelledby="sobre-h2">
+      <div class="mae-sobre__inner">
+
+        <h2 class="mae-sobre__h2 mae-quien-reveal-left" id="sobre-h2">Sobre mí</h2>
+
+        <div class="mae-sobre__principal">
+
+          <div class="mae-flip-wrap mae-quien-reveal-left">
+            <input class="mae-flip-toggle" type="checkbox" id="maeFlipJavier">
+            <label class="mae-flip-card" for="maeFlipJavier" aria-label="Ver presentación de Javier Prieto">
+              <div class="mae-flip-inner" id="maeFlipInner">
+
+                <div class="mae-flip-front">
+                  <img src="ChatGPT%20Image%2028%20jun%202026%2C%2009_54_57.png" alt="Javier Prieto" />
+                  <span class="mae-flip-name">Javier Prieto</span>
+                  <span class="mae-flip-hint mae-pulse">Toca para saber más</span>
+                </div>
+
+                <!-- CARA TRASERA -->
+                <div class="mae-flip-back">
+                  <p class="mae-flip-back__tag">Consultor de IA · Marketing Digital</p>
+                  <p>Especialista en automatización de procesos con IA para equipos de <strong>atención al cliente y ventas</strong>.</p>
+                  <p>Ayudo a negocios a <strong>ahorrar entre 10 y 15 horas semanales</strong> con soluciones que escalan sin aumentar el equipo.</p>
+                  <p>Empecé en estrategia de marketing digital y me especialicé en IA por el impacto real que tiene en la operativa de las empresas.</p>
+                  <span class="mae-flip-hint back">Volver</span>
+                </div>
+
+              </div>
+            </label>
+          </div>
+
+          <div class="mae-quien-reveal-up">
+            <span class="mae-sobre__tag">Consultor de IA · Especialista en Marketing Digital</span>
+            <p class="mae-sobre__nombre">Javier Prieto</p>
+            <p class="mae-sobre__bio">
+              Mi nombre es Javier Prieto, soy consultor de IA profesional y especialista en marketing digital. Trabajo en empresas como especialista en estrategia digital y estrategia de IA. Me gusta tener un trato cercano con mis clientes e implicarme al máximo en cada proyecto que desarrollo.
+            </p>
+            <p class="mae-sobre__bio">
+              Me encanta hablar sobre inteligencia artificial y la parte de formar a mis clientes para que puedan sacarle el máximo partido a las soluciones que desarrollo.
+            </p>
+            <p class="mae-sobre__bio">
+              Empecé como estratega en marketing digital, hasta que descubrí el mundo de la inteligencia artificial y las automatizaciones y decidí especializarme en esta área porque me apasiona.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <div class="mae-divider"></div>
+
+    <!-- ═══════════════════════════════════════
+         SECCIÓN 07 — FAQ
+    ═══════════════════════════════════════ -->
+    <section id="faq" class="mae-faq" aria-labelledby="faq-h2">
+      <div class="mae-faq__inner">
+
+        <h2 class="mae-faq__h2 mae-faq-reveal" id="faq-h2">
+          Lo que probablemente te estás preguntando
+        </h2>
+
+        <div class="mae-faq__lista mae-faq-reveal" role="list">
+
+          <div class="mae-faq__item" role="listitem">
+            <button class="mae-faq__pregunta" aria-expanded="false" aria-controls="faq-r1">
+              ¿Cuánto tiempo tarda la implementación?
+              <span class="mae-faq__icono" aria-hidden="true">+</span>
+            </button>
+            <div class="mae-faq__respuesta" id="faq-r1" role="region">
+              <p>Depende de la solución, pero la mayoría de implementaciones estándar están listas en 2 a 4 semanas. Las soluciones personalizadas pueden requerir algo más de tiempo según la complejidad del proyecto.</p>
+            </div>
+          </div>
+
+          <div class="mae-faq__item" role="listitem">
+            <button class="mae-faq__pregunta" aria-expanded="false" aria-controls="faq-r2">
+              ¿Necesito conocimientos técnicos para usar las soluciones?
+              <span class="mae-faq__icono" aria-hidden="true">+</span>
+            </button>
+            <div class="mae-faq__respuesta" id="faq-r2" role="region">
+              <p>No. Diseño todas las soluciones para que sean fáciles de usar desde el primer día. Además, formo a tu equipo para que pueda sacarles el máximo partido sin depender de mí en el día a día.</p>
+            </div>
+          </div>
+
+          <div class="mae-faq__item" role="listitem">
+            <button class="mae-faq__pregunta" aria-expanded="false" aria-controls="faq-r3">
+              ¿Con qué herramientas y CRMs trabajas?
+              <span class="mae-faq__icono" aria-hidden="true">+</span>
+            </button>
+            <div class="mae-faq__respuesta" id="faq-r3" role="region">
+              <p>Trabajo con las principales plataformas del mercado. Antes de empezar cualquier proyecto analizamos tus herramientas actuales para asegurar una integración sin fricciones.</p>
+            </div>
+          </div>
+
+          <div class="mae-faq__item" role="listitem">
+            <button class="mae-faq__pregunta" aria-expanded="false" aria-controls="faq-r4">
+              ¿Qué pasa si la solución no funciona como esperaba?
+              <span class="mae-faq__icono" aria-hidden="true">+</span>
+            </button>
+            <div class="mae-faq__respuesta" id="faq-r4" role="region">
+              <p>Me implico al máximo en cada proyecto. Si algo no funciona como debe, lo ajustamos. Mi objetivo es que veas resultados reales, no solo entregar una solución y desaparecer.</p>
+            </div>
+          </div>
+
+          <div class="mae-faq__item" role="listitem">
+            <button class="mae-faq__pregunta" aria-expanded="false" aria-controls="faq-r5">
+              ¿Cuánto cuesta contratar tus servicios?
+              <span class="mae-faq__icono" aria-hidden="true">+</span>
+            </button>
+            <div class="mae-faq__respuesta" id="faq-r5" role="region">
+              <p>Cada proyecto es diferente, por eso ofrezco una llamada gratuita de diagnóstico antes de hablar de precios. Así puedo darte una propuesta ajustada a tu caso concreto sin compromisos.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <div class="mae-divider"></div>
+
+    <!-- ═══════════════════════════════════════
+         SECCIÓN 08 — CTA FINAL
+    ═══════════════════════════════════════ -->
+    <section id="contacto" class="mae-cta-final" aria-labelledby="cta-h2">
+      <div class="mae-cta-final__card mae-cta-reveal">
+        <h2 class="mae-cta-final__h2" id="cta-h2">
+          ¿Listo para automatizar y escalar tu negocio?
+        </h2>
+        <p class="mae-cta-final__body">
+          Reserva una llamada gratuita y analizamos juntos qué soluciones pueden funcionar mejor para tu empresa.
+        </p>
+        <a class="mae-cta-final__btn" href="https://cal.com/javier-prieto-ngyrcc/reunion-de-diagnostico" target="_blank" rel="noopener">
+          Reservar llamada gratuita
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ═══════════════════════════════════════
+       FOOTER
+  ═══════════════════════════════════════ -->
+  <footer class="mae-footer">
+    <div class="mae-footer__inner">
+      <div class="mae-footer__logo"><img src="Captura%20de%20pantalla%202026-06-28%20085903.png" alt="MaestrIA" /></div>
+      <p class="mae-footer__copy">© 2025 MaestrIA · Javier Prieto</p>
+      <nav class="mae-footer__links" aria-label="Legal">
+        <a href="#">Política de privacidad</a>
+        <a href="#">Aviso legal</a>
+      </nav>
+    </div>
+  </footer>
+
+  <!-- ═══════════════════════════════════════
+       JAVASCRIPT
+  ═══════════════════════════════════════ -->
+  <script>
+    (function () {
+      'use strict';
+
+      /* ── HEADER: scroll ── */
+      var header  = document.getElementById('header');
+      var menuBtn = document.getElementById('menuBtn');
+      var mobileNav = document.getElementById('mobileNav');
+
+      window.addEventListener('scroll', function () {
+        if (window.scrollY > 40) {
+          header.classList.add('mae-header--scrolled');
+        } else {
+          header.classList.remove('mae-header--scrolled');
+        }
+      }, { passive: true });
+
+      /* ── Menú móvil: toggle + animación X ── */
+      if (menuBtn && mobileNav) {
+        menuBtn.addEventListener('click', function () {
+          var isOpen = mobileNav.classList.toggle('is-open');
+          menuBtn.classList.toggle('is-open', isOpen);
+          menuBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+          menuBtn.setAttribute('aria-label', isOpen ? 'Cerrar menú' : 'Abrir menú');
+        });
+
+        /* Cerrar al pulsar un enlace */
+        document.querySelectorAll('.mae-mobile-link').forEach(function (link) {
+          link.addEventListener('click', function () {
+            mobileNav.classList.remove('is-open');
+            menuBtn.classList.remove('is-open');
+            menuBtn.setAttribute('aria-expanded', 'false');
+            menuBtn.setAttribute('aria-label', 'Abrir menú');
+          });
+        });
+
+        /* Cerrar al pulsar fuera */
+        document.addEventListener('click', function (e) {
+          if (mobileNav.classList.contains('is-open') &&
+              !header.contains(e.target)) {
+            mobileNav.classList.remove('is-open');
+            menuBtn.classList.remove('is-open');
+            menuBtn.setAttribute('aria-expanded', 'false');
+            menuBtn.setAttribute('aria-label', 'Abrir menú');
+          }
+        });
+      }
+
+      /* ── HERO REVEAL ── */
+      (function () {
+        var copyEl  = document.querySelector('.mae-hero-reveal');
+        var photoEl = document.querySelector('.mae-hero__photo');
+        if (!copyEl && !photoEl) return;
+        var io = new IntersectionObserver(function (entries, obs) {
+          entries.forEach(function (e) {
+            if (e.isIntersecting) { e.target.classList.add('mae-hero-visible'); obs.unobserve(e.target); }
+          });
+        }, { threshold: 0.10 });
+        if (copyEl)  io.observe(copyEl);
+        if (photoEl) io.observe(photoEl);
+      })();
+
+      /* ── RING SVG: círculo dibujándose alrededor de 10 y 15 ── */
+      (function () {
+        var rings = document.querySelectorAll('.mae-ring');
+        if (!rings.length) return;
+
+        function fitRing(ring) {
+          var text = ring.querySelector('.mae-ring-text');
+          var svg  = ring.querySelector('.mae-ring-svg');
+          var path = ring.querySelector('.mae-ring-path');
+          if (!text || !svg || !path) return;
+          var r = text.getBoundingClientRect();
+          if (!r.width) return;
+          svg.style.width  = (r.width  * 1.60) + 'px';
+          svg.style.height = (r.height * 1.70) + 'px';
+          var len = path.getTotalLength();
+          path.style.strokeDasharray  = len + 2;
+          path.style.strokeDashoffset = len + 2;
+        }
+
+        /* Ajustar tamaño varias veces por si las fuentes no han cargado aún */
+        requestAnimationFrame(function () {
+          rings.forEach(fitRing);
+          setTimeout(function () { rings.forEach(fitRing); }, 300);
+          setTimeout(function () { rings.forEach(fitRing); }, 900);
+        });
+
+        var card = document.querySelector('.mae-valor__card');
+        if (!card) return;
+
+        var io = new IntersectionObserver(function (entries, obs) {
+          entries.forEach(function (e) {
+            if (e.isIntersecting) {
+              /* Esperar a que el slide-in del card termine antes de dibujar */
+              setTimeout(function () {
+                rings.forEach(function (ring, i) {
+                  fitRing(ring);
+                  var path = ring.querySelector('.mae-ring-path');
+                  if (path) path.style.animationDelay = (i * 0.50) + 's';
+                  ring.classList.add('mae-ring-animate');
+                });
+              }, 700);
+              obs.unobserve(e.target);
+            }
+          });
+        }, { threshold: 0.30 });
+
+        io.observe(card);
+      })();
+
+      /* ── VALOR REVEAL ── */
+      (function () {
+        var el = document.querySelector('.mae-valor-reveal');
+        if (!el) return;
+        var io = new IntersectionObserver(function (entries, obs) {
+          entries.forEach(function (e) {
+            if (e.isIntersecting) { e.target.classList.add('mae-valor-visible'); obs.unobserve(e.target); }
+          });
+        }, { threshold: 0.20 });
+        io.observe(el);
+      })();
+
+      /* ── SERVICIOS + QUÉ REVEAL ── */
+      (function () {
+        var els = document.querySelectorAll('.mae-ap-reveal-left, .mae-ap-reveal-right');
+        if (!els.length) return;
+        var io = new IntersectionObserver(function (entries, obs) {
+          entries.forEach(function (e) {
+            if (e.isIntersecting) { e.target.classList.add('mae-ap-visible'); obs.unobserve(e.target); }
+          });
+        }, { threshold: 0.12, rootMargin: '0px 0px -4% 0px' });
+        els.forEach(function (el) { io.observe(el); });
+      })();
+
+      /* ── ES PARA TI REVEAL ── */
+      (function () {
+        var els = document.querySelectorAll('.mae-parasi-reveal-left, .mae-parasi-reveal-right');
+        if (!els.length) return;
+        var io = new IntersectionObserver(function (entries, obs) {
+          entries.forEach(function (e) {
+            if (e.isIntersecting) { e.target.classList.add('mae-parasi-visible'); obs.unobserve(e.target); }
+          });
+        }, { threshold: 0.12, rootMargin: '0px 0px -4% 0px' });
+        els.forEach(function (el) { io.observe(el); });
+      })();
+
+      /* ── SOBRE MÍ REVEAL ── */
+      (function () {
+        var els = document.querySelectorAll('.mae-quien-reveal-left, .mae-quien-reveal-up');
+        if (!els.length) return;
+        var io = new IntersectionObserver(function (entries, obs) {
+          entries.forEach(function (e) {
+            if (e.isIntersecting) { e.target.classList.add('mae-quien-visible'); obs.unobserve(e.target); }
+          });
+        }, { threshold: 0.10, rootMargin: '0px 0px -4% 0px' });
+        els.forEach(function (el) { io.observe(el); });
+      })();
+
+      /* ── FAQ REVEAL ── */
+      (function () {
+        var els = document.querySelectorAll('.mae-faq-reveal');
+        if (!els.length) return;
+        var io = new IntersectionObserver(function (entries, obs) {
+          entries.forEach(function (e) {
+            if (e.isIntersecting) { e.target.classList.add('mae-faq-visible'); obs.unobserve(e.target); }
+          });
+        }, { threshold: 0.10, rootMargin: '0px 0px -4% 0px' });
+        els.forEach(function (el) { io.observe(el); });
+      })();
+
+      /* ── FAQ ACORDEÓN ── */
+      (function () {
+        var btns = document.querySelectorAll('.mae-faq__pregunta');
+        btns.forEach(function (btn) {
+          btn.addEventListener('click', function () {
+            var expanded = btn.getAttribute('aria-expanded') === 'true';
+            var respuesta = btn.nextElementSibling;
+
+            btns.forEach(function (b) {
+              b.setAttribute('aria-expanded', 'false');
+              var r = b.nextElementSibling;
+              if (r) r.style.maxHeight = null;
+            });
+
+            if (!expanded) {
+              btn.setAttribute('aria-expanded', 'true');
+              respuesta.style.maxHeight = respuesta.scrollHeight + 'px';
+            }
+          });
+        });
+      })();
+
+      /* ── FLIP CARD: auto-demo a los 8s para mostrar la interacción ── */
+      (function () {
+        var inner    = document.getElementById('maeFlipInner');
+        var checkbox = document.getElementById('maeFlipJavier');
+        if (!inner || !checkbox) return;
+
+        var triggered = false;
+
+        function launchDemo() {
+          if (triggered || checkbox.checked) return;
+          /* No lanzar si el usuario ya ha interactuado o prefiere movimiento reducido */
+          if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+          triggered = true;
+          var hint = inner.querySelector('.mae-pulse');
+          if (hint) hint.style.animationPlayState = 'paused';
+          inner.style.animation = 'maeAutoFlipHint 5s cubic-bezier(.22,.61,.36,1) forwards';
+          inner.addEventListener('animationend', function onEnd() {
+            inner.removeEventListener('animationend', onEnd);
+            inner.style.animation = '';
+            if (hint) hint.style.animationPlayState = '';
+          });
+        }
+
+        /* Cancelar demo si el usuario interactúa antes */
+        checkbox.addEventListener('change', function () { triggered = true; });
+
+        if (document.readyState === 'complete') {
+          setTimeout(launchDemo, 8000);
+        } else {
+          window.addEventListener('load', function () { setTimeout(launchDemo, 8000); });
+        }
+      })();
+
+      /* ── CTA FINAL REVEAL ── */
+      (function () {
+        var el = document.querySelector('.mae-cta-reveal');
+        if (!el) return;
+        var io = new IntersectionObserver(function (entries, obs) {
+          entries.forEach(function (e) {
+            if (e.isIntersecting) { e.target.classList.add('mae-cta-visible'); obs.unobserve(e.target); }
+          });
+        }, { threshold: 0.20 });
+        io.observe(el);
+      })();
+
+    })();
+  </script>
+
+</body>
+</html>

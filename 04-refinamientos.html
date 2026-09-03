@@ -1,0 +1,102 @@
+<!--
+  SECCIÓN 04 — Tus refinamientos no son culpa de la marca
+  Sección NUEVA. Banda corta de impacto: fondo contrastado, tipografía grande.
+  Sin adornos visuales extra. Entrada fade desde abajo.
+-->
+
+<div class="sba-refina sba-refina-reveal">
+  <h2 class="sba-refina__h2">
+    Tus refinamientos no son culpa de la marca de alineadores.
+  </h2>
+  <p class="sba-refina__body">
+    Son consecuencia de decisiones clínicas que tomaste antes del primer alineador, y probablemente no sabes cuáles.
+  </p>
+  <p class="sba-refina__cta-text">
+    Eso es exactamente lo que vas a aprender a identificar durante tu estancia.
+  </p>
+</div>
+
+<style>
+  .sba-refina {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 64px 48px;
+    background: #0b0b0f;
+    border: 1px solid rgba(233,220,199,0.22);
+    border-radius: 26px;
+    box-shadow:
+      0 30px 80px rgba(0,0,0,0.50),
+      0 14px 36px rgba(0,0,0,0.28);
+    text-align: center;
+  }
+
+  .sba-refina__h2 {
+    margin: 0 0 24px 0;
+    font-size: clamp(26px, 3.8vw, 46px);
+    font-weight: 800;
+    line-height: 1.12;
+    color: #e9dcc7;
+    letter-spacing: -0.02em;
+  }
+
+  .sba-refina__body {
+    margin: 0 0 18px 0;
+    font-size: clamp(16px, 1.8vw, 20px);
+    line-height: 1.60;
+    color: rgba(255,255,255,0.78);
+    max-width: 640px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .sba-refina__cta-text {
+    margin: 0;
+    font-size: clamp(16px, 1.8vw, 19px);
+    font-weight: 700;
+    line-height: 1.55;
+    color: #ffffff;
+    font-style: italic;
+  }
+
+  /* Reveal */
+  .sba-refina-reveal {
+    opacity: 0;
+    transform: translateY(32px);
+  }
+  .sba-refina-reveal.sba-refina-visible {
+    opacity: 1;
+    transform: translateY(0);
+    transition:
+      opacity 1.0s cubic-bezier(.22,.61,.36,1),
+      transform 1.0s cubic-bezier(.22,.61,.36,1);
+  }
+
+  @media (max-width: 600px) {
+    .sba-refina {
+      padding: 40px 24px;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .sba-refina-reveal {
+      opacity: 1 !important;
+      transform: none !important;
+    }
+  }
+</style>
+
+<script>
+(function(){
+  const el = document.querySelector('.sba-refina-reveal');
+  if (!el) return;
+  const io = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('sba-refina-visible');
+        obs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.30 });
+  io.observe(el);
+})();
+</script>
