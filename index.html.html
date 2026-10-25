@@ -1,0 +1,348 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MaestrIA · Consultoría de IA para clínicas</title>
+<meta name="description" content="Analizo cómo funciona tu clínica para ver en qué áreas tiene sentido automatizar procesos. Consultoría de inteligencia artificial para clínicas.">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; }
+  body { margin: 0; font-family: 'Inter', system-ui, sans-serif; background: #0B0B0F; color: #FFFFFF; -webkit-font-smoothing: antialiased; }
+  a { color: #F5C518; }
+
+  header { position: sticky; top: 0; z-index: 10; background: rgba(11,11,15,0.92); border-bottom: 1px solid rgba(255,255,255,0.08); padding: 18px 24px; backdrop-filter: blur(12px); }
+  .hdr { max-width: 1160px; margin: 0 auto; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 24px; }
+  nav { display: flex; flex-wrap: wrap; align-items: center; gap: 32px; }
+  nav a { font-size: 15px; font-weight: 600; color: rgba(255,255,255,0.78); text-decoration: none; }
+  .right { display: flex; align-items: center; gap: 24px; }
+  .cta { display: inline-flex; align-items: center; min-height: 44px; background: #F5C518; color: #0B0B0F; font-size: 14px; font-weight: 800; padding: 11px 22px; border-radius: 12px; text-decoration: none; white-space: nowrap; }
+  .logo { font-size: 22px; font-weight: 800; letter-spacing: -0.02em; color: #FFFFFF; text-decoration: none; }
+  .logo span { color: #F5C518; }
+
+  section { padding: 88px 24px 96px; background: radial-gradient(ellipse 70% 55% at 50% 35%, rgba(245,197,24,0.08) 0%, rgba(11,11,15,0) 68%); }
+  .wrap { max-width: 860px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; text-align: center; }
+  h1 { margin: 0 0 22px; min-height: 180px; font-size: clamp(32px, 4.8vw, 54px); font-weight: 800; line-height: 1.06; letter-spacing: -0.025em; }
+  .caret { display: inline-block; width: 4px; height: 0.84em; margin-left: 8px; vertical-align: -0.06em; border-radius: 2px; background: #F5C518; animation: maeCaret 0.9s step-end infinite; }
+
+  .frase { margin: 34px 0 0; max-width: 620px; font-size: 22px; font-weight: 600; line-height: 1.55; color: #F5C518; opacity: 0; animation: maeAparece 1.4s ease-out 4s forwards; }
+  .vibra { display: inline-block; color: #F5C518; }
+
+  .flecha-wrap { display: inline-flex; align-items: center; justify-content: center; min-width: 48px; min-height: 48px; margin-top: 18px; border-radius: 50%; opacity: 0; animation: maeAparece 0.8s ease-out 4.9s forwards; }
+  .flecha { animation: maeBaja 1.6s ease-in-out infinite; }
+
+  ul { list-style: none; margin: 28px 0 0; padding: 0; width: 100%; max-width: 720px; display: flex; flex-direction: column; gap: 14px; }
+  li { display: flex; align-items: flex-start; justify-content: center; gap: 12px; font-size: 17px; line-height: 1.55; font-weight: 500; color: rgba(255,255,255,0.86); opacity: 0; animation: maeAparece 0.6s ease-out forwards; }
+  .mae-toggle { flex-shrink: 0; position: relative; width: 46px; height: 26px; border-radius: 26px; background: rgba(255,255,255,0.18); animation: maeTrack 0.4s ease-out forwards; }
+  .mae-knob { position: absolute; top: 2px; left: 2px; width: 22px; height: 22px; border-radius: 50%; background: #FFFFFF; box-shadow: 0 2px 6px rgba(0,0,0,0.35); animation: maeKnob 0.4s cubic-bezier(.22,.61,.36,1) forwards; }
+  @keyframes maeTrack { from { background: rgba(255,255,255,0.18); } to { background: #34C759; } }
+  @keyframes maeKnob { from { transform: translateX(0); } to { transform: translateX(20px); } }
+
+  .botones { display: flex; flex-wrap: wrap; justify-content: center; gap: 14px; margin-top: 36px; }
+  .btn { display: flex; align-items: center; justify-content: center; min-height: 54px; padding: 17px 28px; border-radius: 16px; font-size: 16px; font-weight: 800; text-decoration: none; }
+  .btn-p { background: #F5C518; color: #0B0B0F; box-shadow: 0 18px 40px rgba(0,0,0,0.30), 0 6px 18px rgba(245,197,24,0.25); }
+  .forma { margin: 72px 0 0; max-width: 760px; font-size: clamp(24px, 3vw, 34px); font-weight: 800; line-height: 1.18; letter-spacing: -0.02em; }
+  #fases { position: relative; width: 100%; max-width: 760px; margin-top: 44px; padding: 8px 0 4px; }
+  #fases .riel { position: absolute; left: 50%; top: 0; bottom: 0; width: 3px; margin-left: -1.5px; border-radius: 2px; background: rgba(255,255,255,0.12); }
+  #fases .progreso { position: absolute; left: 50%; top: 0; width: 3px; margin-left: -1.5px; border-radius: 2px; background: #F5C518; box-shadow: 0 0 14px rgba(245,197,24,0.55); height: 0; transition: height 0.4s ease-out; }
+  .paso { position: relative; display: flex; flex-direction: column; align-items: center; padding: 14px 0 26px; }
+  .punto { position: relative; z-index: 1; width: 46px; height: 46px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-size: 16px; font-weight: 800; background: #0B0B0F; color: rgba(255,255,255,0.55); border: 3px solid rgba(255,255,255,0.22); transition: background 0.35s, color 0.35s, border-color 0.35s, box-shadow 0.35s; }
+  .fase { margin-top: 14px; width: 100%; max-width: 680px; background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.14); border-radius: 20px; padding: 22px 26px; box-shadow: 0 20px 50px rgba(0,0,0,0.25); text-align: center; opacity: 0.28; transform: translateY(14px); transition: opacity 0.55s ease-out, transform 0.55s ease-out, border-color 0.35s; }
+  .fase h3 { margin: 0; font-size: 17px; font-weight: 700; line-height: 1.35; color: #FFFFFF; }
+  .fase .nota { display: inline-block; margin-top: 10px; padding: 5px 12px; font-size: 11px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #F5C518; background: rgba(245,197,24,0.10); border: 1px solid rgba(245,197,24,0.28); border-radius: 999px; }
+  .paso.on .punto { background: #F5C518; color: #0B0B0F; border-color: #F5C518; box-shadow: 0 0 0 6px rgba(245,197,24,0.18); }
+  .paso.on .fase { opacity: 1; transform: none; border-color: rgba(245,197,24,0.40); }
+  #libreta { margin-top: 72px; width: 100%; max-width: 640px; opacity: 0; transform: rotate(-1.2deg); }
+  #libreta.cae { animation: maeCae 1.8s cubic-bezier(.3,.7,.3,1) forwards; }
+  @keyframes maeCae {
+    0% { opacity: 0; transform: translateY(-170px) rotate(-11deg) scale(1.07); }
+    12% { opacity: 1; }
+    30% { transform: translateY(-85px) rotate(8deg) scale(1.05); }
+    55% { transform: translateY(-22px) rotate(-6deg) scale(1.02); }
+    76% { transform: translateY(7px) rotate(3deg) scale(1); }
+    90% { transform: translateY(-2px) rotate(-2.2deg) scale(1); }
+    100% { opacity: 1; transform: translateY(0) rotate(-1.2deg) scale(1); }
+  }
+  #libreta .papel { position: relative; background-color: #FBF7EA; background-image: linear-gradient(90deg, rgba(0,0,0,0) 0, rgba(0,0,0,0) 56px, rgba(224,88,88,0.55) 56px, rgba(224,88,88,0.55) 58px, rgba(0,0,0,0) 58px), repeating-linear-gradient(180deg, rgba(0,0,0,0) 0, rgba(0,0,0,0) 35px, rgba(60,80,140,0.22) 35px, rgba(60,80,140,0.22) 36px); background-position: 0 0, 0 14px; border-radius: 6px 14px 14px 6px; box-shadow: 0 30px 60px rgba(0,0,0,0.45); padding: 52px 28px 34px 78px; text-align: left; color: #1F2A44; font-family: 'Caveat', cursive; }
+  #libreta .anillas { position: absolute; top: 12px; left: 0; right: 0; display: flex; justify-content: space-evenly; padding: 0 14px; }
+  #libreta h2 { margin: 0; min-height: 72px; font-size: 40px; font-weight: 700; line-height: 36px; letter-spacing: 0; color: #1F2A44; }
+  #libreta p { margin: 0; min-height: 72px; font-size: 30px; font-weight: 600; line-height: 36px; color: #1F2A44; }
+  .boli-wrap[hidden] { display: none; }
+  .mae-boli { animation: maeBoli 0.16s ease-in-out infinite alternate; transform-origin: 20% 90%; }
+  @keyframes maeBoli { from { transform: rotate(-3deg) translateY(0); } to { transform: rotate(3deg) translateY(-1px); } }
+  .cierre-btn { margin-top: 40px; padding: 17px 32px; }
+  .cierre { margin-top: 64px; display: flex; flex-direction: column; align-items: center; text-align: center; }
+  .cierre h2 { margin: 0; font-size: clamp(24px, 3vw, 34px); font-weight: 800; line-height: 1.18; letter-spacing: -0.02em; }
+  .cierre p { margin: 14px 0 0; max-width: 560px; font-size: 19px; line-height: 1.55; color: rgba(255,255,255,0.80); }
+  .cierre .btn { margin-top: 28px; padding: 17px 32px; }
+  .faq-lista { display: flex; flex-direction: column; border: 1px solid rgba(255,255,255,0.12); border-radius: 20px; overflow: hidden; }
+  .faq-item { border-bottom: 1px solid rgba(255,255,255,0.09); }
+  .faq-item:last-child { border-bottom: none; }
+  .faq-q { width: 100%; display: flex; align-items: center; justify-content: center; gap: 16px; min-height: 64px; padding: 20px 28px; border: none; cursor: pointer; text-align: center; font-family: inherit; font-size: 16px; font-weight: 700; line-height: 1.4; background: rgba(255,255,255,0.05); color: #FFFFFF; transition: background 0.22s, color 0.22s; }
+  .faq-q:hover { background: rgba(255,255,255,0.08); }
+  .faq-q[aria-expanded="true"] { background: rgba(245,197,24,0.08); color: #F5C518; }
+  .faq-ico { flex-shrink: 0; width: 28px; height: 28px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-size: 20px; line-height: 1; background: rgba(255,255,255,0.10); color: rgba(255,255,255,0.75); transition: transform 0.3s, background 0.22s, color 0.22s; }
+  .faq-q[aria-expanded="true"] .faq-ico { transform: rotate(45deg); background: rgba(245,197,24,0.18); color: #F5C518; }
+  .faq-r { padding: 4px 28px 24px; background: rgba(255,255,255,0.02); }
+  .faq-r p { margin: 0 auto; max-width: 620px; font-size: 15.5px; line-height: 1.68; color: rgba(255,255,255,0.80); }
+  @media (max-width: 720px) { .dos-col { grid-template-columns: 1fr !important; } }
+  .btn-s { background: transparent; color: #FFFFFF; border: 2px solid rgba(255,255,255,0.40); }
+
+  .tarjeta { width: 100%; max-width: 320px; margin-top: 48px; perspective: 1200px; }
+  .tarjeta button { width: 100%; border: 0; padding: 0; background: none; cursor: pointer; font-family: inherit; color: inherit; }
+  .caras { position: relative; width: 100%; height: 100%; transition: transform 0.7s cubic-bezier(.22,.61,.36,1); transform-style: preserve-3d; }
+  .tarjeta.volteada .caras { transform: rotateY(180deg); }
+  .cara { position: absolute; inset: 0; min-height: 427px; border-radius: 20px; backface-visibility: hidden; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; gap: 10px; padding: 0 0 26px; overflow: hidden; border: 1px solid rgba(255,255,255,0.12); }
+  .cara.frente { background: #FFFFFF url("foto-javier.jpg") center 14% / cover no-repeat; }
+  .cara.frente::before { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 52%; background: linear-gradient(to bottom, rgba(11,11,15,0) 0%, rgba(11,11,15,0.92) 72%); }
+  .cara.frente .nombre { position: relative; font-size: 22px; font-weight: 800; }
+  .cara.frente .hint { position: relative; font-size: 13px; font-weight: 700; color: #F5C518; letter-spacing: 0.04em; }
+  .cara.detras { position: relative; transform: rotateY(180deg); justify-content: center; gap: 10px; text-align: center; padding: 26px 22px; border-color: rgba(245,197,24,0.28); background: rgba(245,197,24,0.08); }
+  .cara.detras .tag { font-size: 10px; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; color: #F5C518; }
+  .cara.detras p { margin: 0; font-size: 14px; line-height: 1.58; color: rgba(255,255,255,0.88); }
+  .cara.detras .hint { margin-top: 6px; font-size: 12px; font-weight: 700; color: #F5C518; }
+  .cara.detras .nombre-b { font-size: 16.5px; font-weight: 800; color: #FFFFFF; }
+  .cara.detras p { font-size: 13.5px; line-height: 1.5; }
+  .cara.detras .tag-b { margin-top: 4px; font-size: 14.5px; font-weight: 800; color: #F5C518; }
+  .cara.detras .res { list-style: none; margin: 0; padding: 0; width: auto; max-width: none; display: flex; flex-direction: column; gap: 6px; }
+  .cara.detras .res li { opacity: 1; animation: none; display: flex; gap: 8px; justify-content: center; font-size: 13.5px; line-height: 1.45; font-weight: 600; color: rgba(255,255,255,0.92); }
+  .cara.detras .res li b { color: #F5C518; font-weight: 800; }
+
+  @keyframes maeCaret { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+  @keyframes maeVibra {
+    0%, 100% { transform: rotate(0deg) translate(0, 0); }
+    20% { transform: rotate(-9deg) translate(-1px, 1px); }
+    40% { transform: rotate(8deg) translate(1px, -1px); }
+    60% { transform: rotate(-6deg) translate(-1px, 0); }
+    80% { transform: rotate(6deg) translate(1px, 1px); }
+  }
+  @keyframes maeBaja { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(9px); } }
+  @keyframes maeAparece { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+  @media (prefers-reduced-motion: reduce) { .vibra, .flecha { animation: none; } .frase, .flecha-wrap, li { opacity: 1; animation: none; } #libreta { opacity: 1; animation: none; } .mae-toggle { animation: none; background: #34C759; } .mae-knob { animation: none; transform: translateX(20px); } }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="hdr" style="justify-content: center">
+    <a class="logo" href="#inicio" aria-label="MaestrIA · inicio"><img src="logo-maestria.png" alt="MaestrIA" style="display:block;height:64px;width:auto"></a>
+  </div>
+</header>
+
+<section id="inicio">
+  <div class="wrap">
+    <h1 id="titular"><span id="texto"></span><span class="caret" aria-hidden="true"></span></h1>
+
+    <p class="frase"><span class="vibra">¿</span>Te sientes identificado con alguna de estas situaciones<span class="vibra">?</span></p>
+
+    <a class="flecha-wrap" href="#situaciones" aria-label="Ver las situaciones">
+      <svg class="flecha" width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="#F5C518" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M12 4v13"/><path d="M5 11l7 7 7-7"/>
+      </svg>
+    </a>
+
+    <ul id="situaciones">
+      <li style="animation-delay: 7s"><span class="mae-toggle" aria-hidden="true" style="animation-delay: 7.45s"><span class="mae-knob" style="animation-delay: 7.45s"></span></span><span>Pierdo mucho tiempo respondiendo siempre las mismas preguntas y agendando, cancelando y reagendando citas.</span></li>
+      <li style="animation-delay: 9s"><span class="mae-toggle" aria-hidden="true" style="animation-delay: 9.45s"><span class="mae-knob" style="animation-delay: 9.45s"></span></span><span>Cada día tengo que enviar los recordatorios a mano, y alguno siempre se olvida.</span></li>
+      <li style="animation-delay: 11s"><span class="mae-toggle" aria-hidden="true" style="animation-delay: 11.45s"><span class="mae-knob" style="animation-delay: 11.45s"></span></span><span>Contacto con los leads a mano, llevo días sin escribir a muchos y ya no se acuerdan de quiénes somos.</span></li>
+      <li style="animation-delay: 13s"><span class="mae-toggle" aria-hidden="true" style="animation-delay: 13.45s"><span class="mae-knob" style="animation-delay: 13.45s"></span></span><span>Lo apunto todo a mano: clientes, servicios, seguimiento comercial, facturación…</span></li>
+      <li style="animation-delay: 15s"><span class="mae-toggle" aria-hidden="true" style="animation-delay: 15.45s"><span class="mae-knob" style="animation-delay: 15.45s"></span></span><span>Tengo la web anticuada, o directamente no tengo web.</span></li>
+      <li style="animation-delay: 17s"><span class="mae-toggle" aria-hidden="true" style="animation-delay: 17.45s"><span class="mae-knob" style="animation-delay: 17.45s"></span></span><span>Pierdo mucho tiempo respondiendo mensajes en las redes sociales.</span></li>
+      <li style="animation-delay: 19s"><span class="mae-toggle" aria-hidden="true" style="animation-delay: 19.45s"><span class="mae-knob" style="animation-delay: 19.45s"></span></span><span>Gasto mucho dinero en producir vídeos publicitarios para la clínica.</span></li>
+      <li style="animation-delay: 21s"><span class="mae-toggle" aria-hidden="true" style="animation-delay: 21.45s"><span class="mae-knob" style="animation-delay: 21.45s"></span></span><span>Pierdo mucho tiempo enviando facturas a los clientes.</span></li>
+    </ul>
+
+    <div class="tarjeta" id="tarjeta">
+      <button type="button" aria-label="Ver presentación de Javier Prieto">
+        <div class="caras">
+          <div class="cara frente">
+            <span class="nombre">Javier Prieto</span>
+            <span class="hint">Haz clic sobre mí para saber más</span>
+          </div>
+          <div class="cara detras">
+            <span class="nombre-b">Mi nombre es Javier.</span>
+            <p>Soy consultor de inteligencia artificial y ya he ayudado a otras clínicas a ahorrar entre <strong>10 y 15 horas a la semana</strong>.</p>
+            <p>El tiempo es oro, y por eso hay que saber dónde invertirlo.</p>
+            <p>¿Por qué seguir haciendo las mismas tareas de siempre, que una máquina puede hacer mejor que tú?</p>
+            <span class="tag-b">¿Y el resultado?</span>
+            <ul class="res">
+              <li><b>✓</b><span>Gestión más eficiente de la clínica</span></li>
+              <li><b>✓</b><span>Pacientes más satisfechos</span></li>
+              <li><b>✓</b><span>Atender a un mayor número de clientes</span></li>
+              <li><b>✓</b><span>Mejor estrategia digital</span></li>
+              <li><b>✓</b><span>Datos de la clínica registrados y bien estructurados</span></li>
+            </ul>
+            <span class="hint">Volver</span>
+          </div>
+        </div>
+      </button>
+    </div>
+
+    <div class="botones">
+      <a class="btn btn-p" href="https://wa.me/34697123206?text=Quiero%20reservar%20una%20llamada%20de%20consultor%C3%ADa%20contigo" target="_blank" rel="noopener">Reservar llamada gratuita</a>
+    </div>
+
+    <h2 class="forma">Mi forma de trabajar es sencilla: yo me encargo de todo para que tú no pierdas tiempo.</h2>
+    <div id="fases">
+      <div class="riel" aria-hidden="true"></div>
+      <div class="progreso" id="progreso" aria-hidden="true"></div>
+      <div class="paso">
+        <span class="punto">1</span>
+        <div class="fase">
+          <h3>Reunión exploratoria para ver dónde pierde el tiempo la clínica</h3>
+          <span class="nota">Gratuita</span>
+        </div>
+      </div>
+      <div class="paso">
+        <span class="punto">2</span>
+        <div class="fase">
+          <h3>Reunión con una propuesta personalizada</h3>
+        </div>
+      </div>
+      <div class="paso">
+        <span class="punto">3</span>
+        <div class="fase">
+          <h3>Plan de implementación</h3>
+        </div>
+      </div>
+      <div class="paso">
+        <span class="punto">4</span>
+        <div class="fase">
+          <h3>Desarrollo de la solución</h3>
+        </div>
+      </div>
+      <div class="paso">
+        <span class="punto">5</span>
+        <div class="fase">
+          <h3>Testeo de la solución</h3>
+        </div>
+      </div>
+      <div class="paso">
+        <span class="punto">6</span>
+        <div class="fase">
+          <h3>Entrega de la solución y ajustes, si el cliente lo requiere</h3>
+        </div>
+      </div>
+      <div class="paso">
+        <span class="punto">7</span>
+        <div class="fase">
+          <h3>Solución en marcha</h3>
+        </div>
+      </div>
+    </div>
+
+
+    <div id="libreta">
+      <div class="papel">
+        <div class="anillas" aria-hidden="true"><span style="width: 14px; height: 14px; border-radius: 50%; background: #0B0B0F; box-shadow: inset 0 2px 3px rgba(255,255,255,0.18)"></span><span style="width: 14px; height: 14px; border-radius: 50%; background: #0B0B0F; box-shadow: inset 0 2px 3px rgba(255,255,255,0.18)"></span><span style="width: 14px; height: 14px; border-radius: 50%; background: #0B0B0F; box-shadow: inset 0 2px 3px rgba(255,255,255,0.18)"></span><span style="width: 14px; height: 14px; border-radius: 50%; background: #0B0B0F; box-shadow: inset 0 2px 3px rgba(255,255,255,0.18)"></span><span style="width: 14px; height: 14px; border-radius: 50%; background: #0B0B0F; box-shadow: inset 0 2px 3px rgba(255,255,255,0.18)"></span><span style="width: 14px; height: 14px; border-radius: 50%; background: #0B0B0F; box-shadow: inset 0 2px 3px rgba(255,255,255,0.18)"></span><span style="width: 14px; height: 14px; border-radius: 50%; background: #0B0B0F; box-shadow: inset 0 2px 3px rgba(255,255,255,0.18)"></span><span style="width: 14px; height: 14px; border-radius: 50%; background: #0B0B0F; box-shadow: inset 0 2px 3px rgba(255,255,255,0.18)"></span><span style="width: 14px; height: 14px; border-radius: 50%; background: #0B0B0F; box-shadow: inset 0 2px 3px rgba(255,255,255,0.18)"></span><span style="width: 14px; height: 14px; border-radius: 50%; background: #0B0B0F; box-shadow: inset 0 2px 3px rgba(255,255,255,0.18)"></span></div>
+        <h2><span id="lib1"></span><span id="boli1" class="boli-wrap" hidden=""><svg class="mae-boli" aria-hidden="true" width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#1F2A44" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="display: inline-block; vertical-align: -5px; margin-left: 2px"><path d="M4 20l1.5-5L17 3.5a2.1 2.1 0 0 1 3 3L8.5 18 4 20z"></path><path d="M14 6.5l3.5 3.5"></path><path d="M4 20l4.5-2"></path></svg></span></h2>
+        <p><span id="lib2"></span><span id="boli2" class="boli-wrap" hidden=""><svg class="mae-boli" aria-hidden="true" width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#1F2A44" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="display: inline-block; vertical-align: -5px; margin-left: 2px"><path d="M4 20l1.5-5L17 3.5a2.1 2.1 0 0 1 3 3L8.5 18 4 20z"></path><path d="M14 6.5l3.5 3.5"></path><path d="M4 20l4.5-2"></path></svg></span></p>
+      </div>
+    </div>
+    <a class="btn btn-p cierre-btn" href="https://wa.me/34697123206?text=Quiero%20reservar%20una%20llamada%20de%20consultor%C3%ADa%20contigo" target="_blank" rel="noopener">Agendar llamada</a>
+  </div>
+</section>
+
+  <!-- FOOTER -->
+  <footer style="padding: 48px 24px; border-top: 1px solid rgba(255,255,255,0.08)">
+    <div style="max-width: 1160px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: 20px; text-align: center">
+      <img src="logo-maestria.png" alt="MaestrIA" style="display: block; height: 56px; width: auto">
+      <p style="margin: 0; font-size: 14px; font-style: italic; color: #F5C518">© 2025 MaestrIA · Javier Prieto</p>
+      <nav aria-label="Legal" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 24px">
+        <a href="#" style="font-size: 14px; font-style: italic; color: #F5C518; text-decoration: none">Política de privacidad</a>
+        <a href="#" style="font-size: 14px; font-style: italic; color: #F5C518; text-decoration: none">Aviso legal</a>
+      </nav>
+    </div>
+  </footer>
+
+<script>
+  (function () {
+    var TITULAR = 'Analizo cómo funciona tu clínica para ver en qué áreas tiene sentido automatizar procesos.';
+    var out = document.getElementById('texto');
+    var i = 0;
+    var t = setInterval(function () {
+      i += 1;
+      out.textContent = TITULAR.slice(0, i);
+      if (i >= TITULAR.length) clearInterval(t);
+    }, 42);
+
+
+    // Línea temporal: avanza punto a punto con el scroll
+    var fases = document.getElementById('fases');
+    var progreso = document.getElementById('progreso');
+    var pasos = fases.querySelectorAll('.paso');
+    function medir() {
+      var limite = window.innerHeight * 0.72;
+      var base = fases.getBoundingClientRect().top;
+      var alto = 0;
+      for (var k = 0; k < pasos.length; k++) {
+        var r = pasos[k].querySelector('.punto').getBoundingClientRect();
+        var centro = r.top + r.height / 2;
+        var on = centro <= limite;
+        pasos[k].classList.toggle('on', on);
+        if (on) alto = Math.round(centro - base);
+      }
+      progreso.style.height = alto + 'px';
+    }
+    document.addEventListener('scroll', medir, true);
+    window.addEventListener('resize', medir);
+    medir();
+
+    // Libreta: empieza a escribir cuando entra en pantalla
+    var LIB1 = '¿Aún te lo estás pensando?', LIB2 = 'Agenda conmigo una reunión sin compromiso.';
+    var libreta = document.getElementById('libreta');
+    var lib1 = document.getElementById('lib1'), lib2 = document.getElementById('lib2');
+    var boli1 = document.getElementById('boli1'), boli2 = document.getElementById('boli2');
+    var libretaIniciada = false, escritasL = 0;
+    function medirLibreta() {
+      if (libretaIniciada || libreta.getBoundingClientRect().top >= window.innerHeight * 0.85) return;
+      libretaIniciada = true;
+      libreta.classList.add('cae');
+      var total = LIB1.length + LIB2.length;
+      setTimeout(escribir, 1700);
+    }
+    function escribir() {
+      var total = LIB1.length + LIB2.length;
+      var t = setInterval(function () {
+        escritasL += 1;
+        lib1.textContent = LIB1.slice(0, escritasL);
+        lib2.textContent = LIB2.slice(0, Math.max(0, escritasL - LIB1.length));
+        boli1.hidden = !(escritasL < LIB1.length);
+        boli2.hidden = !(escritasL >= LIB1.length);
+        if (escritasL >= total) clearInterval(t);
+      }, 55);
+    }
+    document.addEventListener('scroll', medirLibreta, true);
+    medirLibreta();
+
+    // FAQ: acordeón
+    document.querySelectorAll('.faq-q').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var abierto = btn.getAttribute('aria-expanded') === 'true';
+        document.querySelectorAll('.faq-q').forEach(function (b) {
+          b.setAttribute('aria-expanded', 'false');
+          document.getElementById(b.getAttribute('aria-controls')).hidden = true;
+        });
+        if (!abierto) {
+          btn.setAttribute('aria-expanded', 'true');
+          document.getElementById(btn.getAttribute('aria-controls')).hidden = false;
+        }
+      });
+    });
+    var tarjeta = document.getElementById('tarjeta');
+    var tocada = false, autoGiro, giroLoop;
+    tarjeta.querySelector('button').addEventListener('click', function () {
+      tocada = true;
+      clearTimeout(autoGiro);
+      clearInterval(giroLoop);
+      tarjeta.classList.toggle('volteada');
+    });
+    // Giro automático único (si nadie la ha tocado antes); luego solo responde al clic
+    autoGiro = setTimeout(function () {
+      if (tocada) return;
+      tarjeta.classList.add('volteada');
+    }, 24600);
+  })();
+</script>
+</body>
+</html>
